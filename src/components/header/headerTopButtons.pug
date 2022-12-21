@@ -1,0 +1,22 @@
+mixin headerLeftButton(name, icon, color)
+    .header_Top_leftButtons_Button.grey= name
+        if (icon)
+            .topButtonIcon(class=loc) 
+                include ../../assets/images/locImg.svg
+
+mixin headerRightButton(name, icon, color)
+    .header_Top_rightButtons_Button(class=color)= name
+            if (icon)
+                .topButtonIcon(class=heart) 
+                    include ../../assets/images/heartImg.svg
+
+.header_Top_leftButtons
+    +headerLeftButton('Главная','','grey')
+    +headerLeftButton('Новости','','grey')
+    +headerLeftButton('Размещение и тарифы','','grey')
+    +headerLeftButton('Объявления на карте', '1','grey')
+    +headerLeftButton('Контакты')
+
+.header_Top_rightButtons
+    +headerRightButton('Закладки', '1', 'grey')
+    +headerRightButton('Вход и регистрация', '', 'purple')

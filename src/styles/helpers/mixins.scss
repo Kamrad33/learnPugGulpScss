@@ -1,0 +1,18 @@
+// shadow mixin
+@mixin dropShadow($color) {
+    background: $color;
+    box-shadow: 0px 20px 40px rgba(135, 124, 202, 0.15);
+}
+
+// inside auto layout group
+@mixin insideAutoLayoutGroup($order) {
+    flex: none;
+    order: $order;
+    flex-grow: 0;
+}
+
+@mixin centringMixin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
