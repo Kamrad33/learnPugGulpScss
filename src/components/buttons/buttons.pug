@@ -1,0 +1,26 @@
+mixin listBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', gap='5px', iconPlace='left')
+    -
+        if (iconPlace == 'left')
+        {var place = 'row-reverse'} 
+        else {var place = 'row'}
+
+    .listBtn(class=`${cls} ${color} ${type}` style={gap: gap, 'flex-direction': place})= text
+        case icon
+            when 'loc'
+                .topButtonIcon(class=loc) 
+                    include ../../assets/images/locImg.svg
+            when 'heart'
+                .topButtonIcon(class=heart) 
+                    include ../../assets/images/heartImg.svg
+
+mixin listBtn_Group(values, type= 'light')
+    case type 
+        when 'left'
+            .listBtn_Group_Left(role='group')
+                each value in values
+                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace)
+        when 'right'
+            .listBtn_Group_Right(role='group')
+                each value in values
+                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace)
+

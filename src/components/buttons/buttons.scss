@@ -1,0 +1,70 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+$activeLine: 3px;
+$hoverLine: 2px;
+.listBtn {
+
+    font-family: Inter;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.listBtn.w4 {
+    font-weight: 400; 
+}
+.listBtn.w5 {
+    font-weight: 500; 
+}
+.listBtn.w6 {
+    font-weight: 600; 
+}
+.listBtn.grey {
+    color: #8291A3;
+}
+.listBtn.purple {
+    color: $c664EF9;
+}
+.listBtn.black {
+    color: $black;
+}
+
+.listBtn_Group_Left{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 57px;
+}
+
+.listBtn_Group_Right{
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    align-items: center;
+}
+
+.topButtonIcon.heart {
+    box-sizing: border-box;
+    border: 2px solid #8291A3;
+}
+.listBtn:hover{
+    height: calc(100% - $hoverLine * 2);
+    border-bottom: $hoverLine solid $E4E2E2;
+    margin-top: $hoverLine;
+}
+
+.listBtn:active{
+    height: calc(100% - $activeLine * 2);
+    color: $black;
+    border-bottom: 3px solid $FFD54F;
+    margin-top: $activeLine;
+}

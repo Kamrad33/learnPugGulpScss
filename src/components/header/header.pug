@@ -1,8 +1,29 @@
+include ../buttons/buttons.pug
 header#header
     .header_Top
         .header_Top_Container
-            include headerTopButtons.pug
+            //include headerTopButtons.pug
+            +listBtn_Group([
+                {text: 'Главная', csl: 'primary', color: 'grey', icon: '', gap: '',}, 
+                {text: 'Новости', csl: 'primary', color: 'grey', icon: '', gap: ''},
+                {text: 'Размещение и тарифы', csl: 'primary', color: 'grey', icon: '', gap: ''},
+                {text: 'Объявления на карте', csl: 'primary', color: 'grey', icon: 'loc', gap: '5px'},
+                {text: 'Контакты', csl: 'primary', color: 'grey', icon: '', gap: ''},], 'left')
+            +listBtn_Group([
+                {text: 'Закладки', csl: 'primary', color: 'grey', type: 'w5', icon: 'heart', gap: '11px', iconPlace:'right'},
+                {text: 'Вход и регистрация', csl: 'primary', color: 'purple', type: 'w5'}, ], 'right')
+            
     .header_Bottom
         .header_Bottom_Container       
             include headerBottomButtons.pug
+
+            +listBtn_Group([
+                {text: 'Главная', csl: 'primary', color: 'grey', icon: '', gap: '',}, 
+                {text: 'Новости', csl: 'primary', color: 'grey', icon: '', gap: ''},
+                {text: 'Размещение и тарифы', csl: 'primary', color: 'grey', icon: '', gap: ''},
+                {text: 'Объявления на карте', csl: 'primary', color: 'grey', icon: 'loc', gap: '5px'},
+                {text: 'Контакты', csl: 'primary', color: 'grey', icon: '', gap: ''},], 'left')
+            +listBtn_Group([
+                {text: 'Закладки', csl: 'primary', color: 'grey', type: 'w5', icon: 'heart', gap: '11px', iconPlace:'right'},
+                {text: 'Вход и регистрация', csl: 'primary', color: 'purple', type: 'w5'}, ], 'right')
 

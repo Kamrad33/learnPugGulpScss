@@ -1,5 +1,6 @@
 @import '../../styles/helpers/variables';
 @import '../../styles/helpers/mixins';
+@import '../buttons/buttons';
 
 header {
     position: sticky;
@@ -39,13 +40,7 @@ header {
 .header_Top_leftButtons_Button.grey{
     color: #8291A3; 
 }
-.topButtonIcon {
-    @include centringMixin;
-}
-.topButtonIcon.heart {
-    box-sizing: border-box;
-    border: 2px solid #8291A3;
-}
+
 
 .header_Top_rightButtons{
     width: auto;
