@@ -8,22 +8,17 @@ header#header
                 {text: 'Новости', csl: 'primary', color: 'grey', icon: '', gap: ''},
                 {text: 'Размещение и тарифы', csl: 'primary', color: 'grey', icon: '', gap: ''},
                 {text: 'Объявления на карте', csl: 'primary', color: 'grey', icon: 'loc', gap: '5px'},
-                {text: 'Контакты', csl: 'primary', color: 'grey', icon: '', gap: ''},], 'left')
+                {text: 'Контакты', csl: 'primary', color: 'grey', icon: '', gap: ''},], 'left_Top')
             +listBtn_Group([
                 {text: 'Закладки', csl: 'primary', color: 'grey', type: 'w5', icon: 'heart', gap: '11px', iconPlace:'right'},
-                {text: 'Вход и регистрация', csl: 'primary', color: 'purple', type: 'w5'}, ], 'right')
+                {text: 'Вход и регистрация', csl: 'primary', color: 'purple', type: 'w5'}, ], 'right_Top')
             
     .header_Bottom
-        .header_Bottom_Container       
-            include headerBottomButtons.pug
-
+        .header_Bottom_Container
+            img(src='../../assets/images/logo.png') 
             +listBtn_Group([
-                {text: 'Главная', csl: 'primary', color: 'grey', icon: '', gap: '',}, 
-                {text: 'Новости', csl: 'primary', color: 'grey', icon: '', gap: ''},
-                {text: 'Размещение и тарифы', csl: 'primary', color: 'grey', icon: '', gap: ''},
-                {text: 'Объявления на карте', csl: 'primary', color: 'grey', icon: 'loc', gap: '5px'},
-                {text: 'Контакты', csl: 'primary', color: 'grey', icon: '', gap: ''},], 'left')
-            +listBtn_Group([
-                {text: 'Закладки', csl: 'primary', color: 'grey', type: 'w5', icon: 'heart', gap: '11px', iconPlace:'right'},
-                {text: 'Вход и регистрация', csl: 'primary', color: 'purple', type: 'w5'}, ], 'right')
-
+                {text: 'Квартиры на сутки', csl: 'primary', type:'w6', color: 'black', icon: 'locBig', gap: '15px', iconPlace:'right', iconColor: 'yellow'},
+                {text: 'Коттеджи и усадьбы ', csl: 'primary', type:'w6', color: 'black', icon: '', gap: '15px', iconPlace:'right'},
+                {text: 'Бани и Сауны', csl: 'primary', type:'w6', color: 'black', icon: '', gap: '15px', iconPlace:'right'},
+                {text: 'Авто напрокат', csl: 'primary', type:'w6', color: 'black', icon: '', gap: '15px', iconPlace:'right'},] , 'middle_Bottom')
+            +stdBtn('+ Разместить объявление', 'primary', 'purple', '', 'w7', '', 'right', 'yellow')

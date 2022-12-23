@@ -9,7 +9,7 @@ html(lang="ru")
     title #{title ? title : 'Заголовок страницы'}
     link(href="/assets/styles/main.css" rel="stylesheet")
   body
-    main
+    main(class= 'main_content')
       include ../../components/header/header
       block content
       include ../../components/footer/footer

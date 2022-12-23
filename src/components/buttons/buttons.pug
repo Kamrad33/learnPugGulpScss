@@ -1,4 +1,7 @@
-mixin listBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', gap='5px', iconPlace='left')
+include ../../views/helpers/mixins.pug
+
+//header button
+mixin listBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', gap='5px', iconPlace='left', iconColor= 'grey')
     -
         if (iconPlace == 'left')
         {var place = 'row-reverse'} 
@@ -7,20 +10,39 @@ mixin listBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', ga
     .listBtn(class=`${cls} ${color} ${type}` style={gap: gap, 'flex-direction': place})= text
         case icon
             when 'loc'
-                .topButtonIcon(class=loc) 
+                .topButtonIcon(class=iconColor) 
                     include ../../assets/images/locImg.svg
+            when 'locBig'
+                .topButtonIcon(class=iconColor) 
+                    include ../../assets/images/locBigImg.svg   
             when 'heart'
-                .topButtonIcon(class=heart) 
+                .topButtonIcon(class=iconColor) 
                     include ../../assets/images/heartImg.svg
 
-mixin listBtn_Group(values, type= 'light')
+//standart button
+mixin stdBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', gap='5px', iconPlace='left', iconColor= 'grey')
+    -
+        if (iconPlace == 'left')
+        {var place = 'row-reverse'} 
+        else {var place = 'row'}
+    .stdBtn(class=`${cls} ${color} ${type}` style={gap: gap, 'flex-direction': place,})
+        .stdBtn_innerText= text
+
+
+mixin listBtn_Group(values, type= 'light', gap= '20px')
     case type 
-        when 'left'
-            .listBtn_Group_Left(role='group')
+        when 'left_Top'
+            .listBtn_Group_Left_Top(role='group' style{gap: gap})
                 each value in values
-                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace)
-        when 'right'
-            .listBtn_Group_Right(role='group')
+                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace, value.iconColor)
+        when 'right_Top'
+            .listBtn_Group_Right_Top(role='group')
                 each value in values
-                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace)
+                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace, value.iconColor)
+        when 'middle_Bottom'
+            .listBtn_Group_Middle_Bottom(role= 'group')
+                each value in values
+                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace, value.iconColor)
+    
+
 

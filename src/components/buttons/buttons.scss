@@ -3,8 +3,9 @@
 
 $activeLine: 3px;
 $hoverLine: 2px;
-.listBtn {
 
+.listBtn {
+    height: 100%;
     font-family: Inter;
     font-style: normal;
     font-size: 14px;
@@ -35,7 +36,7 @@ $hoverLine: 2px;
     color: $black;
 }
 
-.listBtn_Group_Left{
+.listBtn_Group_Left_Top{
     width: auto;
     display: flex;
     flex-direction: row;
@@ -44,7 +45,7 @@ $hoverLine: 2px;
     gap: 57px;
 }
 
-.listBtn_Group_Right{
+.listBtn_Group_Right_Top{
     width: auto;
     display: flex;
     justify-content: flex-end;
@@ -52,10 +53,37 @@ $hoverLine: 2px;
     align-items: center;
 }
 
-.topButtonIcon.heart {
-    box-sizing: border-box;
-    border: 2px solid #8291A3;
+.listBtn_Group_Middle_Bottom{
+    height: 100%;
+    margin-left: 84px;
+    margin-right: 92px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 80px;
 }
+
+.topButtonIcon {
+    @include centringMixin;
+}
+
+.topButtonIcon.grey{
+    path {
+        fill:#8291A3
+    }
+}
+.topButtonIcon.yellow{
+    path {
+        fill:#FFD54F
+    }
+}
+.topButtonIcon.purple{
+    path {
+        fill:#664EF9
+    }
+}
+
 .listBtn:hover{
     height: calc(100% - $hoverLine * 2);
     border-bottom: $hoverLine solid $E4E2E2;
@@ -65,6 +93,34 @@ $hoverLine: 2px;
 .listBtn:active{
     height: calc(100% - $activeLine * 2);
     color: $black;
-    border-bottom: 3px solid $FFD54F;
+    border-bottom: 3px solid #FFD54F;
     margin-top: $activeLine;
+}
+
+.stdBtn {
+    @include centringMixin;
+    width: auto;
+    max-height: 37px;
+    padding: 10px 18px;
+    gap: 10px;
+    font-family: Inter;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 700;
+    border-radius: 19px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    word-spacing: 1.77px;
+}
+.stdBtn_innerText {
+    width: auto;
+    white-space:nowrap;
+}
+.stdBtn.purple{
+    background: $purpleGradientRight;
+    color: #ffffff;
+}
+.stdBtn.white{
+    color: #ffffff;
 }

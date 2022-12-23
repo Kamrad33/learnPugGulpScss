@@ -10,7 +10,14 @@
 
 body {
     margin: 0px;
+    
+}
+.main_content {
+    
+
 }
 .content {
-    height: 3888px;
+    height: 3000px;
+    overflow: auto;
+    background-color: green;
 }
