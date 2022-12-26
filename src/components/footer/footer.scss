@@ -1,4 +1,92 @@
 footer {
     height: 250px;
     background-color: red;
+    background: #FFFFFF;
+    box-shadow: 0px -11px 40px rgba(39, 95, 158, 0.05);
+    display: flex;
+}
+.footer_innerContainer {
+    margin: 39px 80px;
+    display: flex;
+}
+.footer_leftContainter {
+    width: 300px;
+}
+.footer_leftContainter_logoUnderText {
+    @include fontStd(#8291A3, 12px, 700, 15px);
+    margin-top: 10px;
+    margin-bottom: 36px;
+}
+.footer_leftContainter_contactText {
+    width: 297px;
+    height: 78px;
+    @include fontStd(#8291A3, 11px, 400, 13px);
+}
+
+.footer_middleContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 81px;
+    width: 872px;
+    height: 164px;
+}
+.footer_middleContainer_Buttons {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 38px;
+    @include centringMixin(flex-start, flex-start);
+    gap: 69px;
+}
+
+.footer_middleContainer_Buttons_leftButtons{
+    height: 100%;
+    @include centringMixin(space-between);
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 21px;
+}
+.footer_middleContainer_Buttons_List {
+    @include centringMixin(space-between);
+    gap: 53px;
+}
+.footer_middleContainer_Buttons_ButtonList {
+    @include centringMixin(space-between, flex-start);
+    flex-direction: column;
+    gap: 8px;
+    @include fontStd(#8291A3, 14px, 400)
+}
+.footer_middleContainer_Buttons_middleButtons{
+    height: 100%;
+    @include centringMixin(space-between, flex-start);
+    flex-direction: column;
+    gap: 12px;
+    margin-right: 33px;
+}
+.footer_middleContainer_Buttons_rightButtons{
+    height: 100%;
+}
+.footer_middleContainer_Buttons_Button_Title{
+    @include fontStd($black, 14px, 700)
+}
+.footer_middleContainer_Icons {
+    @include centringMixin(space-between);
+}
+
+.footer_middleContainer_Icons_Social {
+    @include centringMixin(space-between);
+    gap: 28.1px;
+}
+.footer_middleContainer_Icons_Social_Text{
+    @include fontStd($black, 14px, 500); 
+}
+.footer_middleContainer_Icons_Social_Icons {
+    @include centringMixin(space-between);
+    gap: 22px
+}
+
+.footer_middleContainer_Icons_Card {
+    @include centringMixin(space-between);
+    gap: 15px;
 }

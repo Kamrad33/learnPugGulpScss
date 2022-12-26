@@ -11,8 +11,17 @@
     flex-grow: 0;
 }
 
-@mixin centringMixin {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@mixin centringMixin($justify: center, $aItems: center, $display: flex) {
+    display: $display;
+    justify-content: $justify;
+    align-items: $aItems;
+}
+
+@mixin fontStd($color: $black, $size: 14px, $weight: 400, $height: 17px, $style: normal, $family: 'Inter') {
+    color: $color;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+    font-style: $style;
+    font-family: $family;
 }
