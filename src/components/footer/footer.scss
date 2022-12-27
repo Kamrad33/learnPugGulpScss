@@ -8,6 +8,8 @@ footer {
 .footer_innerContainer {
     margin: 39px 80px;
     display: flex;
+    @include centringMixin(space-between);
+    width: 100%;
 }
 .footer_leftContainter {
     width: 300px;

@@ -1,1 +1,13 @@
-.content sdasd
+
+mixin container(variables)
+
+    .container(class=`${variables.class} ${variables.type}`, style={
+        display: `${variables.display ? variables.display : 'flex'}`, 
+        'justify-content': `${variables.justifyContent ? variables.justifyContent : 'flex-start'}`,
+        'align-items': `${variables.alignItems ? variables.alignItems : 'flex-start'}`,
+        'flex-direction': `${variables.flexDirection ? variables.flexDirection : 'row'}`,
+        margin: `${variables.margin ? variables.margin : '0px'}`})
+
+mixin backgroundCity
+    img(src = '../../assets/images/backgroundImg.png')
+                 

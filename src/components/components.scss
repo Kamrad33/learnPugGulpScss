@@ -1,3 +1,82 @@
 @import 'header/header';
 @import 'footer/footer';
+@import '../styles/helpers/variables';
+@import '../styles/helpers/mixins';
 
+.content_container_searchBlockContainer {
+    width: 100%;
+    height: 430px;
+    margin: 0px 80px;
+    background-size: 100%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+
+}
+.content_container_searchBlockContainer_background {
+    mix-blend-mode: overlay;
+    background: linear-gradient(360deg, #7E6AF3 15.95%, #6540CD 63.1%);
+    border-radius: 0px 0px 40px 40px;
+    height: 430px;
+    width: 1285px;
+    
+    //position: relative;
+    z-index: 10;
+    img {
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        //position: absolute;
+        z-index: 0;
+    }
+
+}
+.content_container_searchBlockContainer_innerContainer {
+    //position: relative;
+    width: 1285px;
+    z-index: 100;
+    //padding-top: 82.5px;
+    //padding-bottom: 118;
+    //padding-left: 112px;
+    //padding-right: 112px;
+    @include centringMixin('flex-start');
+    flex-direction: column;
+}
+.content_container_searchBlockContainer_innerContainer_title {
+    @include fontStd(#ffffff, 30px, 700, 36px);
+    margin-bottom: 50.5px;
+    display: flex;
+    text-align: center;
+    p { 
+        margin: 0px;  
+    }
+    text-shadow: 0px 2px 5px rgba(0, 14, 142, 0.3);
+    span {
+        color: #FFD54F
+    }
+
+}
+.content_container_searchBlockContainer_innerContainer_bar{
+    width: 100%;
+    margin-left: 100px;
+}
+.content_container_searchBlockContainer_innerContainer_bar_top{
+    @include fontStd(#ffffff, 14px, 600, 17px);
+    @include noSelect();
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+        
+}
+.content_container_searchBlockContainer_innerContainer_bar_top_button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 13px 20px;
+    gap: 10px;   
+}
+.content_container_searchBlockContainer_innerContainer_bar_top_button:active {
+    color: $c664EF9;
+    background: #FFFFFF;
+    border-radius: 10px 10px 0px 0px;   
+}

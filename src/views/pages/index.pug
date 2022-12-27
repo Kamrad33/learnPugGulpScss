@@ -1,7 +1,16 @@
 extends ../layouts/default
-
 block variables
   title Главная
 
 block content
-  .content контентфвыафываыфвафвавфа фв афвыа фвыа фвыафыва фвы афв аф в Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus exercitationem explicabo doloribus corrupti soluta veniam voluptate dolore neque. Omnis placeat laborum dolores nobis aperiam asperiores sint alias ab facilis voluptate!
+  include ../../components/buttons/buttons.pug
+  include ../../components/content/content.pug
+  .content
+    .content_container
+          include ../../components/searchBlock/searchBlockComponent.pug
+          .content_container_rentContainer
+          .content_container_spaceContainer 
+          .content_container_dayRentContainer 
+          .content_container_servicesContainer
+          .content_container_spaceContainer
+          .content_container_exampleContainer

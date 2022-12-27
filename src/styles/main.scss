@@ -18,6 +18,13 @@ body {
 }
 .content {
     height: 3538px;
-    overflow: auto;
-    background-color: green;
+    overflow: auto; 
+    display: flex;
+    justify-content: center;
+    
+}
+.content_container {
+    width: 100%; 
+    display: flex;
+    justify-content: center; 
 }

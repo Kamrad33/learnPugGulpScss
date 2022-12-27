@@ -1,6 +1,6 @@
 include ../../views/helpers/mixins.pug
 
-//header button
+//- header button
 mixin listBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', gap='5px', iconPlace='left', iconColor= 'grey')
     -
         if (iconPlace == 'left')
@@ -19,7 +19,7 @@ mixin listBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', ga
                 .topButtonIcon(class=iconColor) 
                     include ../../assets/images/heartImg.svg
 
-//standart button
+//- standart button
 mixin stdBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', gap='5px', iconPlace='left', iconColor= 'grey')
     -
         if (iconPlace == 'left')
