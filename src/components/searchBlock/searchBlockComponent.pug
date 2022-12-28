@@ -10,6 +10,7 @@ style
         .content_container_searchBlockContainer_innerContainer_title 
             p Sdaem.by - у нас живут 
                 span ваши объявления
+
         .content_container_searchBlockContainer_innerContainer_bar
             .content_container_searchBlockContainer_innerContainer_bar_top
                 .content_container_searchBlockContainer_innerContainer_bar_top_button
@@ -20,7 +21,42 @@ style
                     span Бани и сауны
                 .content_container_searchBlockContainer_innerContainer_bar_top_button
                     span Авто напрокат
+
             .content_container_searchBlockContainer_innerContainer_bar_bottomButtons
+
+                .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'double')
+                    .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_title
+                        span Город
+                    .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'menuButton')
+                        +menuBtn({text: 'Выберите', cls:'primary', color: 'menuGrey', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple'},
+                            [{text: 'Минск'}, {text: 'Город 2'}, {text: 'Город 3'}, {text: 'Город 4'}, {text: 'Город 5'},])
+                hr
+                .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'double')
+                    .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_title
+                        span Комнаты
+                    .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'menuButton')
+                         +menuBtn({text: 'Выберите', cls:'primary', color: 'menuGrey', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple'},
+                            [{text: 'Студия'}, {text: '1 комната'}, {text: '2 комнаты'}, {text: '3 комнаты'}, {text: '4 комнаты'},])
+                hr
+                .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'double')
+                    .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_title
+                        span Цена за сутки (BYN)
+                    .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'inputButton')
+                        +inputBtn({text: 'От', cls: 'searchMenu',})
+                        span -
+                        +inputBtn({text: 'До', cls: 'searchMenu',})
+                hr
+                .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'single searchOptions')
+                    .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'standartButton searchOptions' )
+                        +stdBtn({text: 'Больше опций', cls:'primary', color: 'white', type: 'w5', gap: '3.5px', icon: 'setup', iconPlace: 'right', iconColor: 'purple'})
+                hr
+                .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'single rightButtons')
+                    .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'standartButton rightButtons')
+                        +stdBtn({text: 'На карте', cls:'primary', color: 'white', type: 'w7', gap: '5px', icon: 'locBig', iconPlace: 'right', iconColor: 'red'})
+                        +stdBtn({text: 'Показать', cls:'primary', color: 'yellow', type: 'w5', gap: '5px', icon: 'arrowLeft', iconPlace: 'right', iconColor: 'black'})
+
+
+
 
              
 

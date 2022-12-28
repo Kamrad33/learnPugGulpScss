@@ -3,84 +3,89 @@
 @import '../buttons/buttons';
 
 header {
-    position:-webkit-sticky; 
-    position:sticky; 
-    top:0;
-    z-index: 999;
+  position: sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .header_Top {
-    background-color: $F8F8F8;
+  background-color: $F8F8F8;
 }
+
 .header_Top_Container {
-    margin-left: 80px;
-    margin-right: 80px;
-    width: auto;
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
-} 
-.header_Top_leftButtons{
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 57px;
+  margin-left: 80px;
+  margin-right: 80px;
+  width: auto;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
 }
+
+.header_Top_leftButtons {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  gap: 57px;
+}
+
 .header_Top_leftButtons_Button {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    gap: 5px;
-    
-}
-.header_Top_leftButtons_Button.grey{
-    color: #8291A3; 
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  gap: 5px;
 }
 
-
-.header_Top_rightButtons{
-    width: auto;
-    display: flex;
-    justify-content: flex-end;
-    gap: 40px;
-    align-items: center;
+.header_Top_leftButtons_Button.grey {
+  color: #8291a3;
 }
+
+.header_Top_rightButtons {
+  width: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+  align-items: center;
+}
+
 .header_Top_rightButtons_Button {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 11px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 11px;
 }
-.header_Top_rightButtons_Button.grey{
-    color: #8291A3;
+
+.header_Top_rightButtons_Button.grey {
+  color: #8291a3;
 }
-.header_Top_rightButtons_Button.purple{
-    color: $c664EF9
+
+.header_Top_rightButtons_Button.purple {
+  color: $c664EF9;
 }
 
 .header_Bottom {
-    background: #FFFFFF;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08)
+  background: #fff;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 8%);
 }
 
 .header_Bottom_Container {
-    margin-left: 80px;
-    margin-right: 80px;
-    width: auto;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  margin-left: 80px;
+  margin-right: 80px;
+  width: auto;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -19,14 +19,53 @@ mixin listBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', ga
                 .topButtonIcon(class=iconColor) 
                     include ../../assets/images/heartImg.svg
 
-//- standart button
-mixin stdBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', gap='5px', iconPlace='left', iconColor= 'grey')
+//- standard button
+mixin stdBtn(vars)
     -
         if (iconPlace == 'left')
         {var place = 'row-reverse'} 
         else {var place = 'row'}
-    .stdBtn(class=`${cls} ${color} ${type}` style={gap: gap, 'flex-direction': place,})
-        .stdBtn_innerText= text
+    
+    .stdBtn(
+        class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'grey'} ${vars.type ? vars.type : 'w4'}` 
+        style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
+        .stdBtn_innerText= vars.text
+        case vars.icon
+            when 'arrowLeft'
+                .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px'})
+                    include ../../assets/images/arrowLeftImg.svg
+            when 'arrowDown'
+                .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px'})
+                    include ../../assets/images/arrowDownImg.svg
+            when 'loc'
+                .stdButtonIcon(class = vars.iconColor)
+                    include ../../assets/images/locImg.svg
+            when 'locBig'
+                .topButtonIcon(class=iconColor) 
+                    include ../../assets/images/locBigImg.svg  
+            when 'setup'
+                .stdButtonIcon(class = vars.iconColor)
+                    include ../../assets/images/setupImg.svg
+            when 'heart'
+                .topButtonIcon(class=iconColor) 
+                    include ../../assets/images/heartImg.svg
+        block    
+
+//- selection menu
+mixin menuBtn(vars, menuElms=[{text: '1 elm'}, {text: '2 elm'}, {text: '3 elm'}, {text: '4 elm'}])
+    +stdBtn({text: vars.text, cls: vars.cls, color: vars.color, type: vars.type, gap: vars.text, icon: vars.icon, iconPlace: vars.text, iconColor: vars.text})
+        ul
+            each elm in menuElms
+                li= elm.text
+
+mixin inputBtn(vars)
+    .inputBtn
+        input(
+        class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'grey'} ${vars.type ? vars.type : 'w4'}` 
+        type= `${vars.inputType ? vars.inputType : 'text'}` 
+        placeholder= `${vars.text ? vars.text : 'Text'}` 
+        id= `${vars.id ? vars.id : ''}` 
+        style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
 
 
 mixin listBtn_Group(values, type= 'light', gap= '20px')

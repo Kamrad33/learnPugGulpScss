@@ -9,22 +9,21 @@
 @import '../components/components';
 
 body {
-    margin: 0px;
-    
+  margin: 0;
 }
-.main_content {
-    
 
+.main_content {
 }
+
 .content {
-    height: 3538px;
-    overflow: auto; 
-    display: flex;
-    justify-content: center;
-    
+  height: 3538px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
 }
+
 .content_container {
-    width: 100%; 
-    display: flex;
-    justify-content: center; 
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
