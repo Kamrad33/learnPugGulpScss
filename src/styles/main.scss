@@ -19,11 +19,14 @@ body {
   height: 3538px;
   overflow: auto;
   display: flex;
-  justify-content: center;
+  
 }
 
 .content_container {
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }

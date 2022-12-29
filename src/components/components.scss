@@ -168,3 +168,77 @@ hr {
     }
 
 }
+
+.rentTypesCardsBlock {
+    width: 100%;
+    max-width: 1280px;
+    height: auto;
+    background-color: red;
+    @include centringMixin(space-between);
+    margin: 84px 0px;
+} 
+.rentTypesCardsBlock_cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+}
+.rentTypesCardsBlock_cards_innerContainer {
+    gap: 30px;
+    display: flex;
+    &.firstBlock{
+        width: 953px;
+        height: 270px;
+        background-color: green;
+    }
+    &.secondBlock{
+        width: 953px;
+        height: 270px;
+        background-color: green;
+    }    
+}
+.rentTypesCardsBlock_cards_innerContainer_card {
+    height: 270px;
+    border-radius: 10px;
+
+    &.rooms {
+        background-image: url(../images/roomsImg.png);
+        width: 516px;
+        background-color: grey; 
+        
+    }
+    &.houses {
+        width: 407px;
+        background-color: orange; 
+    }
+    &.baths {
+        width: 407px;
+        background-color: black; 
+    }
+    &.cars {
+        width: 516px;
+        background-color: orange; 
+    }
+}
+
+.rentTypesCardsBlock_cards_innerContainer_card_item {
+    &.title {
+        
+        margin-top: 37px;
+        margin-left: 37px;
+
+        @include fontStd(white, 13px, 700, 16px);
+        @include noSelect;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #9D94FF 0%, #6B50E9 94.5%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+}
+.rentTypesCardsBlock_buttonList {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
