@@ -173,72 +173,135 @@ hr {
     width: 100%;
     max-width: 1280px;
     height: auto;
-    background-color: red;
     @include centringMixin(space-between);
     margin: 84px 0px;
-} 
-.rentTypesCardsBlock_cards {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 30px;
-}
-.rentTypesCardsBlock_cards_innerContainer {
-    gap: 30px;
-    display: flex;
-    &.firstBlock{
-        width: 953px;
-        height: 270px;
-        background-color: green;
-    }
-    &.secondBlock{
-        width: 953px;
-        height: 270px;
-        background-color: green;
-    }    
-}
-.rentTypesCardsBlock_cards_innerContainer_card {
-    height: 270px;
-    border-radius: 10px;
 
-    &.rooms {
-        background-image: url(../images/roomsImg.png);
-        width: 516px;
-        background-color: grey; 
-        
-    }
-    &.houses {
-        width: 407px;
-        background-color: orange; 
-    }
-    &.baths {
-        width: 407px;
-        background-color: black; 
-    }
-    &.cars {
-        width: 516px;
-        background-color: orange; 
-    }
-}
+    &_cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px;
+    
+        &_innerContainer {
+            gap: 30px;
+            display: flex;
+            &.firstBlock{
+                width: 953px;
+                height: 270px;
+            }
+            &.secondBlock{
+                width: 953px;
+                height: 270px;
+            }
+            
+            &_card {
+                height: 270px;
+                border-radius: 10px;
 
-.rentTypesCardsBlock_cards_innerContainer_card_item {
-    &.title {
-        
-        margin-top: 37px;
-        margin-left: 37px;
+                &.rooms {
+                    background-image: url(../images/roomsImg.png);
+                    width: 516px;                    
+                }
+                &.houses {
+                    background-image: url(../images/housesImg.png);
+                    width: 407px;
+                }
+                &.baths {
+                    background-image: url(../images/bathsImg.png);
+                    width: 407px;
+                    background-color: black; 
+                }
+                &.cars {
+                    background-image: url(../images/carsImg.png);
+                    width: 516px;
+                }
+                &_wrapper {
 
-        @include fontStd(white, 13px, 700, 16px);
+                }
+                &_item {
+                    @include centringMixin(flex-start);
+
+                    &.title {
+                        
+                        margin-top: 37px;
+                        margin-left: 37px;
+                        @include fontStd(white, 13px, 700, 16px);
+                        @include noSelect;
+                        text-transform: uppercase;
+                        background: linear-gradient(90deg, #9D94FF 0%, #6B50E9 94.5%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        text-fill-color: transparent;
+                    }
+                    &.description{
+
+                        margin-left: 37px;
+                        margin-top: 21.25px;
+                        @include fontStd(white, 25px, 700, 30px);
+                        text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+                        @include noSelect;
+                        
+                        &.empty {
+                            margin-top: 16px;
+                        }
+
+                    }
+                    &.buttons {
+                        height: 80px;
+                        width: 367px;
+                        margin-left: 37px;
+                        margin-top: 21.25px;
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                        gap: 16px; 
+                    }
+                    &.arrowBtn {
+                       display: flex;
+                       justify-content: flex-end;
+                       align-items: center;
+                       position: relative;
+                       top: 34%;
+                       margin: 20px;             
+                    }
+                }
+            }
+        }
+    }
+
+    &_buttonList {
+        width: 100%;
+        height: 100%;
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 40px;
         @include noSelect;
-        text-transform: uppercase;
-        background: linear-gradient(90deg, #9D94FF 0%, #6B50E9 94.5%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
+        &_item {
+            &_wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            &_title {
+                @include fontStd(#333333, 18px, 700, 22px);
+                margin-bottom: 15px;    
+            }
+            &_button {
+                display: flex;
+                justify-content: space-between;
+               &_text {
+                    @include fontStd(#FEB700);
+                    &:hover {
+                        margin-left: 10px;
+                    }
+               }
+               &_number {
+                @include fontStd(#BDBDBD);
+               }
+            }
+        }       
     }
-}
-.rentTypesCardsBlock_buttonList {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-}
+} 

@@ -51,13 +51,21 @@ mixin stdBtn(vars)
                     include ../../assets/images/heartImg.svg
         block    
 
-//- selection menu
+//- selection menus
 mixin menuBtn(vars, menuElms=[{text: '1 elm'}, {text: '2 elm'}, {text: '3 elm'}, {text: '4 elm'}])
     +stdBtn({text: vars.text, cls: vars.cls, color: vars.color, type: vars.type, gap: vars.text, icon: vars.icon, iconPlace: vars.text, iconColor: vars.text})
         ul
             each elm in menuElms
                 li= elm.text
 
+mixin textSelection(variables)
+    .textSelection= variables.text
+        case variables.icon
+            when 'arrow' 
+                .textSelection_icon(class = variables.icon)
+                    include ../../assets/images/selectionArrowImg.svg
+            
+//- input button
 mixin inputBtn(vars)
     .inputBtn
         input(
@@ -67,7 +75,15 @@ mixin inputBtn(vars)
         id= `${vars.id ? vars.id : ''}` 
         style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
 
-
+//- circle button
+mixin circleBtn(vars)
+    .circleBtn(class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'white'}`)
+        case vars.icon
+            when 'arrowLeft'
+                .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px'})
+                    include ../../assets/images/arrowLeftImg.svg
+               
+     
 mixin listBtn_Group(values, type= 'light', gap= '20px')
     case type 
         when 'left_Top'
