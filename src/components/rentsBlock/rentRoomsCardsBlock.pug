@@ -1,0 +1,25 @@
+include ../buttons/buttons.pug
+include ../content/content.pug
+include ./rentCard.pug
+
+.rentRoomsCardsBlock
+    .rentRoomsCardsBlock_background asdasdsd
+    .rentRoomsCardsBlock_innerContainer
+        .rentRoomsCardsBlock_innerContainer_top
+            .rentRoomsCardsBlock_innerContainer_top_title
+                .rentRoomsCardsBlock_innerContainer_top_title_small Квартиры на сутки 
+                .rentRoomsCardsBlock_innerContainer_top_title_large Аренда квартир в Минске
+            .rentRoomsCardsBlock_innerContainer_top_buttons
+                +menuBtn(
+                    {text: 'Метро', cls:'metro', color: 'menu rentContainer', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', buttonWidth: '165px' , menuType: 'list'},
+                    [{text: 'Минск'}, {text: 'Город 2'}, {text: 'Город 3'}, {text: 'Город 4'}, {text: 'Город 5'},])
+                +menuBtn(
+                    {text: 'Район', cls:'area', color: 'menu rentContainer', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', buttonWidth: '165px' , menuType: 'list'},
+                    [{text: 'Минск'}, {text: 'Город 2'}, {text: 'Город 3'}, {text: 'Город 4'}, {text: 'Город 5'},])
+        .rentRoomsCardsBlock_innerContainer_cards
+            +rentCard
+            +rentCard
+            +rentCard
+            
+            
+

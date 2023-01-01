@@ -22,17 +22,22 @@ mixin listBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', ga
 //- standard button
 mixin stdBtn(vars)
     -
-        if (iconPlace == 'left')
+        if (vars.iconPlace == 'left')
         {var place = 'row-reverse'} 
         else {var place = 'row'}
     
     .stdBtn(
-        class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'grey'} ${vars.type ? vars.type : 'w4'}` 
-        style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
+        class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'grey'} ${vars.type ? vars.type : 'w4'} ${vars.buttonPlace ? vars.buttonPlace : 'standard'}` 
+        style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${vars.iconPlace ? place : 'left'}`, width: vars.width, })
+        case vars.cls
+            when 'metro'
+                .stdButtonIcon(class = vars.iconColor style = {height: '20x', width: '20px' })
+                    include ../../assets/images/metroImg.svg
+        
         .stdBtn_innerText= vars.text
         case vars.icon
             when 'arrowLeft'
-                .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px'})
+                .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px' })
                     include ../../assets/images/arrowLeftImg.svg
             when 'arrowDown'
                 .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px'})
@@ -41,22 +46,41 @@ mixin stdBtn(vars)
                 .stdButtonIcon(class = vars.iconColor)
                     include ../../assets/images/locImg.svg
             when 'locBig'
-                .topButtonIcon(class=iconColor) 
+                .stdButtonIcon(class= vars.iconColor) 
                     include ../../assets/images/locBigImg.svg  
             when 'setup'
                 .stdButtonIcon(class = vars.iconColor)
                     include ../../assets/images/setupImg.svg
             when 'heart'
-                .topButtonIcon(class=iconColor) 
+                .stdButtonIcon(class=iconColor) 
                     include ../../assets/images/heartImg.svg
+            when 'phone'
+                .stdButtonIcon(class=iconColor) 
+                    include ../../assets/images/cellphoneImg.svg
         block    
 
 //- selection menus
 mixin menuBtn(vars, menuElms=[{text: '1 elm'}, {text: '2 elm'}, {text: '3 elm'}, {text: '4 elm'}])
-    +stdBtn({text: vars.text, cls: vars.cls, color: vars.color, type: vars.type, gap: vars.text, icon: vars.icon, iconPlace: vars.text, iconColor: vars.text})
-        ul
-            each elm in menuElms
-                li= elm.text
+    +stdBtn(
+        {
+            text: vars.text, 
+            cls: vars.cls, 
+            color: vars.color, 
+            type: vars.type,
+            width: vars.width, 
+            gap: vars.gap, 
+            icon: vars.icon, 
+            iconPlace: vars.text, 
+            iconColor: vars.text,
+            buttonPlace: vars.buttonPlace,
+            })
+        case vars.menuType
+            when 'list'
+                ul
+                    each elm in menuElms
+                        li= elm.text
+            when 'content'
+                .menuContent
 
 mixin textSelection(variables)
     .textSelection= variables.text
@@ -82,6 +106,10 @@ mixin circleBtn(vars)
             when 'arrowLeft'
                 .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px'})
                     include ../../assets/images/arrowLeftImg.svg
+            when 'heart'
+                .stdButtonIcon(class=iconColor) 
+                    include ../../assets/images/heartImg.svg
+
                
      
 mixin listBtn_Group(values, type= 'light', gap= '20px')

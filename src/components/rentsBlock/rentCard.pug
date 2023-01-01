@@ -1,0 +1,47 @@
+include ../buttons/buttons.pug
+include ../content/content.pug
+
+mixin rentCard(vars = {status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',})
+    .rentCard
+        .rentCard_top
+            .rentCard_top_status(class = vars.status)
+                span= vars.status
+            .rentCard_top_photo
+                img(src=`${vars.photo}`)
+        .rentCard_info
+            .rentCard_info_rooms
+                .rentCard_info_rooms_price
+                    span(class= 'price')= vars.price
+                    span(class= 'type')= 'За сутки'
+                .rentCard_info_rooms_buttons
+                    .rentCard_info_rooms_buttons_item
+                        include ../../assets/images/userImg.svg
+                        span= vars.capacity 
+                    .rentCard_info_rooms_buttons_item= vars.rooms
+                    .rentCard_info_rooms_buttons_item= `${vars.size} м²`
+            .rentCard_info_address
+                .rentCard_info_address_location
+                    include ../../assets/images/locBigImg.svg
+                    span= vars.address
+                .rentCard_info_address_stations
+                    each elm in vars.metro
+                        .rentCard_info_address_stations_item
+                            case elm.icon
+                                when 'metro'
+                                    include ../../assets/images/metroImg.svg
+                                when 'rail'
+                                    include ../../assets/images/pointImg.svg
+                            span= elm.name             
+            .rentCard_info_description= vars.description
+            
+        .rentCard_line
+            hr
+        .rentCard_bottom
+            .rentCard_bottom_left
+                .rentCard_bottom_left_fav(class= 'hidden')
+                    +circleBtn({cls: 'button', color: 'heart', icon: 'heart'})
+                .rentCard_bottom_left_contacts
+                    +stdBtn({text: 'Контакты', cls:'primary', color: 'white', type: 'w7', gap: '13px', icon: 'phone', iconPlace: 'left', iconColor: 'purple'})
+            .rentCard_bottom_right
+                .rentCard_bottom_buttons_more
+                    +stdBtn({text: 'Подробнее', cls:'primary', color: 'white', type: 'w7', })
