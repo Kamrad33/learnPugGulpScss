@@ -14,7 +14,7 @@ $hoverLine: 2px;
   justify-content: space-between;
   align-items: center;
   gap: 5px;
-
+  white-space: nowrap;
   @include noSelect;
 
   &.w4 {

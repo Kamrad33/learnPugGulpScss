@@ -13,10 +13,12 @@ body {
 }
 
 .main_content {
+    //width: 100vw;
 }
 
 .content {
   height: 3538px;
+  
   overflow: auto;
   display: flex;
   z-index: 100;

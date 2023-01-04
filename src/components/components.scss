@@ -175,7 +175,7 @@
     height: auto;
     @include centringMixin(space-between);
     margin: 84px 0px;
-
+    position: relative;
     &_cards {
         display: flex;
         flex-direction: column;
@@ -311,14 +311,15 @@
     height: 970px;
     //background-color: green;
     margin-top: 30px;
-
+    display: flex;
+    position: relative;
     &_background {
         position: absolute;
         z-index: 0;
         width: 803px;
         height: 970px;
-        left: 45%;
-        top: 1298px;
+        right: 0;
+        top: 0;
         background: linear-gradient(90deg, #94AFFF 0%, #4E64F9 94.5%);;
         opacity: 0.1;
         border-radius: 40px 0px 0px 0px;   
@@ -424,6 +425,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 5;
     &_top {
         width: 100%;
         height: 226px;
@@ -587,17 +590,35 @@
 .spaceContainer {
     width: 61.19px;
     height: 61.19px;
-    background-color: red;
-    &.first {
-        position: absolute;
-        left: 120px;
-        top: 32%;
-        z-index: 999;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13.73px;
+
+    position: absolute;
+    z-index: 1;
+
+    &.cards {
+        left: -2.3%;
+        bottom: -18%; 
+    }
+
+    &.services1 {
+        right: 9.5%;
+        top: 7%; 
+    }
+    &.services2 {
+        right: 11.5%;
+        top: 106.5%; 
+    }
+    &.example {
+        left: 24.5%;
+        top: 58%; 
     }
     &_item {
         width: 5px;
         height: 5px;
         border-radius: 50%;
+        background: #FFD54F;
         box-shadow: 0px 4px 4px rgba(255, 123, 88, 0.13);
         &.yellow {
             background: #FFD54F;   
@@ -611,10 +632,13 @@
 
 .content_container_servicesContainer {
     @include centringMixin;
-    
+    margin-bottom: 137px;
+    width: 1440px;
     &_innerContainer {
         position: relative;
-        width: 1440px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         &_background {
             mix-blend-mode: overlay;
@@ -720,5 +744,131 @@
             }
         }
     }    
+    }
+}
+
+.content_container_exampleContainer {
+
+    width: 1440px;
+
+    &_innerContainer {
+        width: 100%;
+        margin-left: 80px;
+        margin-right: 80px;
+        display: flex;
+        align-items: center;
+        gap:30px;
+        position: relative;
+        &_left {
+            &_title {
+                width: 842px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 15px;
+                margin-bottom: 33px;
+                &_small {
+                    
+                    @include fontStd(white, 14px, 600, 16px);
+                    @include noSelect;
+                    text-transform: uppercase;
+                    background: linear-gradient(90deg, #9D94FF 0%, #6B50E9 94.5%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    text-fill-color: transparent;
+                }
+                &_large {
+                    @include fontStd(#1E2123, 25px, 700, 30px)
+                }
+            }
+
+            &_middle {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 24px;
+                height: 230px;
+                margin-bottom: 32px;
+                &_image {
+                    width: 405.24px;
+                    height: 230px;
+                    background-color: red;
+                    background: url(../images/roomsImg.png);
+                    //background-repeat:no-repeat;
+                    background-position: center center;
+                    filter: drop-shadow(0px 15px 30px rgba(39, 95, 158, 0.1));
+                    border-radius: 20px;
+                }
+                &_description {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    p {
+                        margin: 0;
+                    }
+                    width: 405.24px;
+                    height: 230px;
+                    @include fontStd(#1E2123, 14px, 400, 150%);
+                }
+            }
+            &_bottom {
+                
+                @include fontStd(#1E2123, 14px, 400, 150%);
+            }
+        }
+
+        &_right {
+            width: 406px;
+            height: 456.72px;
+            background: #FFFEFE;
+            box-shadow: 0px 20px 40px rgba(135, 124, 202, 0.15);
+            border-radius: 10px;
+
+            &_wrapper {
+                margin-top: 33px;
+                margin-left: 23px;
+                margin-right: 23px;
+            }
+
+            &_title {
+                @include fontStd($black, 25px, 700, 30px);
+                margin-bottom: 26px;
+            }
+            &_list {
+                margin-bottom: 32px;
+                &_item {
+                    width: 100%;
+                    
+                    &_text {
+                        @include fontStd($black, 14px, 600, 17px);
+                        margin-bottom: 6px;
+                        &:hover {
+                            color: #664EF9;
+                        }
+                    }
+
+                    &_date {
+                        @include fontStd(#8291A3, 12px, 400, 15px);
+                    }
+                }
+                hr {
+                    width: 100%;
+                    opacity: 0.1;
+                    border: 1px solid #664EF9;
+                    margin: 10px 0;
+                }
+                
+            }
+            &_button {
+                display: flex;
+                align-items: center;
+                $color: #664EF9;
+                @include fontStd($color, 14px, 700, 17px);
+                path {
+                    stroke: $color
+                }
+            }
+        }
     }
 }

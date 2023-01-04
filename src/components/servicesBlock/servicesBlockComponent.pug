@@ -1,8 +1,11 @@
 include ../buttons/buttons.pug
 include ../content/content.pug
+include ../spaceContainer.pug
 
 .content_container_servicesContainer
     .content_container_servicesContainer_innerContainer
+        +spaceContainer('services1', 'white')
+        +spaceContainer('services2', 'yellow')
         .content_container_servicesContainer_innerContainer_background
             img(src="../../assets/images/background2Img.png", alt="")
         .content_container_servicesContainer_innerContainer_searchContainer
@@ -36,7 +39,7 @@ include ../content/content.pug
                     .content_container_servicesContainer_innerContainer_cards_item_top(class= 'gold')
                         .content_container_servicesContainer_innerContainer_cards_item_top_title(class= 'gold') Приоритет Gold
                     .content_container_servicesContainer_innerContainer_cards_item_middle
-                       p Приоритетное размещение <b> Gold </b> позволяет <b> закрепить ваше объявление </b> в верхней части каталога!
+                       p Приоритетное размещение <b> Gold </b> позволяет <b> закрепить ваше объявление </b> в верхней <br> части каталога!
                        p Gold объявления <b> перемещаются <br> каждые 5 мин </b> на 1 позицию, что делает размещение одинаковым для всех.
                     .content_container_servicesContainer_innerContainer_cards_item_bottom
                         +stdBtn({text: 'Еще о тарифе Gold', cls:'primary', color: 'purple', type: 'w7', gap: '5px', icon: 'arrowLeft', iconColor: 'white'})
