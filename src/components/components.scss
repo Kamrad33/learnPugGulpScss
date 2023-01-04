@@ -529,6 +529,9 @@ hr {
                     display: none;
                 }
             }
+            &_contacts {
+                display: flex;
+            }
         }
     }
 }

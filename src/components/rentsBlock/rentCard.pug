@@ -1,7 +1,7 @@
 include ../buttons/buttons.pug
 include ../content/content.pug
 
-mixin rentCard(vars = {status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',})
+mixin rentCard(vars = {status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},})
     .rentCard
         .rentCard_top
             .rentCard_top_status(class = vars.status)
@@ -41,7 +41,13 @@ mixin rentCard(vars = {status: 'Gold',photo: '../../assets/images/card_1_Img.png
                 .rentCard_bottom_left_fav(class= 'hidden')
                     +circleBtn({cls: 'button', color: 'heart', icon: 'heart'})
                 .rentCard_bottom_left_contacts
-                    +stdBtn({text: 'Контакты', cls:'primary', color: 'white', type: 'w7', gap: '13px', icon: 'phone', iconPlace: 'left', iconColor: 'purple'})
+                    +menuBtn(
+                    {text: 'Контакты', cls:'phone', color: 'menu purpleText', type: 'w7', gap: '10px', icon: 'phone', iconPlace: 'right', iconColor: 'purple' , width: '124px', menuType: 'content'},
+                    [], {photo: vars.ownerInfo.photo, name: vars.ownerInfo.name, phone: vars.ownerInfo.phone, email: vars.ownerInfo.email})
             .rentCard_bottom_right
                 .rentCard_bottom_buttons_more
-                    +stdBtn({text: 'Подробнее', cls:'primary', color: 'white', type: 'w7', })
+                    +stdBtn({text: 'Подробнее', cls:'primary', color: 'yellow light', type: 'w7', })
+
+mixin rentCardList(varsObject= [{status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},}, {status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Vasya', phone: ' +375 (29) 291-14-44', email: 'Vasya6234@tut.by'},}, {status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Petya', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},}])
+    each elm in varsObject
+        +rentCard(elm)

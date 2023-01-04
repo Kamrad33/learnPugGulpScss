@@ -26,41 +26,41 @@ mixin stdBtn(vars)
         {var place = 'row-reverse'} 
         else {var place = 'row'}
     
-    .stdBtn(
+    button.stdBtn(
         class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'grey'} ${vars.type ? vars.type : 'w4'} ${vars.buttonPlace ? vars.buttonPlace : 'standard'}` 
         style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${vars.iconPlace ? place : 'left'}`, width: vars.width, })
         case vars.cls
             when 'metro'
                 .stdButtonIcon(class = vars.iconColor style = {height: '20x', width: '20px' })
                     include ../../assets/images/metroImg.svg
+            when 'phone'
+                .stdButtonIcon(class = vars.iconColor style = {height: '20x', width: '20px' })
+                    include ../../assets/images/cellphoneImg.svg
         
         .stdBtn_innerText= vars.text
-        case vars.icon
-            when 'arrowLeft'
-                .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px' })
-                    include ../../assets/images/arrowLeftImg.svg
-            when 'arrowDown'
-                .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px'})
-                    include ../../assets/images/arrowDownImg.svg
-            when 'loc'
-                .stdButtonIcon(class = vars.iconColor)
-                    include ../../assets/images/locImg.svg
-            when 'locBig'
-                .stdButtonIcon(class= vars.iconColor) 
-                    include ../../assets/images/locBigImg.svg  
-            when 'setup'
-                .stdButtonIcon(class = vars.iconColor)
-                    include ../../assets/images/setupImg.svg
-            when 'heart'
-                .stdButtonIcon(class=iconColor) 
-                    include ../../assets/images/heartImg.svg
-            when 'phone'
-                .stdButtonIcon(class=iconColor) 
-                    include ../../assets/images/cellphoneImg.svg
+            case vars.icon
+                when 'arrowLeft'
+                    .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px' })
+                        include ../../assets/images/arrowLeftImg.svg
+                when 'arrowDown'
+                    .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px'})
+                        include ../../assets/images/arrowDownImg.svg
+                when 'loc'
+                    .stdButtonIcon(class = vars.iconColor)
+                        include ../../assets/images/locImg.svg
+                when 'locBig'
+                    .stdButtonIcon(class= vars.iconColor) 
+                        include ../../assets/images/locBigImg.svg  
+                when 'setup'
+                    .stdButtonIcon(class = vars.iconColor)
+                        include ../../assets/images/setupImg.svg
+                when 'heart'
+                    .stdButtonIcon(class=iconColor) 
+                        include ../../assets/images/heartImg.svg
         block    
 
 //- selection menus
-mixin menuBtn(vars, menuElms=[{text: '1 elm'}, {text: '2 elm'}, {text: '3 elm'}, {text: '4 elm'}])
+mixin menuBtn(vars, menuElms=[{text: '1 elm'}, {text: '2 elm'}, {text: '3 elm'}, {text: '4 elm'}], contentElems= {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'})
     +stdBtn(
         {
             text: vars.text, 
@@ -70,7 +70,7 @@ mixin menuBtn(vars, menuElms=[{text: '1 elm'}, {text: '2 elm'}, {text: '3 elm'},
             width: vars.width, 
             gap: vars.gap, 
             icon: vars.icon, 
-            iconPlace: vars.text, 
+            iconPlace: vars.iconPlace, 
             iconColor: vars.text,
             buttonPlace: vars.buttonPlace,
             })
@@ -80,7 +80,24 @@ mixin menuBtn(vars, menuElms=[{text: '1 elm'}, {text: '2 elm'}, {text: '3 elm'},
                     each elm in menuElms
                         li= elm.text
             when 'content'
-                .menuContent
+                div
+                    .menuContent
+                        .menuContent_user
+                            .menuContent_user_photo
+                                img(src=`${contentElems.photo}`)
+                            .menuContent_user_info
+                                .menuContent_user_info_title= 'Владелец'
+                                .menuContent_user_info_name= 'Dmitriy'
+                        .menuContent_contacts
+                            .menuContent_contacts_phone= contentElems.phone
+                            .menuContent_contacts_email= contentElems.email
+                        .menuContent_apps
+                            .menuContent_apps_item(class= 'viber')
+                                include ../../assets/images/viberImg.svg
+                            .menuContent_apps_item(class= 'watsUp')
+                                include ../../assets/images/whatsappImg.svg
+                            .menuContent_apps_item(class= 'email')
+                                include ../../assets/images/emailImg.svg
 
 mixin textSelection(variables)
     .textSelection= variables.text

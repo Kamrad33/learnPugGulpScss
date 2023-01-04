@@ -11,15 +11,14 @@ include ./rentCard.pug
                 .rentRoomsCardsBlock_innerContainer_top_title_large Аренда квартир в Минске
             .rentRoomsCardsBlock_innerContainer_top_buttons
                 +menuBtn(
-                    {text: 'Метро', cls:'metro', color: 'menu rentContainer', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', buttonWidth: '165px' , menuType: 'list'},
-                    [{text: 'Минск'}, {text: 'Город 2'}, {text: 'Город 3'}, {text: 'Город 4'}, {text: 'Город 5'},])
+                    {text: 'Метро', cls:'metro', color: 'menu rentContainer', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '185px' , menuType: 'list'},
+                    [{text: 'Метро 1'}, {text: 'Метро 2'}, {text: 'Метро 3'}, {text: 'Метро 4'}, {text: 'Метро 5'},])
                 +menuBtn(
-                    {text: 'Район', cls:'area', color: 'menu rentContainer', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', buttonWidth: '165px' , menuType: 'list'},
-                    [{text: 'Минск'}, {text: 'Город 2'}, {text: 'Город 3'}, {text: 'Город 4'}, {text: 'Город 5'},])
+                    {text: 'Район', cls:'area', color: 'menu rentContainer', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '185px' , menuType: 'list'},
+                    [{text: 'Район 1'}, {text: 'Район 2'}, {text: 'Район 3'}, {text: 'Район 4'}, {text: 'Район 5'}, {text: 'Район 6'}, {text: 'Район 7'},])
         .rentRoomsCardsBlock_innerContainer_cards
-            +rentCard
-            +rentCard
-            +rentCard
+            +rentCardList
+
             
             
 
