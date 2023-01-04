@@ -1,0 +1,49 @@
+include ../buttons/buttons.pug
+include ../content/content.pug
+
+.content_container_servicesContainer
+    .content_container_servicesContainer_innerContainer
+        .content_container_servicesContainer_innerContainer_background
+            img(src="../../assets/images/background2Img.png", alt="")
+        .content_container_servicesContainer_innerContainer_searchContainer
+            .content_container_servicesContainer_innerContainer_searchContainer_Title Поиск квартир на карте
+            .content_container_servicesContainer_innerContainer_searchContainer_Description Ищите квартиры на сутки в центре города,<br> возле парка или в живописном районе
+            .content_container_servicesContainer_innerContainer_searchContainer_button
+                +stdBtn({text: 'Открыть карту', cls:'locBig', color: 'white', type: 'w7', gap: '5px', iconPlace: 'right', iconColor: 'yellow'})
+        .content_container_servicesContainer_innerContainer_cards
+            .content_container_servicesContainer_innerContainer_cards_item(class= 'white')
+                .content_container_servicesContainer_innerContainer_cards_item_wrapper
+                    .content_container_servicesContainer_innerContainer_cards_item_top
+                        .content_container_servicesContainer_innerContainer_cards_item_top_icon
+                            include ../../assets/images/handImg.svg
+                        .content_container_servicesContainer_innerContainer_cards_item_top_title Начните привлекать <br> клиентов бесплатно!
+                    .content_container_servicesContainer_innerContainer_cards_item_middle
+                        span Пройдя простую регистрацию на сайте у Вас появится личный кабинет, в котором возможно <b> бесплатно создавать и публиковать </b> объявления на сайте.
+                    .content_container_servicesContainer_innerContainer_cards_item_bottom
+                        +stdBtn({text: '+  Разместить объявление', cls:'primary', color: 'yellow gradient', type: 'w7', gap: '5px',})
+            .content_container_servicesContainer_innerContainer_cards_item(class= 'white')
+                .content_container_servicesContainer_innerContainer_cards_item_wrapper
+                    .content_container_servicesContainer_innerContainer_cards_item_top
+                        .content_container_servicesContainer_innerContainer_cards_item_top_icon
+                            include ../../assets/images/stepsImg.svg
+                        .content_container_servicesContainer_innerContainer_cards_item_top_title Поднимайте <br> объявления
+                    .content_container_servicesContainer_innerContainer_cards_item_middle
+                        span Вы в любое время можете <b> поднимать </b> объявления <b> вверх первой страницы </b> каталога, они разместятся сразу после платных объявлений до тех пор, пока другой пользователь не повторит процедуру.
+                    .content_container_servicesContainer_innerContainer_cards_item_bottom
+                        +stdBtn({text: 'Узнать стоимость услуги', cls:'primary', color: 'yellow gradient', type: 'w7', gap: '5px', icon: 'arrowLeft'})
+            .content_container_servicesContainer_innerContainer_cards_item(class= 'gold')
+                .content_container_servicesContainer_innerContainer_cards_item_wrapper(class= 'gold')
+                    .content_container_servicesContainer_innerContainer_cards_item_top(class= 'gold')
+                        .content_container_servicesContainer_innerContainer_cards_item_top_title(class= 'gold') Приоритет Gold
+                    .content_container_servicesContainer_innerContainer_cards_item_middle
+                       p Приоритетное размещение <b> Gold </b> позволяет <b> закрепить ваше объявление </b> в верхней части каталога!
+                       p Gold объявления <b> перемещаются <br> каждые 5 мин </b> на 1 позицию, что делает размещение одинаковым для всех.
+                    .content_container_servicesContainer_innerContainer_cards_item_bottom
+                        +stdBtn({text: 'Еще о тарифе Gold', cls:'primary', color: 'purple', type: 'w7', gap: '5px', icon: 'arrowLeft', iconColor: 'white'})
+
+
+
+
+
+
+                

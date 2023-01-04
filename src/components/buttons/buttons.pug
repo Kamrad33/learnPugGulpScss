@@ -36,6 +36,9 @@ mixin stdBtn(vars)
             when 'phone'
                 .stdButtonIcon(class = vars.iconColor style = {height: '20x', width: '20px' })
                     include ../../assets/images/cellphoneImg.svg
+            when 'locBig'
+                    .stdButtonIcon(class= vars.iconColor) 
+                        include ../../assets/images/locBigImg.svg 
         
         .stdBtn_innerText= vars.text
             case vars.icon
@@ -80,24 +83,23 @@ mixin menuBtn(vars, menuElms=[{text: '1 elm'}, {text: '2 elm'}, {text: '3 elm'},
                     each elm in menuElms
                         li= elm.text
             when 'content'
-                div
-                    .menuContent
-                        .menuContent_user
-                            .menuContent_user_photo
-                                img(src=`${contentElems.photo}`)
-                            .menuContent_user_info
-                                .menuContent_user_info_title= 'Владелец'
-                                .menuContent_user_info_name= 'Dmitriy'
-                        .menuContent_contacts
-                            .menuContent_contacts_phone= contentElems.phone
-                            .menuContent_contacts_email= contentElems.email
-                        .menuContent_apps
-                            .menuContent_apps_item(class= 'viber')
-                                include ../../assets/images/viberImg.svg
-                            .menuContent_apps_item(class= 'watsUp')
-                                include ../../assets/images/whatsappImg.svg
-                            .menuContent_apps_item(class= 'email')
-                                include ../../assets/images/emailImg.svg
+                .menuContent
+                    .menuContent_user
+                        .menuContent_user_photo
+                            img(src=`${contentElems.photo}`)
+                        .menuContent_user_info
+                            .menuContent_user_info_title= 'Владелец'
+                            .menuContent_user_info_name= contentElems.name
+                    .menuContent_contacts
+                        .menuContent_contacts_phone= contentElems.phone
+                        .menuContent_contacts_email= contentElems.email
+                    .menuContent_apps
+                        .menuContent_apps_item(class= 'viber')
+                            include ../../assets/images/viberImg.svg
+                        .menuContent_apps_item(class= 'watsUp')
+                            include ../../assets/images/whatsappImg.svg
+                        .menuContent_apps_item(class= 'email')
+                            include ../../assets/images/emailImg.svg
 
 mixin textSelection(variables)
     .textSelection= variables.text
@@ -122,7 +124,10 @@ mixin circleBtn(vars)
         case vars.icon
             when 'arrowLeft'
                 .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px'})
-                    include ../../assets/images/arrowLeftImg.svg
+                    include ../../assets/images/arrowBigLeftImg.svg
+            when 'arrowRight'
+                .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px'})
+                    include ../../assets/images/arrowBigRightImg.svg
             when 'heart'
                 .stdButtonIcon(class=iconColor) 
                     include ../../assets/images/heartImg.svg
