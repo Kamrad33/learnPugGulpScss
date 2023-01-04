@@ -4,9 +4,9 @@
 @import '../styles/helpers/mixins';
 
 .content_container_searchBlockContainer {
-  width: 100%;
+  width: 1440px;
   height: 430px;
-  margin: 0 80px;
+  //margin: 0 80px;
   background-size: 100%;
   background-position: center;
   display: flex;
@@ -136,13 +136,7 @@
                 width: 100%;
                 margin-bottom: 11px;
             }
-            hr {
-                height: calc(100% - 32px);
-                opacity: 0.1;
-                border: 1px solid #664EF9;
-                margin: 16px 0px;
-            
-            }
+       
             &_buttons {
                 display: flex;
                 flex-direction: row;
@@ -163,6 +157,13 @@
                 }
             
             }
+        }
+        hr {
+            height: calc(100% - 32px);
+            opacity: 0.1;
+            border: 1px solid #664EF9;
+            margin: 16px 0px;
+        
         }
     }
     }
@@ -316,7 +317,7 @@
     &_background {
         position: absolute;
         z-index: 0;
-        width: 803px;
+        width: 806px;
         height: 970px;
         right: 0;
         top: 0;
@@ -328,7 +329,9 @@
         margin-top: 32px;
         margin-left: 80px;
         margin-right: 80px;
+        width: 100%;
         position: relative;
+        
         &_top {
             margin-bottom: 55px;
             display: flex;
@@ -357,6 +360,8 @@
             &_buttons {
                 display: flex;
                 gap: 30px;
+                //position: relative;
+                z-index: 999;
                 
             }
         }
@@ -364,10 +369,11 @@
             display: flex;
             justify-content: center;
             gap: 30px;
-
+            position: relative;
+            z-index: 10;
             &_item {
                 position: relative;
-
+                z-index: 10;
             }
         
         }
@@ -449,6 +455,7 @@
             gap: 10px;
             position: absolute;
             left: 340px;
+            z-index: 10;
         }
 
         &_photo {
@@ -750,9 +757,12 @@
 .content_container_exampleContainer {
 
     width: 1440px;
-
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+    align-items: center;
     &_innerContainer {
-        width: 100%;
+        width: calc(100% - 160px);
         margin-left: 80px;
         margin-right: 80px;
         display: flex;

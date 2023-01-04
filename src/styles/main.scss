@@ -18,7 +18,10 @@ body {
 
 .content {
   height: 3538px;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   overflow: auto;
   display: flex;
   z-index: 100;
@@ -26,11 +29,10 @@ body {
 }
 
 .content_container {
-  width: 100%;
+  width: 1440px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   //position: relative;
   //z-index: 100;

@@ -222,6 +222,7 @@ $hoverLine: 2px;
             bottom: 74px;
             margin-left: -80px;
             display: none;
+            z-index: 999;
         }
     }
 
@@ -266,6 +267,7 @@ $hoverLine: 2px;
         div {
             &.menuContent {
                 display: block;
+                z-index: 999;
             }
         }    
     }
