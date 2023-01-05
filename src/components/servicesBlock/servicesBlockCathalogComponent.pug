@@ -1,0 +1,20 @@
+include ../buttons/buttons.pug
+include ../content/content.pug
+include ../spaceContainer.pug
+
+.content_container_servicesContainer
+    .content_container_servicesContainer_innerContainer
+        .content_container_servicesContainer_innerContainer_background(class= 'cathalog')
+            img(src="../../assets/images/background3Img.png", alt="")
+        .content_container_servicesContainer_innerContainer_searchContainer
+            .content_container_servicesContainer_innerContainer_searchContainer_Title Показать найденные квартиры на карте
+            .content_container_servicesContainer_innerContainer_searchContainer_Description Ищите новостройки рядом с работой,<br> парком или родственниками
+            .content_container_servicesContainer_innerContainer_searchContainer_button
+                +stdBtn({text: 'Открыть карту', cls:'locBig', color: 'white', type: 'w7', gap: '5px', iconPlace: 'right', iconColor: 'yellow'})
+
+
+
+
+
+
+                

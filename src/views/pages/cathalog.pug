@@ -1,0 +1,12 @@
+extends ../layouts/default
+block variables
+  title Главная
+
+block content
+  include ../../components/buttons/buttons.pug
+  include ../../components/content/content.pug
+  .content
+    .content_container
+        include ../../components/searchBlock/searchBlockCathalogComponent.pug
+        include ../../components/searchBlock/searchBlockCathalogFilterComponent.pug
+        include ../../components/servicesBlock/servicesBlockCathalogComponent.pug

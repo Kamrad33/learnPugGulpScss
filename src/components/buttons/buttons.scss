@@ -519,6 +519,9 @@ $hoverLine: 2px;
         &.searchMenu{
             width:80px;
         }
+        &.searchCathalogMenu{
+            width:100px;
+        }
         &::-webkit-input-placeholder {
             @include fontStd(#686868, 14px, 500, 17px);
             font-family: Arial, Helvetica, sans-serif;

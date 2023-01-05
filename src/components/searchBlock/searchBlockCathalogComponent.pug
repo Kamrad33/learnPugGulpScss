@@ -1,0 +1,46 @@
+include ../buttons/buttons.pug
+include ../content/content.pug
+
+mixin itemList(vars)
+    each elm in vars
+        .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList_item= elm.text
+
+.content_container_searchBlockCathalogContainer
+
+    .content_container_searchBlockCathalogContainer_background
+
+    .content_container_searchBlockCathalogContainer_innerContainer
+
+        .content_container_searchBlockCathalogContainer_innerContainer_filter
+             .content_container_searchBlockCathalogContainer_innerContainer_filter_root
+                .content_container_searchBlockCathalogContainer_innerContainer_filter_root_icon
+                    include ../../assets/images/homeImg.svg
+                .content_container_searchBlockCathalogContainer_innerContainer_filter_root_point
+                .content_container_searchBlockCathalogContainer_innerContainer_filter_root_title Квартиры в Минске
+                
+             .content_container_searchBlockCathalogContainer_innerContainer_filter_title Аренда квартир на сутки в Минске
+             
+             .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons
+                .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_title Рекомендуем посмотреть
+                .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList
+                    +itemList([
+                        {text: 'Недорогие'},
+                        {text: '1-комнатные'},
+                        {text: '2-комнатные'},
+                        {text: '3-комнатные'},
+                        {text: '4-комнатные'},
+                        {text: '5-комнатные'},
+                        {text: 'Заводской р.'},
+                        {text: 'Ленинский р.'},
+                        {text: 'Московский р.'},
+                        {text: 'Октябрьский р.'},
+                        {text: 'Партизанский р.'},
+                        {text: 'Первомайский р.'},
+                        {text: 'Советский р.'},
+                        {text: 'Фрунзенский р.'},
+                        {text: 'Центральный р.'},])
+
+
+
+
+

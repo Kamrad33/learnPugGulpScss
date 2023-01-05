@@ -17,7 +17,7 @@ body {
 }
 
 .content {
-  height: 3538px;
+  //height: 3538px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -30,6 +30,7 @@ body {
 
 .content_container {
   width: 1440px;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
