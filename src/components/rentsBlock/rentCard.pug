@@ -1,7 +1,7 @@
 include ../buttons/buttons.pug
 include ../content/content.pug
 
-mixin rentCard(vars = {status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},})
+mixin rentCard(vars = {status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'}, type: 'active', style: 'vertical'})
     .rentCard
         .rentCard_top
             .rentCard_top_status(class = vars.status)
@@ -38,7 +38,7 @@ mixin rentCard(vars = {status: 'Gold',photo: '../../assets/images/card_1_Img.png
             hr
         .rentCard_bottom
             .rentCard_bottom_left
-                .rentCard_bottom_left_fav(class= 'hidden')
+                .rentCard_bottom_left_fav(class= vars.type)
                     +circleBtn({cls: 'button', color: 'heart', icon: 'heart'})
                 .rentCard_bottom_left_contacts
                     +menuBtn(

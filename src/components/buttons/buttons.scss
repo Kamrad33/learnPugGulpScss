@@ -111,6 +111,7 @@ $hoverLine: 2px;
   @include centringMixin;
   @include noSelect;
   @include noStyle_Button;
+  position: relative;
   width: auto;
   max-height: 37px;
   padding: 10px 18px;
@@ -124,6 +125,7 @@ $hoverLine: 2px;
   
   text-align: center;
   word-spacing: 1.77px;
+
   &.purple {
     background: $purpleGradientRight;
     color: #fff;
@@ -146,6 +148,15 @@ $hoverLine: 2px;
       &:hover{
         background: #612bfb;
         color: #FFFFFF;
+      }
+
+      &.noGradient {
+        background: $c664EF9;
+        color: #FFFFFF;
+      
+        &:hover {
+          background: #5C35F9;
+        }
       }
       
   }
@@ -192,6 +203,10 @@ $hoverLine: 2px;
     color: black;
 
   }
+  &.selector {
+      background-color: inherit;
+  }
+
   &:active {
       background: white;
     color: black;
@@ -219,7 +234,7 @@ $hoverLine: 2px;
     div {
         &.menuContent {
             position: absolute;
-            bottom: 74px;
+            bottom: 60px;
             margin-left: -80px;
             display: none;
             z-index: 999;
@@ -230,8 +245,10 @@ $hoverLine: 2px;
         width: inherit;
         height: auto;
         position: absolute;
+        z-index: 999;
         background: #FFFFFF;
-        bottom: -16.5%;
+        //bottom: -16.5%;
+        top: 100%;
         box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.3);
         border-radius: 10px;
         display: none;
@@ -276,10 +293,7 @@ $hoverLine: 2px;
         //width: calc(185px - 32px);
         gap: 5px;
         box-shadow: 0px 10px 20px rgba(0, 96, 206, 0.1);
-        ul {   
-            height: 10%;        
-            top: 10%;
-        }
+
         &:active {
             //width: calc(185px - 36px);
             //padding: 0 16px;
@@ -292,13 +306,19 @@ $hoverLine: 2px;
 
         }
     }
+
+    &.white {
+      box-shadow: 0px 10px 20px rgba(0, 96, 206, 0.1);
+    }
+
+    
     &:active {
         background: #FFFFFF;
         //height: calc(37px - 4px);
         width: calc(150px - 20px);
         border: 2px solid rgba(102, 78, 249, 0.8);
         padding: 0 8px;
-
+        
         ul {
             margin-left: -8px;
             display: block;
@@ -306,6 +326,7 @@ $hoverLine: 2px;
         div {
             &.menuContent {
                 display: block;
+                bottom: 58px;
             }
         }
     }
@@ -551,3 +572,67 @@ $hoverLine: 2px;
     }
 }
 
+.stdCheckBox {
+  position: relative;
+  display: flex;
+  gap: 10px;
+
+  @include fontStd;
+}
+
+.customCheckbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+
+  +label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      background: #F8F8F8;
+      border: 1px solid #F0F0F0;
+      border-radius: 5px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      margin-right: 10px;
+      }
+  }
+  &:checked+label::before {
+    border-color: #664EF9;
+    background-color: #664EF9;
+    background-image: url(../images/checkImg.svg);
+  }
+
+  &:not(:disabled):not(:checked)+label:hover::before {
+    
+    background: rgba(102, 78, 249, 0.1);
+    border: 1px solid rgba(102, 78, 249, 0.1);
+    background-image: url(../images/checkImg.svg);
+
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  &:not(:disabled):active+label::before {
+    border-color: #664EF9;
+    background-color: #664EF9;
+  }
+  &:focus+label::before {
+    
+  }
+  &:focus:not(:checked)+label::before {
+    
+  }
+  &:disabled+label::before {
+    background: rgba(102, 78, 249, 0.1);
+    border: 1px solid rgba(102, 78, 249, 0.1);
+    background-image: url(../images/checkImg.svg);
+  }
+}

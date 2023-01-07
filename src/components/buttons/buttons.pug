@@ -31,14 +31,23 @@ mixin stdBtn(vars)
         style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${vars.iconPlace ? place : 'left'}`, width: vars.width, })
         case vars.cls
             when 'metro'
-                .stdButtonIcon(class = vars.iconColor style = {height: '20x', width: '20px' })
+                .stdButtonIcon(class = vars.iconColor style = {height: '20x', width: '20px'  })
                     include ../../assets/images/metroImg.svg
             when 'phone'
                 .stdButtonIcon(class = vars.iconColor style = {height: '20x', width: '20px' })
                     include ../../assets/images/cellphoneImg.svg
             when 'locBig'
                     .stdButtonIcon(class= vars.iconColor) 
-                        include ../../assets/images/locBigImg.svg 
+                        include ../../assets/images/locBigImg.svg
+            when 'sort'
+                    .stdButtonIcon(class= vars.iconColor style ={'margin-right': '10px'}) 
+                        include ../../assets/images/sortImg.svg
+            when 'lines'
+                    .stdButtonIcon(class=iconColor ) 
+                        include ../../assets/images/linesImg.svg
+            when 'cubes'
+                    .stdButtonIcon(class=iconColor ) 
+                        include ../../assets/images/cubesImg.svg    
         
         .stdBtn_innerText= vars.text
             case vars.icon
@@ -60,6 +69,7 @@ mixin stdBtn(vars)
                 when 'heart'
                     .stdButtonIcon(class=iconColor) 
                         include ../../assets/images/heartImg.svg
+
         block    
 
 //- selection menus
@@ -149,5 +159,13 @@ mixin listBtn_Group(values, type= 'light', gap= '20px')
                 each value in values
                     +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace, value.iconColor)
     
-
+mixin stdCheckBox(vars= {text:'Text', color:'grey purple', cls:'primary', id: 'text'})
+    .stdCheckBox(class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'white'}`)
+        input(
+        class=`customCheckbox ${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'grey purple'}` 
+        type= 'checkbox' 
+        placeholder= `${vars.text ? vars.text : 'Text'}` 
+        id= `${vars.id ? vars.id : ''}` 
+        style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
+        label(for= `${vars.id ? vars.id : vars.cls}`)=vars.text
 
