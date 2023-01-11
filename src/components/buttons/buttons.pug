@@ -27,6 +27,7 @@ mixin stdBtn(vars)
         else {var place = 'row'}
     
     button.stdBtn(
+        id= vars.id
         class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'grey'} ${vars.type ? vars.type : 'w4'} ${vars.buttonPlace ? vars.buttonPlace : 'standard'}` 
         style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${vars.iconPlace ? place : 'left'}`, width: vars.width, })
         case vars.cls
@@ -47,9 +48,12 @@ mixin stdBtn(vars)
                         include ../../assets/images/linesImg.svg
             when 'cubes'
                     .stdButtonIcon(class=iconColor ) 
-                        include ../../assets/images/cubesImg.svg    
+                        include ../../assets/images/cubesImg.svg  
+            when 'heart'
+                .topButtonIcon(class=iconColor) 
+                    include ../../assets/images/heartImg.svg  
         
-        .stdBtn_innerText= vars.text
+        .stdBtn_innerText(class = vars.textAlign)= vars.text
             case vars.icon
                 when 'arrowLeft'
                     .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px' })
@@ -128,6 +132,26 @@ mixin inputBtn(vars)
         id= `${vars.id ? vars.id : ''}` 
         style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
 
+mixin authInput(vars)
+    .authInput(tabindex = '0')
+        case vars.icon
+            when 'login'
+                .authInput_icon
+                    include ../../assets/images/userImg.svg
+            when 'password'
+                .authInput_icon
+                    include ../../assets/images/passwordImg.svg
+            when 'mail'
+                .authInput_icon
+                    include ../../assets/images/emailImg.svg
+
+        input(
+        class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'grey'} ${vars.type ? vars.type : 'w4'}` 
+        type= `${vars.inputType ? vars.inputType : 'text'}` 
+        placeholder= `${vars.text ? vars.text : 'Text'}` 
+        id= `${vars.id ? vars.id : ''}` 
+        style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
+
 //- circle button
 mixin circleBtn(vars)
     .circleBtn(class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'white'}`)
@@ -169,3 +193,9 @@ mixin stdCheckBox(vars= {text:'Text', color:'grey purple', cls:'primary', id: 't
         style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
         label(for= `${vars.id ? vars.id : vars.cls}`)=vars.text
 
+mixin toggleBtn(vars)
+    .toggleBtn
+        label(class = 'toggle')
+            input(type='checkbox' id: vars.id)
+            span(class = 'slider')
+        .toggleBtn_title=vars.text

@@ -19,13 +19,13 @@ include ../content/content.pug
                         +inputBtn({text: 'До', cls: 'searchCathalogMenu'})
                 hr(class = 'second')
                 .content_container_searchBlockCathalogFilterContainer_innerContainer_top_item
-                    +stdBtn({text: 'Больше опций', cls:'primary', color: 'white', type: 'w5', gap: '3.5px', icon: 'setup', iconPlace: 'right', iconColor: 'purple', width: '157px'})
+                    +stdBtn({text: 'Больше опций', cls:'primary', id: 'extraMenuButton', color: 'white', type: 'w5', gap: '3.5px', icon: 'setup', iconPlace: 'right', iconColor: 'purple', width: '157px'})
                 hr(class = 'third')
                 .content_container_searchBlockCathalogFilterContainer_innerContainer_top_right
                     +stdBtn({text: 'Очистить', cls:'primary', color: 'white', type: 'w5', gap: '3.5px', width: '100px'})
                     +stdBtn({text: 'Показать объекты', cls:'primary', color: 'purple noGradient', type: 'w5', gap: '3.5px', icon: 'arrowLeft', iconPlace: 'right', iconColor: 'white', width: '192px'})
 
-        .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra(class='hidden')
+        .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra(id= 'menuExtra' class='active')
             .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_wrapper
 
                 .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_top
@@ -45,7 +45,7 @@ include ../content/content.pug
                              +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list'},
                                 [{text: '1 район.'}, {text: '2 район.'}, {text: '3 район.'}, {text: '4 район.'}, {text: '5 район.'},])
                 
-                .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_bottom
+                .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_bottom(id= 'menuExtra')
                     .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_bottom_wrapper
                         .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_bottom_item
                             .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_bottom_item_checkbox

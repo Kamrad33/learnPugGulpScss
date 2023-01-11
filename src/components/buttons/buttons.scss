@@ -126,6 +126,35 @@ $hoverLine: 2px;
   text-align: center;
   word-spacing: 1.77px;
 
+  &.authBtn {
+    background: #FFD54F;
+    border-radius: 33px;
+    color: #1E2123;
+    width: 306px;
+    max-height: 50px;
+    height: 48px;
+    @include centringMixin;
+  }
+  
+  &.heart {
+    background: rgba(235, 87, 87, 0.1);
+    color: #EB5757;
+
+    path {
+      stroke: #EB5757;
+  }
+  &:hover {
+    path {
+      fill: rgba(235, 87, 87, 0.4);;
+  }
+
+  &:active {
+    path {
+      fill: #EB5757;
+    }
+  }
+  }
+  }
   &.purple {
     background: $purpleGradientRight;
     color: #fff;
@@ -338,6 +367,10 @@ $hoverLine: 2px;
     white-space: nowrap;
     display: flex;
     justify-content: space-between;
+
+    &.center {
+      justify-content: center;
+    }
   }
 }
 
@@ -469,6 +502,7 @@ $hoverLine: 2px;
     fill: #664ef9;
   }
 }
+
 }
 //circle button styling--------------------------------------------------------------------------
 .circleBtn {
@@ -537,6 +571,7 @@ $hoverLine: 2px;
         border-radius: 20px;
         padding-left: 14px;
         padding-right: 14px;
+
         &.searchMenu{
             width:80px;
         }
@@ -571,7 +606,83 @@ $hoverLine: 2px;
           }
     }
 }
+.authInput {
 
+    width: 306px;
+    height: 50px;
+    border-radius: 30px;
+    background: #F7F7F7;
+    display: flex;
+    align-items: center;
+
+    &_icon {
+      width: 20px;
+      height: 20px;
+      margin-left: 20px;
+      margin-right: 15px;
+      
+
+      svg {
+        width: inherit;
+        height: inherit;
+        path {
+          opacity: 0.3;
+          fill :  #686868;
+        }
+      }
+    }
+
+       input {
+        width: 100%;
+        margin-right: 20px;
+        border: red;
+        outline: none;
+        background: inherit;
+        
+        &::-webkit-input-placeholder {
+          @include fontStd(#686868, 14px, 500, 17px);
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        &:-ms-input-placeholder {
+          @include fontStd(#686868, 14px, 500, 17px);
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        &:-moz-placeholder {
+          @include fontStd(#686868, 14px, 500, 17px);
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        &::-moz-placeholder {
+          @include fontStd(#686868, 14px, 500, 17px);
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+       }       
+       
+       input:focus {
+        //background-color: red;
+       }
+
+       input:focus + .authInput_icon{
+        //background-color: red;
+       }
+    
+    &:hover{
+       background: #FFFFFF;
+       border: 2px solid rgba(78, 100, 249, 0.8);
+       height: calc(50px - 4px);
+       width: calc(306px - 4px);
+        &_icon {
+          background-color: red;
+        }
+       path {
+          opacity: 1;
+          fill: #664EF9;
+       }
+     }
+}
 .stdCheckBox {
   position: relative;
   display: flex;
@@ -634,5 +745,71 @@ $hoverLine: 2px;
     background: rgba(102, 78, 249, 0.1);
     border: 1px solid rgba(102, 78, 249, 0.1);
     background-image: url(../images/checkImg.svg);
+  }
+}
+
+.toggleBtn {
+  display: flex;
+  gap: 8px;
+
+  label {
+
+    &.toggle {
+      width: 34px;
+      height: 20px;
+      border-radius: 100px;
+      display: inline-block;
+      justify-content: center;
+      align-self: center;
+      background: #BDBDBD;
+      position: relative;
+    //transform: translateY(50%);
+    }
+    
+    input {
+      display: none;
+    }
+    span {
+      &.slider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        overflow: hidden;
+        transition: 0.2s;
+        border-radius: 100px;
+        
+        &:before {
+          position: absolute;
+          
+          content: "";
+          margin: 3px;
+          width: 14px;
+          height: 14px;
+          background: #FFFFFF;
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+          border-radius: 30px;
+          transition: 0.2s;
+        }
+      }
+    }
+
+    input:checked {
+      +.slider:before {
+      transform: translateX(15px);
+    }
+    +.slider {
+      background-color:  #664EF9
+    }
+  }
+}
+
+
+  &_title {
+    @include fontStd(#686868, 14px, 400, 20px);
   }
 }

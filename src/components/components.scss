@@ -433,6 +433,18 @@
     align-items: center;
     position: relative;
     z-index: 5;
+
+    &.horizontal {
+        flex-direction: row;
+        align-items: flex-start;
+        height: 300px;
+        width: 1280px;
+
+        hr {
+            display: none;
+        }
+    }
+
     &_top {
         width: 100%;
         height: 226px;
@@ -440,6 +452,11 @@
         border-radius: 10px;
         display: flex;
         justify-content: center;
+
+        &.horizontal {
+            height: 100%;
+            width: 538px;
+        }
         &_status {
             @include fontStd(white, 18x, 700, 22px);
             text-shadow: 0px 1px 0px rgba(147, 79, 0, 0.3);
@@ -456,24 +473,67 @@
             position: absolute;
             left: 340px;
             z-index: 10;
+
+            &.horizontal { 
+                left: 472px;              
+            
+            }
         }
 
         &_photo {
             width: auto;
             height: 100%;
+
+            &.horizontal {               
+                img {
+                    width: auto;
+                    height: 100%;
+                }
+            }
         }
 
+    }
+    &_wrapper {
+
+        &.horizontal {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 300px;
+            width: 742px;
+        }
     }
     &_info {
         margin-top: 21px;
         margin-left: 19px;
         margin-right: 20px;
-        margin-bottom: 12px;
-        
+        margin-bottom: 12px;        
+
+        &.horizontal {
+            margin: 0 25px;
+            margin-top: 19px;
+            margin-bottom: 25px;
+        }
+
         &_rooms {
             display: flex;
             justify-content: space-between;
             margin-bottom: 26px;
+
+            &.horizontal {
+                margin-bottom: 0px;
+            }
+
+            &_name {
+                @include fontStd(#1E2123, 20px, 700, 100%);
+                
+                &.horizontal {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 17px;
+                }
+            }
+
             &_price {
                 display: flex;
                 flex-direction: column;
@@ -485,11 +545,21 @@
                         @include fontStd(#BDBDBD, 14px, 400, 17px);
                     }
                 }
+
+                &.horizontal {
+                    align-items: flex-end
+                }
             }
             &_buttons {
                 @include fontStd(#686868, 14px, 500, 17px);
                 display: flex;
                 gap: 7.5px;
+
+                &.horizontal {
+                    height: 37px;
+                    gap: 15px;
+                    margin-bottom: 14px;
+                }
 
                 &_item {
 
@@ -513,6 +583,7 @@
             gap: 11px;
 
             margin-bottom: 20px;
+
             &_location {
                 span {
                     display: inline-block;
@@ -542,6 +613,11 @@
       
         &_description {
             @include fontStd(#8291A3, 12px, 400, 15px);
+
+            &.horizontal {
+                font-size: 14px;
+                line-height: 150%;
+            }
         }
     }
     &_line{
@@ -571,6 +647,10 @@
         justify-content: space-between;
         align-items: center;
         
+        &.horizontal {
+            //margin: 0;
+            height: auto;
+        }
         &_left {
             display: flex;
             justify-content: space-between;
@@ -1055,6 +1135,9 @@
         }
 
         &_menuExtra {
+            &.active {
+                display: block;
+            }
             &.hidden {
                 display: none;
             }
@@ -1168,22 +1251,30 @@
 
         &_left {
             &_pages {
-                display: flex;
-                gap: 4.5;
                 
-                &_item {
-                    width: 22px;
-                    height: 22px;
-                    @include centringMixin;
-                    @include noSelect;
-                    @include fontStd(#686868, 18px, 400, 22px);
-
-                    &:active {
-                        @include fontStd(black, 18px, 700, 22px);
-                    margin-bottom: -2px;
-                    border-bottom: 2px solid #FFD54F;
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    gap: 4.5px;
+                    li {
+                        margin: 0;
+                        padding: 0;
+                        width: 22px;
+                        height: 22px;
+                        @include centringMixin;
+                        @include noSelect;
+                        @include fontStd(#686868, 18px, 400, 22px);
+    
+                        &:active {
+                            @include fontStd(black, 18px, 700, 22px);
+                        margin-bottom: -2px;
+                        border-bottom: 2px solid #FFD54F;
+                    }
                 }
-            }
+
+                }
+                
             }
         }
         &_right {
