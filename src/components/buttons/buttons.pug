@@ -133,7 +133,7 @@ mixin inputBtn(vars)
         style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
 
 mixin authInput(vars)
-    .authInput(tabindex = '0')
+    .authInput(class=vars.cls tabindex = '0')
         case vars.icon
             when 'login'
                 .authInput_icon
@@ -151,6 +151,8 @@ mixin authInput(vars)
         placeholder= `${vars.text ? vars.text : 'Text'}` 
         id= `${vars.id ? vars.id : ''}` 
         style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
+        .authInput_alert
+                    include ../../assets/images/alertImg.svg
 
 //- circle button
 mixin circleBtn(vars)

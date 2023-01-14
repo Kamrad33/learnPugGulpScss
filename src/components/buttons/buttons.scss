@@ -134,6 +134,10 @@ $hoverLine: 2px;
     max-height: 50px;
     height: 48px;
     @include centringMixin;
+
+    &:hover {
+      background: #FEC100;
+    }
   }
   
   &.heart {
@@ -615,6 +619,12 @@ $hoverLine: 2px;
     display: flex;
     align-items: center;
 
+    &.wrong {
+      border: 1px solid #EB5757;
+       height: calc(50px - 2px);
+       width: calc(306px - 2px);
+    }
+    //border: 1px solid #EB5757;
     &_icon {
       width: 20px;
       height: 20px;
@@ -632,12 +642,43 @@ $hoverLine: 2px;
       }
     }
 
+    &_alert {
+      width: 20px;
+      height: 20px;
+      margin-left: 20px;
+      margin-right: 15px;
+      display: none;
+
+      &.wrong {
+        display: block;
+      }
+      svg {
+        width: inherit;
+        height: inherit;
+        path {   
+          fill :  #EB5757;
+        }
+      }
+    }
+
        input {
         width: 100%;
         margin-right: 20px;
+        padding: 0;
         border: red;
         outline: none;
         background: inherit;
+        @include fontStd(black, 14, 500, 17px);
+
+        &#password {
+          -webkit-text-security: disc;
+          font-weight: 500;
+          font-size: 25px;
+          line-height: 25px
+        }
+        &.wrong {
+          
+        }
         
         &::-webkit-input-placeholder {
           @include fontStd(#686868, 14px, 500, 17px);
@@ -674,9 +715,7 @@ $hoverLine: 2px;
        border: 2px solid rgba(78, 100, 249, 0.8);
        height: calc(50px - 4px);
        width: calc(306px - 4px);
-        &_icon {
-          background-color: red;
-        }
+       
        path {
           opacity: 1;
           fill: #664EF9;
