@@ -134,10 +134,29 @@ $hoverLine: 2px;
     max-height: 50px;
     height: 48px;
     @include centringMixin;
+    font-size: 16px;
+    line-height: 24px;
 
     &:hover {
       background: #FEC100;
     }
+
+  }
+
+  &.formBtn {
+    background: #664EF9 ;
+    border-radius: 33px;
+    color: white;
+    width: 306px;
+    max-height: 50px;
+    height: 48px;
+    @include centringMixin;
+    font-size: 16px;
+    line-height: 24px;
+
+    &:hover {
+      background: #5C35F9;
+    } 
   }
   
   &.heart {
@@ -619,6 +638,12 @@ $hoverLine: 2px;
     display: flex;
     align-items: center;
 
+    &.contactForm {
+      width: 260px;
+      &:hover {
+        width: calc(260px - 4px);
+      }
+    }
     &.wrong {
       border: 1px solid #EB5757;
        height: calc(50px - 2px);
@@ -721,6 +746,28 @@ $hoverLine: 2px;
           fill: #664EF9;
        }
      }
+}
+
+.stdTextArea {
+
+  &.contacts {
+    width: 548px;
+    height: 200px;
+    border-radius: 30px;
+    background-color: #F8F8F8;
+  }
+
+  textarea {
+    width: calc(100% - 40px);
+    height: calc(100% - 30px);
+    outline: none;
+    border: none;
+    resize: none;
+    padding: 0;
+    background-color: inherit;
+    margin: 15px 20px;
+    @include fontStd(#686868, 14px, 500, 17px);
+  }
 }
 .stdCheckBox {
   position: relative;

@@ -150,10 +150,13 @@ mixin authInput(vars)
         type= `${vars.inputType ? vars.inputType : 'text'}` 
         placeholder= `${vars.text ? vars.text : 'Text'}` 
         id= `${vars.id ? vars.id : ''}` 
-        style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
+        style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'}`})
         .authInput_alert
                     include ../../assets/images/alertImg.svg
 
+mixin stdTextArea(vars)
+    .stdTextArea(class=vars.cls)
+        textarea(name=vars.name placeholder = vars.placeholder)  
 //- circle button
 mixin circleBtn(vars)
     .circleBtn(class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'white'}`)
