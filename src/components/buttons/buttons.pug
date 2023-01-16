@@ -51,7 +51,10 @@ mixin stdBtn(vars)
                         include ../../assets/images/cubesImg.svg  
             when 'heart'
                 .topButtonIcon(class=iconColor) 
-                    include ../../assets/images/heartImg.svg  
+                    include ../../assets/images/heartImg.svg
+            when 'home'
+                .topButtonIcon(class=iconColor) 
+                    include ../../assets/images/homeImg.svg   
         
         .stdBtn_innerText(class = vars.textAlign)= vars.text
             case vars.icon

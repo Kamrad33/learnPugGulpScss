@@ -528,3 +528,61 @@ body {
     }
   }
 }
+
+.notfound {
+  display: flex;
+  justify-content: center;
+
+  &_content { 
+    width: 1440px;
+    height: 599px;
+    position: relative;
+    z-index: 10;
+    //@include centringMixin;
+
+    &_background {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-image: url(../images/backgroundImg.png), linear-gradient(1.09deg, #7E6AF3 0.86%, #6540CD 99.01%);
+      mix-blend-mode: overlay;
+      
+      filter: blur(2.5px);     
+    }
+
+    &_innerContainer {
+      position: relative;
+      top: 0;
+      display: flex;
+        margin-top: 175px;
+        margin-bottom: 185px;
+        margin-left: 189px;
+
+      &_info {
+        
+        display: flex;
+        gap: 37px;
+        justify-content: baseline;
+        
+        
+        &_left {
+
+          &_title {
+            @include fontStd(#FFFFFF, 60px, 700, 73px);
+            text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+            margin-bottom: 20px;
+          }
+          &_description {
+            width: 427px;
+            @include fontStd(#FFFFFF, 20px, 500, 24px);
+            margin-bottom: 50px;
+          }
+        }
+
+        &_code {
+
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+extends ../layouts/default
+block variables
+  title Каталог
+
+block content
+  include ../../components/buttons/buttons.pug
+  include ../../components/content/content.pug
+  include ../../components/spaceContainer.pug
+  
+  .notfound
+    +spaceContainer('error1', 'yellow')
+    +spaceContainer('error2', 'white')
+    .notfound_content
+        .notfound_content_background
+        
+        .notfound_content_innerContainer
+            
+            .notfound_content_innerContainer_info
+            
+            
+                .notfound_content_innerContainer_info_left
+                    .notfound_content_innerContainer_info_left_title Ошибка 404
+                    .notfound_content_innerContainer_info_left_description Возможно, у вас опечатка в адресе страницы, или её просто не существует
+                    .notfound_content_innerContainer_info_left_button
+                        +stdBtn({text: 'Вернуться на главную', cls: 'home', color: 'authBtn', textAlign: 'center', width: '249px'})
+                .notfound_content_innerContainer_info_code
+                    include ../../assets/images/404.svg
+    
+        
+        
