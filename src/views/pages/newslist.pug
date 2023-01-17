@@ -1,0 +1,52 @@
+extends ../layouts/default
+block variables
+  title Список новостей
+
+block content
+  include ../../components/buttons/buttons.pug
+  include ../../components/content/content.pug
+  include ../../components/spaceContainer.pug
+  include ../../components/newsCard/newsCard.pug
+  .newslist
+    .newslist_content
+        .newslist_content_innerContainer
+            .newslist_content_innerContainer_top
+                .newslist_content_innerContainer_top_left
+                    .newslist_content_innerContainer_top_left_breadcrumbs
+                        .newslist_content_innerContainer_top_left_breadcrumbs_icon
+                            include ../../assets/images/homeImg.svg
+                        .newslist_content_innerContainer_top_left_breadcrumbs_point
+                        .newslist_content_innerContainer_top_left_breadcrumbs_title Новости       
+                    .newslist_content_innerContainer_top_left_title 
+                        h1 Новости
+                .newslist_content_innerContainer_top_search
+                    +searchInput({cls: 'search', color: 'purple', text: 'Поиск по статьям'})   
+            .newslist_content_innerContainer_background
+            .newslist_content_innerContainer_newsCards
+                +newsCardList([
+                    {photo: '../../assets/images/card_1_Img.png', date: '14 Января 2008',  title: 'Линия Сталина: суровый отдых в усадьбах на сутки', description: 'Чем заняться в выходные? Когда нет безотлагательных домашних дел, а на улице хорошая погода, хочется уехать из города, чтобы сменить обстановку. Например, снять коттедж на сутки для семьи или большой компании друзей. А...'},
+                    {photo: '../../assets/images/card_1_Img.png', date: '14 Января 2008',  title: 'Линия Сталина: суровый отдых в усадьбах на сутки', description: 'Чем заняться в выходные? Когда нет безотлагательных домашних дел, а на улице хорошая погода, хочется уехать из города, чтобы сменить обстановку. Например, снять коттедж на сутки для семьи или большой компании друзей. А...'},
+                    {photo: '../../assets/images/card_1_Img.png', date: '14 Января 2008',  title: 'Линия Сталина: суровый отдых в усадьбах на сутки', description: 'Чем заняться в выходные? Когда нет безотлагательных домашних дел, а на улице хорошая погода, хочется уехать из города, чтобы сменить обстановку. Например, снять коттедж на сутки для семьи или большой компании друзей. А...'},
+                    {photo: '../../assets/images/card_1_Img.png', date: '14 Января 2008',  title: 'Линия Сталина: суровый отдых в усадьбах на сутки', description: 'Чем заняться в выходные? Когда нет безотлагательных домашних дел, а на улице хорошая погода, хочется уехать из города, чтобы сменить обстановку. Например, снять коттедж на сутки для семьи или большой компании друзей. А...'},
+                    {photo: '../../assets/images/card_1_Img.png', date: '14 Января 2008',  title: 'Линия Сталина: суровый отдых в усадьбах на сутки', description: 'Чем заняться в выходные? Когда нет безотлагательных домашних дел, а на улице хорошая погода, хочется уехать из города, чтобы сменить обстановку. Например, снять коттедж на сутки для семьи или большой компании друзей. А...'},
+                    {photo: '../../assets/images/card_1_Img.png', date: '14 Января 2008',  title: 'Линия Сталина: суровый отдых в усадьбах на сутки', description: 'Чем заняться в выходные? Когда нет безотлагательных домашних дел, а на улице хорошая погода, хочется уехать из города, чтобы сменить обстановку. Например, снять коттедж на сутки для семьи или большой компании друзей. А...'},
+                    {photo: '../../assets/images/card_1_Img.png', date: '14 Января 2008',  title: 'Линия Сталина: суровый отдых в усадьбах на сутки', description: 'Чем заняться в выходные? Когда нет безотлагательных домашних дел, а на улице хорошая погода, хочется уехать из города, чтобы сменить обстановку. Например, снять коттедж на сутки для семьи или большой компании друзей. А...'},
+                    {photo: '../../assets/images/card_1_Img.png', date: '14 Января 2008',  title: 'Линия Сталина: суровый отдых в усадьбах на сутки', description: 'Чем заняться в выходные? Когда нет безотлагательных домашних дел, а на улице хорошая погода, хочется уехать из города, чтобы сменить обстановку. Например, снять коттедж на сутки для семьи или большой компании друзей. А...'},
+                    {photo: '../../assets/images/card_1_Img.png', date: '14 Января 2008',  title: 'Линия Сталина: суровый отдых в усадьбах на сутки', description: 'Чем заняться в выходные? Когда нет безотлагательных домашних дел, а на улице хорошая погода, хочется уехать из города, чтобы сменить обстановку. Например, снять коттедж на сутки для семьи или большой компании друзей. А...'},
+                ])
+                
+
+            .newslist_content_innerContainer_pagination
+                ul(id='paginaton')
+                    li 1
+                    li 2
+                    li 3
+                    li 4
+                    li 5
+                    li 6
+                    li 7
+                    li='...'
+                    li 11
+    
+        
+        

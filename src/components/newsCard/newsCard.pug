@@ -1,0 +1,24 @@
+include ../buttons/buttons.pug
+include ../content/content.pug
+
+mixin newsCard(vars= {photo: '../../assets/images/card_1_Img.png', date: '14 Января 2008',  title: 'Линия Сталина: суровый отдых в усадьбах на сутки', description: 'Чем заняться в выходные? Когда нет безотлагательных домашних дел, а на улице хорошая погода, хочется уехать из города, чтобы сменить обстановку. Например, снять коттедж на сутки для семьи или большой компании друзей. А...'})
+    .newsCard
+        .newsCard_top
+            .newsCard_top_photo
+                img(src=`${vars.photo}`)
+        .newsCard_middle
+            .newsCard_middle_title
+                span= vars.title
+            .newsCard_middle_description
+                span= vars.description
+            hr
+        .newsCard_bottom
+            .newsCard_bottom_date
+                span= vars.date
+            .newsCard_bottom_button
+                +stdBtn({text: 'Читать', cls:'primary', color: 'purple light', type: 'w7', })
+
+mixin newsCardList(varsObject)
+    each elm in varsObject
+        .newslist_content_innerContainer_newsCards_card
+            +newsCard(elm)                     

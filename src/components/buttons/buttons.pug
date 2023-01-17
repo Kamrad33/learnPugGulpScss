@@ -157,6 +157,20 @@ mixin authInput(vars)
         .authInput_alert
                     include ../../assets/images/alertImg.svg
 
+mixin searchInput(vars)
+    .searchInput(class = vars.cls)
+        input(
+        class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'grey'} ${vars.type ? vars.type : 'w4'}` 
+        type= `${vars.inputType ? vars.inputType : 'text'}` 
+        placeholder= `${vars.text ? vars.text : 'Text'}` 
+        id= `${vars.id ? vars.id : ''}` 
+        style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'}`})
+
+        .searchInput_button
+            button(class = vars.color)
+                include ../../assets/images/searchImg.svg
+
+
 mixin stdTextArea(vars)
     .stdTextArea(class=vars.cls)
         textarea(name=vars.name placeholder = vars.placeholder)  
