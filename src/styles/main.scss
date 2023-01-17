@@ -694,3 +694,169 @@ body {
     }
   }
 }
+
+.news {
+
+    position: relative;
+    @include centringMixin;
+
+    &_content {
+      width: 1440px;
+      position: relative;
+  
+      &_innerContainer {
+        
+
+        display: flex;
+        flex-direction: column;
+
+        &_backgroundTop {
+            position: absolute;
+            top: 0;
+            background: linear-gradient(90deg, #94AFFF 0%, #4E64F9 94.5%);
+            opacity: 0.1;
+            width: 1440px;
+            height: 280px;
+        }
+        &_backgroundBottom {
+          position: absolute;
+          bottom: 0;
+          background: linear-gradient(90deg, #94AFFF 0%, #4E64F9 94.5%);
+          opacity: 0.1;
+          width: 1440px;
+          height: 737px;
+      }
+
+        &_main {
+          margin-top: 60px;
+          margin-left: calc(298px);
+          margin-right: calc(298px);
+          position: relative;
+          &_top {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 30px;
+    
+              &_breadcrumbs {
+                
+                display: flex;
+                gap: 7px;
+                align-items: center;
+                margin-bottom: 25px;
+        
+                &_icon {
+        
+                }
+  
+                &_point {
+                  width: 3px;
+                  height: 3px;
+                  background: #664EF9;
+                  border-radius: 50%;
+                }
+                &_title {
+                  @include fontStd(#686868, 14px, 400, 100%);
+                }
+              }
+
+              &_title {
+                h1 {
+                  font-size: 100%;
+                  margin: 0;
+                }
+                  @include fontStd(#1E2123, 30px, 700, 100%);
+              }
+
+              &_bottom {
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &_date {
+                  width: 141px;
+                  height: 37px;
+                  background: rgba(102, 78, 249, 0.1);
+                  border-radius: 18px;
+                  @include fontStd(#664EF9, 14px, 500, 17px);
+                  @include centringMixin;
+                }
+                &_icons {
+                  display: flex;
+                  align-items: center;
+                  gap: 20px;
+
+                  span {
+                    @include fontStd(#1E2123, 14px, 400, 17px);
+                  }
+
+                  &_item {
+                    background: rgba(102, 78, 249, 0.1);
+                    border-radius: 19px;
+                    width: 34.15px;
+                    height: 34.15px;
+                    @include centringMixin;
+                    svg {
+                      width: 50%;
+                      height: 50%;
+                      
+                      path {                 
+                        fill :  #664EF9;
+                      }
+                    }
+
+                  }
+                }
+              }
+          }
+
+          &_newsData {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            z-index: 10;
+            &_photo {
+              margin: 40px 0;
+              width: 844px;
+              height: 563.24px;
+              background-color: red;
+              filter: drop-shadow(0px 20px 40px rgba(39, 95, 158, 0.1));
+              border-radius: 10px;
+            }
+            &_text {
+              p {
+                @include fontStd(#1E2123, 16px, 400, 150%);
+                margin: 25px 0;
+              }
+            }
+          }
+        }
+        &_newsList {
+
+          margin-left: 80px;
+          margin-right: 80px;
+          margin-top: calc(127px - 25px);
+          margin-bottom: 100px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          &_title {
+            @include fontStd(#1E2123, 25px, 700, 30px);
+            margin-bottom: 45px;
+          }
+          &_wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+          }
+        }
+      }
+  }
+}
