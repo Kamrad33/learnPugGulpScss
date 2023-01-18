@@ -1,13 +1,15 @@
 include ../../views/helpers/mixins.pug
 
 //- header button
-mixin listBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', gap='5px', iconPlace='left', iconColor= 'grey')
+mixin listBtn(text= 'Button', cls='primary', color= 'grey', icon, type= 'w4', gap='5px', iconPlace='left', iconColor= 'grey', id= '', link='')
     -
         if (iconPlace == 'left')
         {var place = 'row-reverse'} 
         else {var place = 'row'}
 
-    .listBtn(class=`${cls} ${color} ${type}` style={gap: gap, 'flex-direction': place})= text
+    .listBtn(class=`${cls} ${color} ${type}` style={gap: gap, 'flex-direction': place} id=id)
+        a(href= link)
+            span= text
         case icon
             when 'loc'
                 .topButtonIcon(class=iconColor) 
@@ -195,15 +197,16 @@ mixin listBtn_Group(values, type= 'light', gap= '20px')
         when 'left_Top'
             .listBtn_Group_Left_Top(role='group' style{gap: gap})
                 each value in values
-                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace, value.iconColor)
+                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace, value.iconColor, value.id, value.link)
         when 'right_Top'
             .listBtn_Group_Right_Top(role='group')
                 each value in values
-                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace, value.iconColor)
+                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace, value.iconColor, value.id, value.link)
         when 'middle_Bottom'
             .listBtn_Group_Middle_Bottom(role= 'group')
                 each value in values
-                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace, value.iconColor)
+                    +listBtn(value.text, value.cls, value.color, value.icon, value.type, value.gap, value.iconPlace, value.iconColor, value.id, value.link)
+    block
     
 mixin stdCheckBox(vars= {text:'Text', color:'grey purple', cls:'primary', id: 'text'})
     .stdCheckBox(class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'white'}`)

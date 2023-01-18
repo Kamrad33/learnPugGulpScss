@@ -5,85 +5,86 @@ block variables
 block content
   include ../../components/buttons/buttons.pug
   include ../../components/content/content.pug
-  .contact
-    .contact_alert
-        .contact_alert_content
-            .contact_alert_content_wrapper
-                .contact_alert_content_wrapper_title Ваше письмо <br> отправлено!
-                .contact_alert_content_wrapper_description Какое-то сообщение о том, что письмо отправлено, какое-то сообщение, что письмо отправлено.
-                .contact_alert_content_wrapper_button
-                    +stdBtn({text: 'Закрыть окно', cls: 'primary', color: 'authBtn ', textAlign: 'center',width: '161px'})
-    .contact_content
-        .contact_content_background
-        .contact_content_innerContainer
-            .contact_content_innerContainer_info
+  .content(id= 'contactsPage')
+    .contact
+        .contact_alert
+            .contact_alert_content
+                .contact_alert_content_wrapper
+                    .contact_alert_content_wrapper_title Ваше письмо <br> отправлено!
+                    .contact_alert_content_wrapper_description Какое-то сообщение о том, что письмо отправлено, какое-то сообщение, что письмо отправлено.
+                    .contact_alert_content_wrapper_button
+                        +stdBtn({text: 'Закрыть окно', cls: 'primary', color: 'authBtn ', textAlign: 'center',width: '161px'})
+        .contact_content
+            .contact_content_background
+            .contact_content_innerContainer
+                .contact_content_innerContainer_info
 
-                .contact_content_innerContainer_info_title Контакты
-                .contact_content_innerContainer_info_description Если у Вас есть пожелания, предложения или претензии по организации работы сайта мы всегда рады услышать Ваше мнение.
-                
-                .contact_content_innerContainer_info_group
+                    .contact_content_innerContainer_info_title Контакты
+                    .contact_content_innerContainer_info_description Если у Вас есть пожелания, предложения или претензии по организации работы сайта мы всегда рады услышать Ваше мнение.
                     
-                    .contact_content_innerContainer_info_group_item
-                        .contact_content_innerContainer_info_group_item_icon
-                            include ../../assets/images/locImg.svg
-                        .contact_content_innerContainer_info_group_item_text 
-                            span(class= 'bold') 220068, РБ, г. Минск, ул. Осипенко, 21, кв.23
-                            
-                    .contact_content_innerContainer_info_group_item
-                        .contact_content_innerContainer_info_group_item_icon
-                            include ../../assets/images/cellphoneImg.svg
-                        .contact_content_innerContainer_info_group_item_text
-                            span(class= 'bold') +375 29 621-48-33
-                        .contact_content_innerContainer_info_group_item_socials
+                    .contact_content_innerContainer_info_group
+                        
+                        .contact_content_innerContainer_info_group_item
                             .contact_content_innerContainer_info_group_item_icon
-                                include ../../assets/images/viberImg.svg
+                                include ../../assets/images/locImg.svg
+                            .contact_content_innerContainer_info_group_item_text 
+                                span(class= 'bold') 220068, РБ, г. Минск, ул. Осипенко, 21, кв.23
+                                
+                        .contact_content_innerContainer_info_group_item
                             .contact_content_innerContainer_info_group_item_icon
-                                include ../../assets/images/tgSmallImg.svg
+                                include ../../assets/images/cellphoneImg.svg
+                            .contact_content_innerContainer_info_group_item_text
+                                span(class= 'bold') +375 29 621-48-33
+                            .contact_content_innerContainer_info_group_item_socials
+                                .contact_content_innerContainer_info_group_item_icon
+                                    include ../../assets/images/viberImg.svg
+                                .contact_content_innerContainer_info_group_item_icon
+                                    include ../../assets/images/tgSmallImg.svg
+                                .contact_content_innerContainer_info_group_item_icon
+                                    include ../../assets/images/whatsappImg.svg
+
+                        .contact_content_innerContainer_info_group_item
                             .contact_content_innerContainer_info_group_item_icon
-                                include ../../assets/images/whatsappImg.svg
+                                include ../../assets/images/emailImg.svg
+                            .contact_content_innerContainer_info_group_item_text
+                                span(class= 'line') sdaem@sdaem.by
 
-                    .contact_content_innerContainer_info_group_item
-                        .contact_content_innerContainer_info_group_item_icon
-                            include ../../assets/images/emailImg.svg
-                        .contact_content_innerContainer_info_group_item_text
-                            span(class= 'line') sdaem@sdaem.by
+                        .contact_content_innerContainer_info_group_item
+                            .contact_content_innerContainer_info_group_item_icon
+                                include ../../assets/images/clockImg.svg
+                            .contact_content_innerContainer_info_group_item_text
+                                span(class= 'std') Режим работы: 
+                                span(class= 'bold') 08:00-22:00
 
-                    .contact_content_innerContainer_info_group_item
-                        .contact_content_innerContainer_info_group_item_icon
-                            include ../../assets/images/clockImg.svg
-                        .contact_content_innerContainer_info_group_item_text
-                            span(class= 'std') Режим работы: 
-                            span(class= 'bold') 08:00-22:00
+                    .contact_content_innerContainer_info_owner
+                        span ИП Шушкевич Андрей Викторович
+                        br
+                        span УНП 192602485 Минским горисполкомом 10.02.2016
 
-                .contact_content_innerContainer_info_owner
-                    span ИП Шушкевич Андрей Викторович
-                    br
-                    span УНП 192602485 Минским горисполкомом 10.02.2016
+                    .contact_content_innerContainer_info_alert
+                        .contact_content_innerContainer_info_alert_icon
+                            include ../../assets/images/alertImg.svg
+                        .contact_content_innerContainer_info_alert_text Администрация сайта не владеет информацией <br> о наличии свободных квартир 
 
-                .contact_content_innerContainer_info_alert
-                    .contact_content_innerContainer_info_alert_icon
-                        include ../../assets/images/alertImg.svg
-                    .contact_content_innerContainer_info_alert_text Администрация сайта не владеет информацией <br> о наличии свободных квартир 
+                .contact_content_innerContainer_form
+                    .contact_content_innerContainer_form_wrapper
+                        .contact_content_innerContainer_form_top
+                            .contact_content_innerContainer_form_input
+                                span Ваше имя
+                                +authInput({text: 'Введите', cls: 'authForm contactForm', id: 'name', icon: 'login'})
+                            .contact_content_innerContainer_form_input
+                                span Ваша электронная почта
+                                +authInput({text: 'Введите', cls: 'authForm contactForm', id: 'mail', icon: 'mail'})
+                        .contact_content_innerContainer_form_textArea
+                            .contact_content_innerContainer_form_input
+                                span Ваше сообщение
+                                +stdTextArea({cls: 'contacts', name: 'message', placeholder: 'Сообщение'})
+                        .contact_content_innerContainer_form_button
+                            +stdBtn({text: 'Отправить', cls: 'primary', color: 'formBtn', textAlign: 'center', width: '200px'})
 
-            .contact_content_innerContainer_form
-                .contact_content_innerContainer_form_wrapper
-                    .contact_content_innerContainer_form_top
-                        .contact_content_innerContainer_form_input
-                            span Ваше имя
-                            +authInput({text: 'Введите', cls: 'authForm contactForm', id: 'name', icon: 'login'})
-                        .contact_content_innerContainer_form_input
-                            span Ваша электронная почта
-                            +authInput({text: 'Введите', cls: 'authForm contactForm', id: 'mail', icon: 'mail'})
-                    .contact_content_innerContainer_form_textArea
-                        .contact_content_innerContainer_form_input
-                            span Ваше сообщение
-                            +stdTextArea({cls: 'contacts', name: 'message', placeholder: 'Сообщение'})
-                    .contact_content_innerContainer_form_button
-                        +stdBtn({text: 'Отправить', cls: 'primary', color: 'formBtn', textAlign: 'center', width: '200px'})
-
-            .contact_content_innerContainer_social
-                .contact_content_innerContainer_social_icon
-                .contact_content_innerContainer_social_icon
-                .contact_content_innerContainer_social_icon
+                .contact_content_innerContainer_social
+                    .contact_content_innerContainer_social_icon
+                    .contact_content_innerContainer_social_icon
+                    .contact_content_innerContainer_social_icon
         
         

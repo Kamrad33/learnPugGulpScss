@@ -184,7 +184,10 @@ body {
             gap: 15px;
             margin-bottom: 20px;
             display: none;
-
+            
+            &.fine {
+              display: none;
+            }
             &.wrong {
               display: block;
               @include centringMixin;

@@ -5,6 +5,11 @@ $activeLine: 3px;
 $hoverLine: 2px;
 
 .listBtn {
+
+  //margin: 0;
+  //border: none;
+  //background: none;
+
   height: 100%;
   font-family: Inter;
   font-style: normal;
@@ -17,6 +22,7 @@ $hoverLine: 2px;
   white-space: nowrap;
   @include noSelect;
 
+ 
   &.w4 {
     font-weight: 400;
   }
@@ -48,9 +54,35 @@ $hoverLine: 2px;
   
   &:active {
     height: calc(100% - $activeLine * 2);
+    
     color: $black;
     border-bottom: 3px solid #ffd54f;
     margin-top: $activeLine;
+    svg {
+      path {
+        fill:$black; 
+      }
+    }
+  }
+  &.-selected {
+    height: calc(100% - $activeLine * 2);
+    color: $black;
+    border-bottom: 3px solid #ffd54f;
+    margin-top: $activeLine;
+    svg {
+      path {
+        fill:$black; 
+      }
+    }
+  }
+  &.hidden {
+    display: none;
+  }
+  a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
   }
 }
 
@@ -71,6 +103,7 @@ $hoverLine: 2px;
   justify-content: flex-end;
   gap: 40px;
   align-items: center;
+
 }
 
 .listBtn_Group_Middle_Bottom {

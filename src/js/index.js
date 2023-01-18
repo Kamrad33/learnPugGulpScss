@@ -54,3 +54,10 @@ for (let item of items) {
         }
     });
 }
+
+//validation ----------------
+let alertState = document.getElementById('alert');
+let loginInput = document.getElementById('login');
+let mailInput = document.getElementById('mail');
+let passwordInput = document.getElementById('password');
+let passwordCheckInput = document.getElementById('passwordCheck');

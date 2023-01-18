@@ -11,81 +11,164 @@ header {
 
 .header_Top {
   background-color: $F8F8F8;
-}
 
-.header_Top_Container {
-  margin-left: 80px;
-  margin-right: 80px;
-  width: auto;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-}
+  &_wrapper {
+    display: flex;
+    align-items: center;
+  }
 
-.header_Top_leftButtons {
-  width: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
-  gap: 57px;
-}
+  &_user {
+    position: relative;
+    display: none;
+    align-items: center;
+    margin-left: 47px;
 
-.header_Top_leftButtons_Button {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  gap: 5px;
-}
+    &.visible {
+      display: flex;
+    }
+    &.hidden {
+      display: none;
+    }
+    
+    &_icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #8291A3;
+      margin: 0 10px;
+    }
 
-.header_Top_leftButtons_Button.grey {
-  color: #8291a3;
-}
+    &_name {
+      @include fontStd(#1E2123, 14px, 500, 17px);
+      margin-right: 14.5px;
+    }
 
-.header_Top_rightButtons {
-  width: auto;
-  display: flex;
-  justify-content: flex-end;
-  gap: 40px;
-  align-items: center;
-}
+    &_menu {
 
-.header_Top_rightButtons_Button {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 11px;
-}
+      position: absolute;
+      top: 40px;
+      z-index: 500;
+      background: #FFFFFF;
+      box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.3);
+      border-radius: 10px;
+      //display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+      
 
-.header_Top_rightButtons_Button.grey {
-  color: #8291a3;
-}
+      &.active {
+        display: flex;
+      }
+      &.hidden {
+        display: none;
+      }
+      &_name {
+        @include fontStd(#1E2123, 14px, 500, 17px);
+      }
+      &_phone {
+        @include fontStd(#1E2123, 14px, 500, 17px);
+      }
+      &_email {
+        @include fontStd(#1E2123, 14px, 500, 17px);
+      }
+      &_buttons {
+        display: flex;
+        gap: 10px;
+        button {
+          margin: 0;
+          padding: 0;
+          border: none;
+          background-color: inherit;
+          @include fontStd(#1E2123, 14px, 500, 17px);
+          &#edit {
+            color: #EB5757;
+          }
+          &#exit {
+            color: #664EF9;
+          }
+        }
+      }
+    }
+  }
 
-.header_Top_rightButtons_Button.purple {
-  color: $c664EF9;
+  &_Container {
+    margin-left: 80px;
+    margin-right: 80px;
+    width: auto;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  &_leftButtons {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 57px;
+  
+    &_Button {
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      gap: 5px;
+    
+      &.grey {
+        color: #8291a3;
+      }
+    }
+  }
+  
+  &_rightButtons {
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    align-items: center;
+  
+    &_Button {
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 11px;
+    
+      &.grey {
+        color: #8291a3;
+      }
+      
+      &.purple {
+        color: $c664EF9;
+      }
+    }
+  }
 }
-
 .header_Bottom {
   background: #fff;
   box-shadow: 0 10px 20px rgb(0 0 0 / 8%);
+
+  &_Container {
+    margin-left: 80px;
+    margin-right: 80px;
+    width: auto;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
-.header_Bottom_Container {
-  margin-left: 80px;
-  margin-right: 80px;
-  width: auto;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
