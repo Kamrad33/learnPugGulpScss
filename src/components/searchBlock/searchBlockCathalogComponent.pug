@@ -1,6 +1,6 @@
 include ../buttons/buttons.pug
 include ../content/content.pug
-
+include ../breadcrumbs/breadcrumbs.pug
 mixin itemList(vars)
     each elm in vars
         .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList_item= elm.text
@@ -13,10 +13,9 @@ mixin itemList(vars)
 
         .content_container_searchBlockCathalogContainer_innerContainer_filter
              .content_container_searchBlockCathalogContainer_innerContainer_filter_root
-                .content_container_searchBlockCathalogContainer_innerContainer_filter_root_icon
-                    include ../../assets/images/homeImg.svg
-                .content_container_searchBlockCathalogContainer_innerContainer_filter_root_point
-                .content_container_searchBlockCathalogContainer_innerContainer_filter_root_title Квартиры в Минске
+                +breadCrumbs(
+                        [{title: 'Квартиры в Минске', link: 'newslist.html'},
+                        ])  
                 
              .content_container_searchBlockCathalogContainer_innerContainer_filter_title Аренда квартир на сутки в Минске
              

@@ -7,6 +7,7 @@ block content
   include ../../components/content/content.pug
   include ../../components/spaceContainer.pug
   include ../../components/newsCard/newsCard.pug
+  include ../../components/breadcrumbs/breadcrumbs.pug
   .news
     .news_content
         .news_content_innerContainer
@@ -15,10 +16,9 @@ block content
             .news_content_innerContainer_main
                 .news_content_innerContainer_main_top
                     .news_content_innerContainer_main_top_breadcrumbs
-                        .news_content_innerContainer_main_top_breadcrumbs_icon
-                            include ../../assets/images/homeImg.svg
-                        .news_content_innerContainer_main_top_breadcrumbs_point
-                        .news_content_innerContainer_main_top_breadcrumbs_title Новости       
+                        +breadCrumbs(
+                        [{title: 'Новости', link: 'newslist.html'},
+                        {title: 'Линия Сталина: суровый отдых в усадьбах на сутки '},])
                     .news_content_innerContainer_main_top_title 
                         h1 Линия Сталина: суровый отдых в усадьбах на сутки 
                 .news_content_innerContainer_main_top_bottom

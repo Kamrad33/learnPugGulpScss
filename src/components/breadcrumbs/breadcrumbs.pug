@@ -1,0 +1,12 @@
+mixin breadCrumbs(vars)
+    section.s-breadcrumbs
+        ul.breadcrumbs
+            li.breadcrumbs_item
+                a(href='index.html').breadcrumbs_link
+                    include ../../assets/images/homeImg.svg
+            each elm in vars
+                li.breadcrumbs_item
+                    a(href= elm.link).breadcrumbs_link
+                        span.breadcrumbs_title= elm.title
+                
+            

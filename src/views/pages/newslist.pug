@@ -7,16 +7,16 @@ block content
   include ../../components/content/content.pug
   include ../../components/spaceContainer.pug
   include ../../components/newsCard/newsCard.pug
+  include ../../components/breadcrumbs/breadcrumbs.pug
   .newslist
     .newslist_content
         .newslist_content_innerContainer
             .newslist_content_innerContainer_top
                 .newslist_content_innerContainer_top_left
                     .newslist_content_innerContainer_top_left_breadcrumbs
-                        .newslist_content_innerContainer_top_left_breadcrumbs_icon
-                            include ../../assets/images/homeImg.svg
-                        .newslist_content_innerContainer_top_left_breadcrumbs_point
-                        .newslist_content_innerContainer_top_left_breadcrumbs_title Новости       
+                        +breadCrumbs(
+                        [{title: 'Новости', link: 'newslist.html'},
+                        ])      
                     .newslist_content_innerContainer_top_left_title 
                         h1 Новости
                 .newslist_content_innerContainer_top_search
