@@ -2,7 +2,6 @@ let userMenuButton = document.getElementById('userMenuButton');
 let userMenu = document.getElementById('userMenu');
 
 let pageType = document.getElementsByClassName('content');
-console.log('AYAYA', pageType.indexPage);
 
  if ('indexPage' in pageType) {
     let indexBtn = document.getElementById('indexPg');
@@ -30,7 +29,8 @@ console.log('AYAYA', pageType.indexPage);
  }
  if ('cathalogPage' in pageType) {
     let indexBtn = document.getElementById('roomsPg');
-        indexBtn.classList.add('-selected');
+    indexBtn.classList.add('-selected');
+    // extramenu func -------------------------------------------------
  }
  if ('favsPage' in pageType) {
     let indexBtn = document.getElementById('housesPg');

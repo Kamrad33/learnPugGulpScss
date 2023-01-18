@@ -14,10 +14,10 @@ block content
                             .register_content_form_innerContent_auth_title Регистрация
 
                             .register_content_form_innerContent_auth_inputs
-                                +authInput({text: 'Логин', cls: 'authForm', id: 'login', icon: 'login'})
-                                +authInput({text: 'Электронная почта', cls: 'authForm', id: 'mail', icon: 'mail'})
-                                +authInput({text: 'Пароль', cls: 'authForm', id: 'password', icon: 'password'})
-                                +authInput({text: 'Повторите пароль', cls: 'authForm', id: 'passwordCheck', icon: 'password'})
+                                +authInput({text: 'Логин', cls: 'authForm', id: 'login', icon: 'login', containerId: 'loginContainer', alertId: 'loginAlert'})
+                                +authInput({text: 'Электронная почта', cls: 'authForm', id: 'mail', icon: 'mail', containerId: 'mailContainer', alertId: 'mailAlert'})
+                                +authInput({text: 'Пароль', cls: 'authForm', id: 'password', icon: 'password', containerId: 'passwordContainer', alertId: 'passwordAlert'})
+                                +authInput({text: 'Повторите пароль', cls: 'authForm', id: 'passwordCheck', icon: 'password', containerId: 'checkContainer', alertId: 'checkAlert'})
                             .register_content_form_innerContent_auth_captcha
                                 .g-recaptcha(data-sitekey='key')
                                 .text-danger(id='recaptchaError') 
@@ -26,7 +26,7 @@ block content
                                 include ../../assets/images/alertImg.svg     
                             .register_content_form_innerContent_auth_button
                                 
-                                +stdBtn({text: 'Зарегистрироваться', cls: 'primary', color: 'authBtn', textAlign: 'center'})
+                                +stdBtn({text: 'Зарегистрироваться', cls: 'primary', color: 'authBtn', textAlign: 'center', id: 'registerBtn'})
 
                         .register_content_form_innerContent_info
                             .register_content_form_innerContent_info_description
