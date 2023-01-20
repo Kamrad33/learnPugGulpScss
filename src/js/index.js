@@ -13,7 +13,7 @@ let cardsList = [
 let userMenuButton = document.getElementById('userMenuButton');
 let userMenu = document.getElementById('userMenu');
 let pageType = document.getElementsByClassName('content');
-var authState = false;
+var authState = true;
 async function mainHeader() {
     console.log(pageType[0].id);
 
@@ -84,7 +84,7 @@ async function mainHeader() {
     }
 }
 
-async function main() {
+async function mainContent() {
     
     
     switch(pageType[0].id) {
@@ -97,8 +97,6 @@ async function main() {
             let passwordInput = document.getElementById('password');
 
             loginBtn.addEventListener('click', function () {
-                //console.log(loginInput.value);
-                //console.log(passwordInput.value);
                 console.log(authState);
                 getAuth(loginInput.value, passwordInput.value);            
             });
@@ -114,6 +112,7 @@ async function main() {
                     if (login === authData[key].username){
                         authState = true;
                         checkAuth(authState);
+                        console.log('test ----------------');
                         return console.log('auth', login, password, authState);
                     } else {
                         return console.log('false');
@@ -130,7 +129,107 @@ async function main() {
             menuExtraButton.addEventListener('click', function() {
             let menuClass = menuExtra.className;
             menuClass === 'content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra active' ? menuExtra.classList.add('hidden') : menuExtra.classList.remove('hidden')  
-        })
+        });
+
+        async function getCards() {
+            //const response = await fetch ('https://jsonplaceholder.typicode.com/posts');
+            //const newsData = await response.json();
+            cardsData = [{
+                status: 'Gold', 
+                photo: 'PHOTO', 
+                price: '65.00 BYN',
+                capacity: '4 (2+2)',
+                rooms: '4 комн.',
+                size: '179',
+                address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: 'PHOTO', name: 'Vasye', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},
+                type: 'active'
+            },]
+            return cardsData;
+        }
+        async function cardsPagination() {
+
+                const cardsData = await getCards();
+                let currentPage = 1;
+                let rows = 6;
+
+                function displayCardsList(arrData, cardsOnPage, page) {
+                    
+                    const cardsElmList = document.querySelector('#cardsList');
+                    //cardsElmList.innerHTML = '';
+                    console.log('PAGINATION', cardsElmList);
+                    let start = cardsOnPage * (page - 1);
+                    let end = start + cardsOnPage;
+                    let cardsPaginated = arrData.slice(start, end);
+
+                    cardsPaginated.forEach((el) => {
+                        const cardsItemContainer = document.createElement('div');
+                        cardsItemContainer.classList.add('.rentRoomsCardsBlock_innerContainer_cards_item');
+
+                            const rentCard = document.createElement('div');
+                            rentCard.classList.add('./rentCard');
+
+                            const rentCard_top = document.createElement('div');
+                            rentCard_top.classList.add('./rentCard_top');
+                                const rentCard_top_status = document.createElement('div');
+                                rentCard_top_status.classList.add('./rentCard_top_status');
+                                rentCard_top_status.innerText = cardsData.status
+                                const rentCard_top_photo = document.createElement('div');
+                                rentCard_top_photo.classList.add('./rentCard_top_photo');
+                                rentCard_top_photo.innerText = cardsData.photo
+
+                                rentCard_top.append(rentCard_top_status, rentCard_top_photo);
+
+                            const rentCard_wrapper = document.createElement('div');
+                            rentCard_wrapper.classList.add('./rentCard_wrapper');
+                                const rentCard_info = document.createElement('div');
+                                rentCard_info.classList.add('./rentCard_info');
+                                const rentCard_line = document.createElement('div');
+                                rentCard_line.classList.add('./rentCard_line');
+                                const rentCard_bottom = document.createElement('div');
+                                rentCard_bottom.classList.add('./rentCard_bottom');
+
+                            //cardsItemContainer.appendChild(cardsItemContainer);     
+                    })
+
+                }
+
+                function displayPagination(arrData, newsOnPage) {
+
+                    let pageCount = Math.ceil(arrData.length / newsOnPage);
+                    const ulElm = document.querySelector('#pagination')
+                    ulElm.innerHTML = ('');
+                    
+                    for (let i = 0; i < pageCount; i++) {
+                            const liElm = displayPaginationBtn(i + 1);
+                            console.log('li', liElm);
+                            ulElm.append(liElm);   
+                    }
+                }
+
+                
+                function displayPaginationBtn(page) {
+
+                    const liElm = document.createElement('li');
+                    liElm.innerText = page;
+
+                    if (currentPage == page) liElm.classList.add('--active');
+
+                    liElm.addEventListener('click', () => {
+                        currentPage = page;
+                        displayCarsList(newsData, rows, currentPage);
+                        let currentItemLi = document.querySelector('li.--active');
+                        currentItemLi.classList.remove('--active');
+                        
+                        liElm.classList.add('--active');
+                    })
+                    return liElm;                  
+                }
+                displayCardsList(cardsData, rows, currentPage);
+                displayPagination(cardsData, rows);
+            }
+        cardsPagination();    
         break
         }
 
@@ -184,16 +283,134 @@ async function main() {
         else {
             alertState.classList.remove("wrong")
         }
-    })   
+    });   
+        }
+
+        case 'newslistPage': {
+
+            async function getNews() {
+                const response = await fetch ('https://jsonplaceholder.typicode.com/posts');
+                const newsData = await response.json();
+                return newsData;
+            }
+            async function newsPagination() {
+                const newsData = await getNews();
+                let currentPage = 1;
+                let rows = 9;
+
+                function displayNewsList(arrData, newsOnPage, page) {
+                    
+                    const newsElmList = document.querySelector('.newsList_content_innerContainer_newsCards');
+                    newsElmList.innerHTML = '';
+                    console.log('PAGINATION', newsElmList);
+                    let start = newsOnPage * (page - 1);
+                    let end = start + newsOnPage;
+                    let newsPaginated = arrData.slice(start, end);
+
+                    newsPaginated.forEach((el) => {
+
+                        const newsElm_Container = document.createElement('div');
+                        newsElm_Container.classList.add('newsList_content_innerContainer_newsCards_card');
+
+                        const newsElm_Container_card = document.createElement('div');
+                        newsElm_Container_card.classList.add('newsCard');
+
+                        //top container
+                        const newsElm_Container_card_top = document.createElement('div');
+                        newsElm_Container_card_top.classList.add('newsCard_top');
+                            const newsElm_Container_card_top_photo = document.createElement('div');
+                            newsElm_Container_card_top_photo.classList.add('newsCard_top_photo');
+                        newsElm_Container_card_top.append(newsElm_Container_card_top_photo);
+
+                        //middle container
+                        const newsElm_Container_card_middle = document.createElement('div');
+                        newsElm_Container_card_middle.classList.add('newsCard_middle');
+                            const newsElm_Container_card_title = document.createElement('div');
+                            newsElm_Container_card_title.classList.add('newsCard_middle_title');
+                            newsElm_Container_card_title.innerHTML = `<span>${el.title}</span>`;
+                            const newsElm_Container_card_description = document.createElement('div');
+                            newsElm_Container_card_description.classList.add('newsCard_middle_description');
+                            newsElm_Container_card_description.innerHTML = `<span>${el.body}</span>`;
+                            const middle_hr = document.createElement('hr');
+                        newsElm_Container_card_middle.append(newsElm_Container_card_title, newsElm_Container_card_description, middle_hr);
+
+                        //bottom container
+                        const newsElm_Container_card_bottom = document.createElement('div');
+                        newsElm_Container_card_bottom.classList.add('newsCard_bottom');
+                            const newsElm_Container_card_date = document.createElement('div');
+                            newsElm_Container_card_date.classList.add('newsCard_bottom_date');
+                            newsElm_Container_card_date.innerText = `${el.id} января 2008`;
+                            const newsElm_Container_card_button = document.createElement('div');
+                            newsElm_Container_card_button.classList.add('newsCard_bottom_button');
+                            newsElm_Container_card_button.innerHTML = `<button class="stdBtn primary purple light w7 standard" style="gap:5px;flex-direction:left;width:undefined;">
+                            <div class="stdBtn_innerText">Читать
+                            </div>
+                          </button>`
+                        newsElm_Container_card_bottom.append(newsElm_Container_card_date, newsElm_Container_card_button);
+
+                        //const testHtml = document.createElement('div')
+                        //testHtml.innerHTML = `<div class = 'class1'>TEST</div>`;
+                        //console.log('testHtml', testHtml);
+                        newsElm_Container_card.append(newsElm_Container_card_top, newsElm_Container_card_middle, newsElm_Container_card_bottom);
+
+                        newsElm_Container.appendChild(newsElm_Container_card);
+                        newsElmList.appendChild(newsElm_Container); 
+
+                        
+                    });
+                }
+
+                
+                function displayPagination(arrData, newsOnPage) {
+
+                    let pageCount = Math.ceil(arrData.length / newsOnPage);
+                    const ulElm = document.querySelector('#pagination')
+                    ulElm.innerHTML = ('');
+                    
+                    for (let i = 0; i < pageCount; i++) {
+                            const liElm = displayPaginationBtn(i + 1);
+                            console.log('li', liElm);
+                            ulElm.append(liElm);   
+                    }
+                }
+
+                
+                function displayPaginationBtn(page) {
+
+                    const liElm = document.createElement('li');
+                    liElm.innerText = page;
+
+                    if (currentPage == page) liElm.classList.add('--active');
+
+                    liElm.addEventListener('click', () => {
+                        currentPage = page;
+                        displayNewsList(newsData, rows, currentPage);
+                        let currentItemLi = document.querySelector('li.--active');
+                        currentItemLi.classList.remove('--active');
+                        
+                        liElm.classList.add('--active');
+                    })
+                    return liElm;                  
+                }
+                displayNewsList(newsData, rows, currentPage);
+                displayPagination(newsData, rows);
+            }
+            newsPagination();
+            break           
         }
     }
 }
 
-main();    
-mainHeader();
-checkAuth();
+async function main () {
+    
+    await mainContent();    
+    await mainHeader();
+    await checkAuth();
+}
 
-async function checkAuth (state) {
+
+
+ async function checkAuth (state) {
 
     let authBtn = document.getElementById('registerPg');
     let userDiv = document.getElementById('userDiv');
@@ -207,9 +424,21 @@ async function checkAuth (state) {
         authBtn.classList.replace('hidden', 'primary');   
     }
 
-    userMenuButton.addEventListener('click', function() {
+    userMenuButton.addEventListener('click', function(e) {
         let menuClass = userMenu.className;
-        menuClass === 'header_Top_user_menu active' ? (userMenu.classList.add('hidden'), console.log('sdsds') ): userMenu.classList.remove('hidden')  
+        e.preventDefault();
+        //menuClass.includes('hidden') ? userMenu.classList.remove('hidden') : userMenu.classList.add('');
+        if (menuClass.includes('hidden')) {
+            userMenu.classList.remove('hidden');
+            console.log('da');
+        } else {
+            userMenu.classList.add('1');
+            console.log('net');
+        }
+        //menuClass === 'header_Top_user_menu active' ? (userMenu.classList.add('hidden'), console.log('sdsds') ): userMenu.classList.remove('hidden')
+        //menuClass === 'header_Top_user_menu active' ? (userMenu.classList.replace('active', 'hidden'), console.log('sdsds') ): userMenu.classList.replace('hidden', 'active')
+        //menuClass === 'header_Top_user_menu active' ? userMenu.classList.replace('active', 'hidden') : userMenu.classList.remove('hidden');
+        //userMenu.classList.replace('hidden', 'active') ;
     })
 }
 
@@ -220,42 +449,4 @@ checkPassword = (password) => {
     return re.test(password); 
 }
 
-
-let cardDiv = document.querySelector('#cardsList');
-let items = document.querySelectorAll('#pagination li');
-let cardsOnPage = 6;
-
-for (let item of items) {
-    item.addEventListener('click', function() {
-        let pageNum = +this.innerHTML;
-
-        let cardsStart= (pageNum - 1) * cardsOnPage; 
-        let cardsEnd = cardsStart + cardsOnPage;
-
-        let cards = cardsList.slice(cardsStart, cardsEnd);
-        console.log(cards.length);
-
-        
-        span = document.getElementById("number");
-        span.innerText = ''
-        txt = document.createTextNode(cards.length);
-        span.appendChild(txt);
-               
-        for (let card of cards) {
-            
-           // let div = document.createElement(cardDiv)
-           // div.innerHTML = card.status
-            //cardDiv.appendChild(div)
-
-           // var td = document.createElement('td')
-            //td.innerHTML = card.status
-           // tr.appendChild(td);
-
-
-        }
-    });
-}
-
-
-
-
+main();
