@@ -86,6 +86,7 @@ async function mainHeader() {
 
 async function mainContent() {
     
+    console.log(pageType[0].id);
     
     switch(pageType[0].id) {
 
@@ -293,11 +294,14 @@ async function mainContent() {
                 const newsData = await response.json();
                 return newsData;
             }
+            async function newsRout(news) {
+                console.log(news);
+            }
             async function newsPagination() {
                 const newsData = await getNews();
                 let currentPage = 1;
                 let rows = 9;
-
+                let pagesLimit = 12;
                 function displayNewsList(arrData, newsOnPage, page) {
                     
                     const newsElmList = document.querySelector('.newsList_content_innerContainer_newsCards');
@@ -308,7 +312,7 @@ async function mainContent() {
                     let newsPaginated = arrData.slice(start, end);
 
                     newsPaginated.forEach((el) => {
-
+                        console.log('yayay', el.id);
                         const newsElm_Container = document.createElement('div');
                         newsElm_Container.classList.add('newsList_content_innerContainer_newsCards_card');
 
@@ -342,7 +346,7 @@ async function mainContent() {
                             newsElm_Container_card_date.innerText = `${el.id} января 2008`;
                             const newsElm_Container_card_button = document.createElement('div');
                             newsElm_Container_card_button.classList.add('newsCard_bottom_button');
-                            newsElm_Container_card_button.innerHTML = `<button class="stdBtn primary purple light w7 standard" style="gap:5px;flex-direction:left;width:undefined;">
+                            newsElm_Container_card_button.innerHTML = `<button id = ${el.id} onclick="document.location='/news.html/${el.id}'" class="stdBtn primary purple light w7 standard" style="gap:5px;flex-direction:left;width:undefined;">
                             <div class="stdBtn_innerText">Читать
                             </div>
                           </button>`
@@ -356,22 +360,53 @@ async function mainContent() {
                         newsElm_Container.appendChild(newsElm_Container_card);
                         newsElmList.appendChild(newsElm_Container); 
 
+                        newsElm = document.getElementById(el.id);
+
+                 
                         
                     });
                 }
 
                 
-                function displayPagination(arrData, newsOnPage) {
+                function displayPagination(arrData, newsOnPage, limit) {
 
                     let pageCount = Math.ceil(arrData.length / newsOnPage);
                     const ulElm = document.querySelector('#pagination')
                     ulElm.innerHTML = ('');
-                    
-                    for (let i = 0; i < pageCount; i++) {
+                    let paginationLimit = limit;
+
+                    if (pageCount <= paginationLimit) {
+
+                        for (let i = 0; i < pageCount; i++) {
+                            const liElm = displayPaginationBtn(i + 1);
+                            console.log('li', liElm);
+                            ulElm.append(liElm);  
+                        }
+                    } else {
+                        for (let i = 0; i < paginationLimit; i++) {
+                            if (i < paginationLimit - 2) {
+                                const liElm = displayPaginationBtn(i + 1);
+                                console.log('li', liElm);
+                                ulElm.append(liElm);  
+                            }
+                            if (i == paginationLimit -1) {
+                                const liElm = displayPaginationBtn('...');
+                                console.log('li', liElm);
+                                ulElm.append(liElm);  
+                            }
+                            if (i == paginationLimit-1) {
+                                const liElm = displayPaginationBtn(pageCount);
+                                console.log('li', liElm);
+                                ulElm.append(liElm); 
+                            }
+                        }
+
+                    }
+                    /*for (let i = 0; i < pageCount; i++) {
                             const liElm = displayPaginationBtn(i + 1);
                             console.log('li', liElm);
                             ulElm.append(liElm);   
-                    }
+                    }*/
                 }
 
                 
@@ -382,21 +417,31 @@ async function mainContent() {
 
                     if (currentPage == page) liElm.classList.add('--active');
 
-                    liElm.addEventListener('click', () => {
-                        currentPage = page;
-                        displayNewsList(newsData, rows, currentPage);
-                        let currentItemLi = document.querySelector('li.--active');
-                        currentItemLi.classList.remove('--active');
-                        
-                        liElm.classList.add('--active');
-                    })
+                    if (page !== '...') {
+                        liElm.addEventListener('click', () => {
+                            currentPage = page;
+                            displayNewsList(newsData, rows, currentPage);
+                            let currentItemLi = document.querySelector('li.--active');
+                            currentItemLi.classList.remove('--active');               
+                            liElm.classList.add('--active');
+                        })
+                       console.log('ayay', pagesLimit);
+                    } else {
+                        liElm.addEventListener('click', () => {
+                            console.log('test');
+                        })
+                    }
+
                     return liElm;                  
                 }
                 displayNewsList(newsData, rows, currentPage);
-                displayPagination(newsData, rows);
+                displayPagination(newsData, rows, pagesLimit);
             }
             newsPagination();
             break           
+        }
+        case 'newsPage': {
+            
         }
     }
 }
