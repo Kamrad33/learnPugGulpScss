@@ -28,23 +28,23 @@ style
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_title
                         span Город
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'menuButton')
-                        +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list'},
+                        +menuBtn({text: 'Выберите', cls:'active', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list', id: 'city_input'},
                             [{text: 'Минск'}, {text: 'Город 2'}, {text: 'Город 3'}, {text: 'Город 4'}, {text: 'Город 5'},])
                 hr
                 .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'double')
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_title
                         span Комнаты
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'menuButton')
-                         +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px' , menuType: 'list'},
+                         +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px' , menuType: 'list', id: 'room_input'},
                             [{text: 'Студия'}, {text: '1 комната'}, {text: '2 комнаты'}, {text: '3 комнаты'}, {text: '4 комнаты'},])
                 hr
                 .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'double')
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_title
                         span Цена за сутки (BYN)
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'inputButton')
-                        +inputBtn({text: 'От', cls: 'searchMenu',})
+                        +inputBtn({text: 'От', cls: 'searchMenu', id: 'from_input'})
                         span -
-                        +inputBtn({text: 'До', cls: 'searchMenu',})
+                        +inputBtn({text: 'До', cls: 'searchMenu', id: 'to_input'})
                 hr
                 .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'single searchOptions')
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'standartButton searchOptions' )

@@ -329,6 +329,7 @@ $hoverLine: 2px;
             margin-left: -80px;
             display: none;
             z-index: 999;
+            
         }
     }
 
@@ -338,7 +339,6 @@ $hoverLine: 2px;
         position: absolute;
         z-index: 999;
         background: #FFFFFF;
-        //bottom: -16.5%;
         top: 100%;
         box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.3);
         border-radius: 10px;
@@ -349,8 +349,6 @@ $hoverLine: 2px;
         
         li {
             position: relative;
-            //width: calc(100% - 10px);
-            //height: 37px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -381,13 +379,10 @@ $hoverLine: 2px;
     }
     &.rentContainer {
         padding: 11px 14px;
-        //width: calc(185px - 32px);
         gap: 5px;
         box-shadow: 0px 10px 20px rgba(0, 96, 206, 0.1);
 
         &:active {
-            //width: calc(185px - 36px);
-            //padding: 0 16px;
             padding: 11px 14px;
 
             ul {
@@ -395,6 +390,14 @@ $hoverLine: 2px;
                 display: block;
             }
 
+        }
+        &.active {
+          padding: 11px 14px;
+
+            ul {
+                margin-left: -15px;
+                display: block;
+            }
         }
     }
 
@@ -405,7 +408,24 @@ $hoverLine: 2px;
     
     &:active {
         background: #FFFFFF;
-        //height: calc(37px - 4px);
+        width: calc(150px - 20px);
+        border: 2px solid rgba(102, 78, 249, 0.8);
+        padding: 0 8px;
+        
+        ul {
+            margin-left: -8px;
+            display: block;
+        }
+        div {
+            &.menuContent {
+                display: block;
+                bottom: 58px;
+            }
+        }
+    }
+
+    &.active {
+      background: #FFFFFF;
         width: calc(150px - 20px);
         border: 2px solid rgba(102, 78, 249, 0.8);
         padding: 0 8px;
@@ -636,6 +656,11 @@ $hoverLine: 2px;
 
         &.searchMenu{
             width:80px;
+
+            &.wrong {
+              border: 2px solid #EB5757;
+              background: #eb575741;
+            }
         }
         &.searchCathalogMenu{
             width:100px;

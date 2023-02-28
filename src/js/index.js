@@ -89,7 +89,45 @@ async function mainContent() {
     console.log(pageType[0].id);
     
     switch(pageType[0].id) {
+        //index page logic------------------
 
+        case 'indexPage': {
+            const cityState = document.getElementById('city_input');
+            const roomState = document.getElementById('room_input');
+            const inputFromElement = document.getElementById('from_input');
+            const inputToElement = document.getElementById('to_input');
+            let inputFromState = +0;
+            let inputToState = +0;
+            const expression = /^[+-]?\d+$/;
+            const isInteger = (text) => !!text.match(expression);
+
+                inputFromElement.addEventListener('input', () => {
+                    inputFromState = inputFromElement.value;
+                    checkRange();
+                    })
+    
+                inputToElement.addEventListener('input', () => {
+                    inputToState = inputToElement.value;
+                    checkRange()
+                })
+
+            const checkRange = () => {
+                console.log(+inputFromState < +inputToState);
+            (isInteger(inputFromState) && (+inputFromState <= +inputToState)) ? inputFromElement.classList.remove('wrong') : inputFromElement.classList.add('wrong');
+            (isInteger(inputToState) && (+inputFromState <= +inputToState)) ? inputToElement.classList.remove('wrong') : inputToElement.classList.add('wrong');
+
+            }
+            
+            const addInputState = (input) => {
+                input.addEventListener('click', ()=> {
+                    const inputClass = input.className;
+                    inputClass.includes('active') ? input.classList.remove('active') : input.classList.add('active');
+                });
+            }
+
+            addInputState(roomState);
+            addInputState(cityState);
+        }
         //login page logic---------------------
         case 'loginPage': {
 
