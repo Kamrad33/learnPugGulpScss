@@ -58,7 +58,8 @@ mixin stdBtn(vars)
                 .topButtonIcon(class=iconColor) 
                     include ../../assets/images/homeImg.svg   
         
-        .stdBtn_innerText(class = vars.textAlign)= vars.text
+        .stdBtn_innerText(class = vars.textAlign)
+            span(id = `${vars.id}_innerText`)= vars.text
             case vars.icon
                 when 'arrowLeft'
                     .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px' })
@@ -99,9 +100,10 @@ mixin menuBtn(vars, menuElms=[{text: '1 elm'}, {text: '2 elm'}, {text: '3 elm'},
             })
         case vars.menuType
             when 'list'
-                ul
+                -i=0;
+                ul(id = vars.id)
                     each elm in menuElms
-                        li= elm.text
+                        li(id = `${vars.id}_${i++}`)= elm.text
             when 'content'
                 .menuContent
                     .menuContent_user

@@ -14,6 +14,26 @@ let userMenuButton = document.getElementById('userMenuButton');
 let userMenu = document.getElementById('userMenu');
 let pageType = document.getElementsByClassName('content');
 var authState = true;
+const expression = /^[+-]?\d+$/;
+const isInteger = (text) => !!text.match(expression);
+const addInputState = (input) => {
+    input.addEventListener('click', ()=> {
+        const inputClass = input.className;
+        inputClass.includes('active') ? input.classList.remove('active') : input.classList.add('active');                                      
+    });
+}
+const addLiEvent = (input) => {
+    let len = input.getElementsByTagName('li').length;
+    for (i=0; i < len; i++) {
+        let liElm = document.getElementById(`${input.id}_${i}`)
+        liElm.addEventListener('click', ()=> {
+            
+            inputText = document.getElementById(`${input.id}_innerText`);
+            console.log('kekw', inputText.innerText);
+            inputText.innerText= liElm.innerText
+        })
+    }
+}
 async function mainHeader() {
     console.log(pageType[0].id);
 
@@ -98,35 +118,29 @@ async function mainContent() {
             const inputToElement = document.getElementById('to_input');
             let inputFromState = +0;
             let inputToState = +0;
-            const expression = /^[+-]?\d+$/;
-            const isInteger = (text) => !!text.match(expression);
+            
 
-                inputFromElement.addEventListener('input', () => {
-                    inputFromState = inputFromElement.value;
-                    checkRange();
-                    })
-    
-                inputToElement.addEventListener('input', () => {
-                    inputToState = inputToElement.value;
-                    checkRange()
+            inputFromElement.addEventListener('input', () => {
+                inputFromState = inputFromElement.value;
+                checkRange();
                 })
+
+            inputToElement.addEventListener('input', () => {
+                inputToState = inputToElement.value;
+                checkRange()
+            })
 
             const checkRange = () => {
                 console.log(+inputFromState < +inputToState);
             (isInteger(inputFromState) && (+inputFromState <= +inputToState)) ? inputFromElement.classList.remove('wrong') : inputFromElement.classList.add('wrong');
             (isInteger(inputToState) && (+inputFromState <= +inputToState)) ? inputToElement.classList.remove('wrong') : inputToElement.classList.add('wrong');
-
             }
             
-            const addInputState = (input) => {
-                input.addEventListener('click', ()=> {
-                    const inputClass = input.className;
-                    inputClass.includes('active') ? input.classList.remove('active') : input.classList.add('active');
-                });
-            }
-
             addInputState(roomState);
+            addLiEvent(roomState);
             addInputState(cityState);
+            addLiEvent(cityState);
+
         }
         //login page logic---------------------
         case 'loginPage': {
