@@ -13,23 +13,28 @@ let cardsList = [
 let userMenuButton = document.getElementById('userMenuButton');
 let userMenu = document.getElementById('userMenu');
 let pageType = document.getElementsByClassName('content');
-var authState = true;
+var authState = false;
+
 const expression = /^[+-]?\d+$/;
 const isInteger = (text) => !!text.match(expression);
+
 const addInputState = (input) => {
     input.addEventListener('click', ()=> {
         const inputClass = input.className;
-        inputClass.includes('active') ? input.classList.remove('active') : input.classList.add('active');                                      
+        inputClass.includes('active') ? input.classList.remove('active') : input.classList.add('active');                                   
     });
 }
 const addLiEvent = (input) => {
+    console.log('1');
     let len = input.getElementsByTagName('li').length;
+    console.log('2', len);
     for (i=0; i < len; i++) {
         let liElm = document.getElementById(`${input.id}_${i}`)
         liElm.addEventListener('click', ()=> {
             
-            inputText = document.getElementById(`${input.id}_innerText`);
-            console.log('kekw', inputText.innerText);
+            cutStr = input.id;
+            console.log('kekw',cutStr);
+            inputText = document.getElementById(`${cutStr.substr(0, (cutStr.length - 3))}_innerText`);
             inputText.innerText= liElm.innerText
         })
     }
@@ -112,13 +117,104 @@ async function mainContent() {
         //index page logic------------------
 
         case 'indexPage': {
+            
+            const roomTab = document.getElementById('room_tab');
+            const houseTab = document.getElementById('house_tab');
+            const newInputVars = ['1 комната', '2 комнаты', '3 комнаты', '4 комнаты'];
+            const bathab = document.getElementById('bath_tab');
+            const carsTab = document.getElementById('cars_tab');
+            const roomTabState = true;
+            const houseTabState = false;
+            const bathabState = false;
+            const carsTabState = false;
+
             const cityState = document.getElementById('city_input');
+            const cityUlState = document.getElementById('city_input_ul');
             const roomState = document.getElementById('room_input');
+            const roomUlState = document.getElementById('room_input_ul');
+
             const inputFromElement = document.getElementById('from_input');
             const inputToElement = document.getElementById('to_input');
+
+            const mapState = document.getElementById('map_button');
+            const mapContainer = document.getElementById('map');
+
+            const optionState = document.getElementById('more_button');
+            const optionContainer = document.getElementById('search_container');
+            const extraOptionContainer = document.getElementById('extra_search_container');
+
             let inputFromState = +0;
             let inputToState = +0;
-            
+
+            const searchTabClick = (tabArray) => {
+                
+                const searchTabClear = (tabArray) => {
+                    tabArray.forEach(elm => {
+                        //console.log( elm.className.includes('active'));
+                        elm.className.includes('active') && elm.classList.remove('active')})   
+                }
+                const changeFilter = (input) => {
+                    switch (input) {
+                        case 'room_tab':
+                            console.log('room_tab');
+                            break;
+
+                        case 'house_tab':
+
+                            let newRoomUl = document.getElementById('room_input_ul');
+                            console.log('house_tab', newRoomUl);
+                            newRoomUl.innerHTML = '';
+                            
+                            for (i=0; i < newInputVars.length; i++) {
+                                let newLi = document.createElement('li');
+                                newLi.setAttribute('id', `room_input_ul_${i}`)
+                                newLi.innerText = newInputVars[i];
+                                newRoomUl.appendChild(newLi);
+
+                            }
+                            console.log(newRoomUl);
+                            addLiEvent(newRoomUl); 
+
+                            break;
+
+                        case 'bath_tab':
+                            console.log('bath_tab');
+                            break;
+                        case 'cars_tab':
+                            console.log('cars_tab');
+                            break;
+                        default:
+                            break;
+                    }
+                };
+                tabArray.forEach(elm => {
+                    elm.addEventListener('click', ()=> {
+                        searchTabClear(tabArray);
+                        //console.log('keks', elm.id);
+                        let inputClass = elm.className;                       
+                        inputClass.includes('active') ? elm.classList.remove('active') : elm.classList.add('active'); 
+                        changeFilter(elm.id);
+                    })
+                })
+            };
+
+
+            mapState.addEventListener('click', () => {
+                mapContainer.className.includes('active') ? mapContainer.classList.remove('active') : mapContainer.classList.add('active'); 
+                mapContainer.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+            });
+
+            optionState.addEventListener('click', () => {
+                
+                optionContainer.className.includes('active') ? (
+                    optionContainer.classList.remove('active'), 
+                    extraOptionContainer.classList.remove('active'),
+                    optionState.classList.remove('active')
+                    ) : 
+                    (optionContainer.classList.add('active'), 
+                    extraOptionContainer.classList.add('active'),
+                    optionState.classList.add('active')); 
+            });
 
             inputFromElement.addEventListener('input', () => {
                 inputFromState = inputFromElement.value;
@@ -136,11 +232,13 @@ async function mainContent() {
             (isInteger(inputToState) && (+inputFromState <= +inputToState)) ? inputToElement.classList.remove('wrong') : inputToElement.classList.add('wrong');
             }
             
+            searchTabClick([roomTab, houseTab, bathab, carsTab]);
             addInputState(roomState);
-            addLiEvent(roomState);
+            addLiEvent(roomUlState);
             addInputState(cityState);
-            addLiEvent(cityState);
-
+            addLiEvent(cityUlState);
+            
+            
         }
         //login page logic---------------------
         case 'loginPage': {
@@ -149,10 +247,13 @@ async function mainContent() {
             let loginInput = document.getElementById('login');
             let passwordInput = document.getElementById('password');
 
-            loginBtn.addEventListener('click', function () {
-                console.log(authState);
-                getAuth(loginInput.value, passwordInput.value);            
-            });
+            if (loginBtn !== null) {
+                loginBtn.addEventListener('click', function () {
+                    console.log(authState);
+                    getAuth(loginInput.value, passwordInput.value);            
+                });
+            }
+
 
             async function getAuth (login, password) {
                 const response = await fetch('https://jsonplaceholder.typicode.com/users')
@@ -524,18 +625,14 @@ async function main () {
     userMenuButton.addEventListener('click', function(e) {
         let menuClass = userMenu.className;
         e.preventDefault();
-        //menuClass.includes('hidden') ? userMenu.classList.remove('hidden') : userMenu.classList.add('');
+
         if (menuClass.includes('hidden')) {
             userMenu.classList.remove('hidden');
             console.log('da');
         } else {
             userMenu.classList.add('1');
             console.log('net');
-        }
-        //menuClass === 'header_Top_user_menu active' ? (userMenu.classList.add('hidden'), console.log('sdsds') ): userMenu.classList.remove('hidden')
-        //menuClass === 'header_Top_user_menu active' ? (userMenu.classList.replace('active', 'hidden'), console.log('sdsds') ): userMenu.classList.replace('hidden', 'active')
-        //menuClass === 'header_Top_user_menu active' ? userMenu.classList.replace('active', 'hidden') : userMenu.classList.remove('hidden');
-        //userMenu.classList.replace('hidden', 'active') ;
+        };
     })
 }
 

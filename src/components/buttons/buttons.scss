@@ -21,7 +21,7 @@ $hoverLine: 2px;
   gap: 5px;
   white-space: nowrap;
   @include noSelect;
-
+  cursor: pointer;
  
   &.w4 {
     font-weight: 400;
@@ -159,6 +159,8 @@ $hoverLine: 2px;
   text-align: center;
   word-spacing: 1.77px;
 
+  cursor: pointer;
+
   &.authBtn {
     background: #FFD54F;
     border-radius: 33px;
@@ -293,6 +295,9 @@ $hoverLine: 2px;
       background: #F8F8F8;
     color: black;
 
+  }
+  &.active {
+    background: #F8F8F8;
   }
   &.selector {
       background-color: inherit;
@@ -545,6 +550,7 @@ $hoverLine: 2px;
 .textSelection {
     display: flex;
     align-items: center;
+    cursor: pointer;
     @include fontStd(#FEB700, 14px, 500, 17px);
     margin-top: 15px;
     border-bottom: 1px solid #F5BC03;
@@ -591,6 +597,7 @@ $hoverLine: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     &.white {
         width: 39.43px;
         height: 39.43px;
@@ -869,7 +876,7 @@ $hoverLine: 2px;
   position: relative;
   display: flex;
   gap: 10px;
-
+  cursor: pointer;
   @include fontStd;
 }
 
@@ -933,7 +940,7 @@ $hoverLine: 2px;
 .toggleBtn {
   display: flex;
   gap: 8px;
-
+  cursor: pointer;
   label {
 
     &.toggle {

@@ -85,7 +85,11 @@
           align-items: flex-start;
           padding: 13px 20px;
           gap: 10px;
-        
+            &.active {
+                color: $c664EF9;
+                background: #fff;
+                border-radius: 10px 10px 0 0;
+            }
           &:active {
             color: $c664EF9;
             background: #fff;
@@ -164,6 +168,59 @@
             border: 1px solid #664EF9;
             margin: 16px 0px;
         
+        }
+        &.active {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px; 
+        }
+    }
+    &_extraButtons {
+        width: 100%;
+        height: 100px;
+        background: #FFFFFF;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;  
+        @include fontStd(#bdbdbd, 14px, 500, 17px);
+        
+        justify-content: flex-start;
+        align-items: center;
+        display: none;
+        hr {
+            height: calc(100% - 32px);
+            opacity: 0.1;
+            border: 1px solid #664EF9;
+            margin: 16px 0px;
+        
+        }
+        &_dateStart {
+            margin: 0 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        &_dateEnd {
+            margin: 0 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        &_checkBoxes {
+            margin: 0 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 150px;
+        }
+        input {
+            padding: 10px;
+            border-radius: 20px;
+            width: 150px;
+            background-color: #F8F8F8;
+            border: none;
+            @include fontStd(#686868, 14px, 700, 17px);
+        }
+        &.active {
+            display: flex;
         }
     }
     }
@@ -293,8 +350,10 @@
             &_button {
                 display: flex;
                 justify-content: space-between;
+                
                &_text {
                     @include fontStd(#FEB700);
+                    cursor: pointer;
                     &:hover {
                         margin-left: 10px;
                     }
@@ -1432,4 +1491,17 @@
         text-decoration: none;
     }
 
+}
+.map {
+    margin-top: 80px;
+    border-radius: 20px;
+    display: none;
+    filter: drop-shadow(0px 20px 40px rgba(135, 124, 202, 0.15));
+    iframe {
+        border-radius: 20px;
+    }
+    &.active {
+        display: block;
+        
+    }
 }

@@ -101,9 +101,9 @@ mixin menuBtn(vars, menuElms=[{text: '1 elm'}, {text: '2 elm'}, {text: '3 elm'},
         case vars.menuType
             when 'list'
                 -i=0;
-                ul(id = vars.id)
+                ul(id = `${vars.id}_ul`)
                     each elm in menuElms
-                        li(id = `${vars.id}_${i++}`)= elm.text
+                        li(id = `${vars.id}_ul_${i++}`)= elm.text
             when 'content'
                 .menuContent
                     .menuContent_user
@@ -124,7 +124,7 @@ mixin menuBtn(vars, menuElms=[{text: '1 elm'}, {text: '2 elm'}, {text: '3 elm'},
                             include ../../assets/images/emailImg.svg
 
 mixin textSelection(variables)
-    .textSelection= variables.text
+    .textSelection(id = variables.id)= variables.text
         case variables.icon
             when 'arrow' 
                 .textSelection_icon(class = variables.icon)

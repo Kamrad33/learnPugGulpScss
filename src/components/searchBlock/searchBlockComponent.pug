@@ -13,34 +13,34 @@ style
 
         .content_container_searchBlockContainer_innerContainer_bar
             .content_container_searchBlockContainer_innerContainer_bar_top
-                .content_container_searchBlockContainer_innerContainer_bar_top_button
+                .content_container_searchBlockContainer_innerContainer_bar_top_button(class= 'active' id= 'room_tab')
                     span Квартиры на сутки
-                .content_container_searchBlockContainer_innerContainer_bar_top_button
+                .content_container_searchBlockContainer_innerContainer_bar_top_button(id= 'house_tab')
                     span Коттеджи и усадьбы
-                .content_container_searchBlockContainer_innerContainer_bar_top_button
+                .content_container_searchBlockContainer_innerContainer_bar_top_button(id= 'bath_tab')
                     span Бани и сауны
-                .content_container_searchBlockContainer_innerContainer_bar_top_button
+                .content_container_searchBlockContainer_innerContainer_bar_top_button(id= 'cars_tab')
                     span Авто напрокат
 
-            .content_container_searchBlockContainer_innerContainer_bar_bottomButtons
-
+            .content_container_searchBlockContainer_innerContainer_bar_bottomButtons(id = 'search_container')
+                
                 .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'double')
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_title
-                        span Город
+                        span(id= 'city_box_title') Город
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'menuButton')
                         +menuBtn({text: 'Выберите', cls:'active', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list', id: 'city_input'},
                             [{text: 'Минск'}, {text: 'Город 2'}, {text: 'Город 3'}, {text: 'Город 4'}, {text: 'Город 5'},])
                 hr
                 .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'double')
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_title
-                        span Комнаты
+                        span(id= 'room_box_title') Комнаты
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'menuButton')
                          +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px' , menuType: 'list', id: 'room_input'},
                             [{text: 'Студия'}, {text: '1 комната'}, {text: '2 комнаты'}, {text: '3 комнаты'}, {text: '4 комнаты'},])
                 hr
                 .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'double')
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_title
-                        span Цена за сутки (BYN)
+                        span(id= 'price_box_title') Цена за сутки (BYN)
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'inputButton')
                         +inputBtn({text: 'От', cls: 'searchMenu', id: 'from_input'})
                         span -
@@ -48,13 +48,33 @@ style
                 hr
                 .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'single searchOptions')
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'standartButton searchOptions' )
-                        +stdBtn({text: 'Больше опций', cls:'primary', color: 'white', type: 'w5', gap: '3.5px', icon: 'setup', iconPlace: 'right', iconColor: 'purple', width: '157px'})
+                        +stdBtn({text: 'Больше опций', cls:'primary', color: 'white', type: 'w5', gap: '3.5px', icon: 'setup', iconPlace: 'right', iconColor: 'purple', width: '157px',id:'more_button'})
                 hr
                 .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item(class= 'single rightButtons')
                     .content_container_searchBlockContainer_innerContainer_bar_bottomButtons_item_buttons(class= 'standartButton rightButtons')
-                        +stdBtn({text: 'На карте', cls:'primary', color: 'white', type: 'w7', gap: '5px', icon: 'locBig', iconPlace: 'right', iconColor: 'purple', width: '111px'})
-                        +stdBtn({text: 'Показать', cls:'primary', color: 'yellow', type: 'w5', gap: '5px', icon: 'arrowLeft', iconPlace: 'right', iconColor: 'black', width: '123px'})
-
+                        +stdBtn({text: 'На карте', cls:'primary', color: 'white', type: 'w7', gap: '5px', icon: 'locBig', iconPlace: 'right', iconColor: 'purple', width: '111px', id:'map_button'})
+                        +stdBtn({text: 'Показать', cls:'primary', color: 'yellow', type: 'w5', gap: '5px', icon: 'arrowLeft', iconPlace: 'right', iconColor: 'black', width: '123px',id:'show_button'})
+            
+            .content_container_searchBlockContainer_innerContainer_bar_extraButtons(id = 'extra_search_container')            
+                .content_container_searchBlockContainer_innerContainer_bar_extraButtons_dateStart
+                    span От
+                    input(type="date" name="calendar" id= 'start_date')
+                hr
+                .content_container_searchBlockContainer_innerContainer_bar_extraButtons_dateEnd
+                    span До
+                    input(type="date" name="calendar" id= 'end_date')
+                hr
+                .content_container_searchBlockContainer_innerContainer_bar_extraButtons_checkBoxes
+                    +stdCheckBox({text: 'Чекбокс', id: 'checkBox_1'})
+                    +stdCheckBox({text: 'Чекбокс', id: 'checkBox_2'})
+                hr
+                .content_container_searchBlockContainer_innerContainer_bar_extraButtons_checkBoxes
+                    +stdCheckBox({text: 'Чекбокс', id: 'checkBox_3'})
+                    +stdCheckBox({text: 'Чекбокс', id: 'checkBox_4'})
+                hr
+                .content_container_searchBlockContainer_innerContainer_bar_extraButtons_checkBoxes
+                    +stdCheckBox({text: 'Чекбокс', id: 'checkBox_5'})
+                    +stdCheckBox({text: 'Чекбокс', id: 'checkBox_6'})
 
 
 
