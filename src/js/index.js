@@ -18,24 +18,28 @@ var authState = false;
 const expression = /^[+-]?\d+$/;
 const isInteger = (text) => !!text.match(expression);
 
-const addInputState = (input) => {
+const addInputState = (input, state) => {
     input.addEventListener('click', ()=> {
+        let innerTextState = document.getElementById(`${input.id}_innerText`);
+        console.log('innerTextState', innerTextState.innerText);
         const inputClass = input.className;
-        inputClass.includes('active') ? input.classList.remove('active') : input.classList.add('active');                                   
+        inputClass.includes('active') ? input.classList.remove('active') : input.classList.add('active');
+        state = innerTextState;
+        return state;                                   
     });
 }
 const addLiEvent = (input) => {
-    console.log('1');
+    
     let len = input.getElementsByTagName('li').length;
-    console.log('2', len);
+    
     for (i=0; i < len; i++) {
         let liElm = document.getElementById(`${input.id}_${i}`)
         liElm.addEventListener('click', ()=> {
             
             cutStr = input.id;
-            console.log('kekw',cutStr);
             inputText = document.getElementById(`${cutStr.substr(0, (cutStr.length - 3))}_innerText`);
             inputText.innerText= liElm.innerText
+
         })
     }
 }
@@ -119,22 +123,34 @@ async function mainContent() {
         case 'indexPage': {
             
             const roomTab = document.getElementById('room_tab');
+            const roomInputVars = ['Cтудия', '1 комната', '2 комнаты', '3 комнаты', '4 комнаты'];
+            const roomInputCheckboxes = ['Стиральная машина', 'Микроволновая печь', 'Раздельный санузел', 'Кондиционер', 'Парковка', 'Лифт'];
+
             const houseTab = document.getElementById('house_tab');
-            const newInputVars = ['1 комната', '2 комнаты', '3 комнаты', '4 комнаты'];
-            const bathab = document.getElementById('bath_tab');
+            const houseInputVars = ['1 комната', '2 комнаты', '3 комнаты', '4 комнаты'];
+            const houseInputCheckboxes = ['Стиральная машина', 'Микроволновая печь', 'Водоём', 'Кондиционер', 'Сауна', 'Мангал'];
+
+            const bathTab = document.getElementById('bath_tab');
+            const bathInputVars = ['Один', 'До трёх', 'До пяти', 'До десяти', 'Больше десяти'];
+            const bathInputCheckboxes = ['Раздельные парные', 'Купель', 'Хамам', 'Сауна', 'Уличный котёл', 'Мангал'];
+
             const carsTab = document.getElementById('cars_tab');
-            const roomTabState = true;
-            const houseTabState = false;
-            const bathabState = false;
-            const carsTabState = false;
+            const carsInputVars = ['Седан', 'Хэтчбэк', 'Купе', 'Грузовая', 'Внедорожник'];
+            const carsInputCheckboxes = ['Новая', 'Страховка', 'Спорт', 'Детское кресло', 'Безопасность', 'Электро\гибрид'];
 
             const cityState = document.getElementById('city_input');
             const cityUlState = document.getElementById('city_input_ul');
+            let cityStateValue = '';
+
             const roomState = document.getElementById('room_input');
             const roomUlState = document.getElementById('room_input_ul');
+            let roomStateValue = '';
 
             const inputFromElement = document.getElementById('from_input');
+            let inputFromState = '0';
+
             const inputToElement = document.getElementById('to_input');
+            let inputToState = '0';
 
             const mapState = document.getElementById('map_button');
             const mapContainer = document.getElementById('map');
@@ -143,8 +159,25 @@ async function mainContent() {
             const optionContainer = document.getElementById('search_container');
             const extraOptionContainer = document.getElementById('extra_search_container');
 
-            let inputFromState = +0;
-            let inputToState = +0;
+            const showButton = document.getElementById('show_button');
+            
+            showButton.addEventListener('click', ()=>{
+
+                let cityInnerText = document.getElementById('city_input_innerText');
+                let roomInnerText = document.getElementById('room_input_innerText');
+                cityStateValue = cityInnerText.innerText;
+                roomStateValue = roomInnerText.innerText;
+                
+                const filterObject = {
+                    city: ((cityStateValue && (cityStateValue !='Выберите')) ? cityStateValue : 'any') , 
+                    room: ((roomStateValue && (roomStateValue !='Выберите')) ? roomStateValue : 'any'), 
+                    priceFrom: (inputFromState ? inputFromState : 'any'), 
+                    priceTo: (inputToState ? inputToState : 'any')}
+
+                console.log(filterObject);
+                alert('Send filter', JSON.stringify(filterObject));
+                
+            })
 
             const searchTabClick = (tabArray) => {
                 
@@ -154,36 +187,73 @@ async function mainContent() {
                         elm.className.includes('active') && elm.classList.remove('active')})   
                 }
                 const changeFilter = (input) => {
+
+                    const newRoomUl = document.getElementById('room_input_ul');
+                    const newRoomTitle = document.getElementById('room_box_title');
+                    const newRoomInnerText = document.getElementById('room_input_innerText');
+
+                    const check1 = document.getElementById('checkBox_1_title');
+                    const check2 = document.getElementById('checkBox_2_title');
+                    const check3 = document.getElementById('checkBox_3_title');
+                    const check4 = document.getElementById('checkBox_4_title');
+                    const check5 = document.getElementById('checkBox_5_title');
+                    const check6 = document.getElementById('checkBox_6_title');
+                    const checkBoxArr = [check1, check2, check3, check4, check5, check6];
+
+                    const changeUl = (ul, checkbox) => {
+
+                        newRoomInnerText.innerText = 'Выберите';
+                        for (let i=0; i < ul.length; i++) {
+                            let newLi = document.createElement('li');
+                            newLi.setAttribute('id', `room_input_ul_${i}`)
+                            newLi.innerText = ul[i];
+                            newRoomUl.appendChild(newLi);
+                        }
+
+                        addLiEvent(newRoomUl);
+                        console.log(checkBoxArr);
+                        for (let i=0; i < checkBoxArr.length; i++) {
+                            console.log(checkBoxArr[i]);
+                            checkBoxArr[i].innerText = checkbox[i];
+                        }
+
+                    }
+
                     switch (input) {
+
                         case 'room_tab':
-                            console.log('room_tab');
+                            newRoomUl.innerHTML = '';
+                            newRoomTitle.innerText = 'Комнаты';
+                            changeUl(roomInputVars, roomInputCheckboxes);
+
                             break;
 
                         case 'house_tab':
-
-                            let newRoomUl = document.getElementById('room_input_ul');
-                            console.log('house_tab', newRoomUl);
+                                           
                             newRoomUl.innerHTML = '';
-                            
-                            for (i=0; i < newInputVars.length; i++) {
-                                let newLi = document.createElement('li');
-                                newLi.setAttribute('id', `room_input_ul_${i}`)
-                                newLi.innerText = newInputVars[i];
-                                newRoomUl.appendChild(newLi);
-
-                            }
-                            console.log(newRoomUl);
-                            addLiEvent(newRoomUl); 
+                            newRoomTitle.innerText = 'Комнат в доме';
+                            changeUl(houseInputVars, houseInputCheckboxes);
 
                             break;
 
                         case 'bath_tab':
-                            console.log('bath_tab');
+
+                            newRoomUl.innerHTML = '';
+                            newRoomTitle.innerText = 'Отдыхающих';
+                            changeUl(bathInputVars, bathInputCheckboxes);
+
                             break;
+
                         case 'cars_tab':
-                            console.log('cars_tab');
+
+                            newRoomUl.innerHTML = '';
+                            newRoomTitle.innerText = 'Тип автомобиля';
+                            changeUl(carsInputVars, carsInputCheckboxes);
+
                             break;
+
                         default:
+                            console.warn('error check case correctly')
                             break;
                     }
                 };
@@ -217,22 +287,24 @@ async function mainContent() {
             });
 
             inputFromElement.addEventListener('input', () => {
+                console.log('1 input');
                 inputFromState = inputFromElement.value;
                 checkRange();
-                })
+                });
 
             inputToElement.addEventListener('input', () => {
+                console.log('2 input');
                 inputToState = inputToElement.value;
-                checkRange()
-            })
+                checkRange();
+            });
 
             const checkRange = () => {
-                console.log(+inputFromState < +inputToState);
-            (isInteger(inputFromState) && (+inputFromState <= +inputToState)) ? inputFromElement.classList.remove('wrong') : inputFromElement.classList.add('wrong');
-            (isInteger(inputToState) && (+inputFromState <= +inputToState)) ? inputToElement.classList.remove('wrong') : inputToElement.classList.add('wrong');
-            }
+            console.log(+inputFromState < +inputToState);
+            (isInteger(inputFromState) && (+inputFromState < +inputToState)) ? (inputFromElement.classList.remove('wrong'), showButton.removeAttribute('disabled')) : (inputFromElement.classList.add('wrong'), showButton.setAttribute('disabled', 'disabled'));
+            (isInteger(inputToState) && (+inputFromState < +inputToState)) ? (inputToElement.classList.remove('wrong'),showButton.removeAttribute('disabled')) : (inputToElement.classList.add('wrong'),showButton.setAttribute('disabled', 'disabled'));
+        }
             
-            searchTabClick([roomTab, houseTab, bathab, carsTab]);
+            searchTabClick([roomTab, houseTab, bathTab, carsTab]);
             addInputState(roomState);
             addLiEvent(roomUlState);
             addInputState(cityState);

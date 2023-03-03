@@ -282,6 +282,9 @@ $hoverLine: 2px;
                 color: #FEC100;
             }
         }
+        &:disabled {
+          background: #bdbdbd;
+        }
     }
    
   
@@ -459,6 +462,7 @@ $hoverLine: 2px;
       justify-content: center;
     }
   }
+
 }
 
 .menuContent {

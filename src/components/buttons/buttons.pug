@@ -219,7 +219,8 @@ mixin stdCheckBox(vars= {text:'Text', color:'grey purple', cls:'primary', id: 't
         placeholder= `${vars.text ? vars.text : 'Text'}` 
         id= `${vars.id ? vars.id : ''}` 
         style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'},`})
-        label(for= `${vars.id ? vars.id : vars.cls}`)=vars.text
+        label(for= `${vars.id ? vars.id : vars.cls}`)
+            span(id=`${vars.id}_title`)=vars.text
 
 mixin toggleBtn(vars)
     .toggleBtn
