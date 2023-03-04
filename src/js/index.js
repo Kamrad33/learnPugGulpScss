@@ -13,7 +13,7 @@ let cardsList = [
 let userMenuButton = document.getElementById('userMenuButton');
 let userMenu = document.getElementById('userMenu');
 let pageType = document.getElementsByClassName('content');
-var authState = false;
+var authState = true;
 
 const expression = /^[+-]?\d+$/;
 const isInteger = (text) => !!text.match(expression);
@@ -45,6 +45,11 @@ const addLiEvent = (input) => {
 }
 async function mainHeader() {
     console.log(pageType[0].id);
+
+    const createAdButton = document.getElementById('create_ad_button');
+    createAdButton.addEventListener('click', () => {
+        alert('Раздел в разработке');
+    })
 
     switch(pageType[0].id) {
 
@@ -174,8 +179,8 @@ async function mainContent() {
                     priceFrom: (inputFromState ? inputFromState : 'any'), 
                     priceTo: (inputToState ? inputToState : 'any')}
 
-                console.log(filterObject);
-                alert('Send filter', JSON.stringify(filterObject));
+                //console.log(filterObject);
+                alert(JSON.stringify(filterObject));
                 
             })
 
@@ -211,9 +216,9 @@ async function mainContent() {
                         }
 
                         addLiEvent(newRoomUl);
-                        console.log(checkBoxArr);
+                        //console.log(checkBoxArr);
                         for (let i=0; i < checkBoxArr.length; i++) {
-                            console.log(checkBoxArr[i]);
+                            //console.log(checkBoxArr[i]);
                             checkBoxArr[i].innerText = checkbox[i];
                         }
 
@@ -287,19 +292,19 @@ async function mainContent() {
             });
 
             inputFromElement.addEventListener('input', () => {
-                console.log('1 input');
+                //console.log('1 input');
                 inputFromState = inputFromElement.value;
                 checkRange();
                 });
 
             inputToElement.addEventListener('input', () => {
-                console.log('2 input');
+                //console.log('2 input');
                 inputToState = inputToElement.value;
                 checkRange();
             });
 
             const checkRange = () => {
-            console.log(+inputFromState < +inputToState);
+            //console.log(+inputFromState < +inputToState);
             (isInteger(inputFromState) && (+inputFromState < +inputToState)) ? (inputFromElement.classList.remove('wrong'), showButton.removeAttribute('disabled')) : (inputFromElement.classList.add('wrong'), showButton.setAttribute('disabled', 'disabled'));
             (isInteger(inputToState) && (+inputFromState < +inputToState)) ? (inputToElement.classList.remove('wrong'),showButton.removeAttribute('disabled')) : (inputToElement.classList.add('wrong'),showButton.setAttribute('disabled', 'disabled'));
         }

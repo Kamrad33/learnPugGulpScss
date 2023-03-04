@@ -90,6 +90,7 @@ $hoverLine: 2px;
 
 .listBtn_Group_Left_Top {
   width: auto;
+  height: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -99,6 +100,7 @@ $hoverLine: 2px;
 
 .listBtn_Group_Right_Top {
   width: auto;
+  height: 40px;
   display: flex;
   justify-content: flex-end;
   gap: 40px;
@@ -107,7 +109,7 @@ $hoverLine: 2px;
 }
 
 .listBtn_Group_Middle_Bottom {
-  height: 100%;
+  height: auto;
   margin-left: 84px;
   margin-right: 92px;
   display: flex;

@@ -171,4 +171,150 @@ header {
   }
 }
 
+@media (max-width: 1440px) {
+  .header_Top {
+    &_container {
+      flex-wrap: wrap;
+      gap: 10px;
+      height: auto; 
+      align-items: center;
+      justify-content: center;
+    }
+  #indexPg, #newsPg,#pricePG, #mapPg, #contactsPg, #favsPg, #registerPg {
+    
+    height: 34px;
+    &:hover {
+      height: 35px;
+    }
+    &:active {
+      height: 34px;
+    }
+    &.-selected {
+      
+      &:hover {
+        height: 34px;
+      }
+    }
+  } 
+  
+  }
+  .header_bottom {
+    
+    &_container {
+      gap: 10px;
+      height: auto; 
+    }
+  }
+  #roomsPg, #housesPg, #bathsPg, #carsPg {
+    height: 60px;
+    &:hover {
+      height: 56px;
+    }
+    &:active {
+      height: 54px;
+    }
+  }
+  .listBtn_Group_Middle_Bottom {
+    
+    flex-grow: 1;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+  } 
+}
 
+@media (max-width: 1182px) {
+  header {
+    position: relative;
+  }
+  #indexPg, #newsPg,#pricePG, #mapPg, #contactsPg, #favsPg, #registerPg {
+    
+    height: 40px;
+    &:hover {
+      height: 35px;
+    }
+    &:active {
+      height: 34px;
+    }
+    &.-selected {
+      
+      &:hover {
+        height: 34px;
+      }
+    }
+  } 
+}
+@media (max-width: 950px) {
+  
+  .header_Top {
+    gap:0px;
+    &_container {
+      gap:20px;
+    }
+    &_user {
+      margin-left: 0px;
+    }
+    &_wrapper {
+      flex-wrap: wrap
+    };
+  }
+  .listBtn_Group_Left_Top {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap:20px;
+      height: auto;
+      min-height: 40px;
+  }
+  .listBtn_Group_right_Top {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 40px;
+    gap:20px;
+    justify-content: center;
+  }
+  .header_Bottom {
+    &_container {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  img {
+    margin-top: 20px;
+  }
+  #create_ad_button {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 752px) {
+  .listBtn_Group_Left_Top {
+
+    #indexPg, #newsPg,#pricePG, #mapPg, #contactsPg {
+      height: 40px;
+      &:hover {
+        height: 36px;
+      }
+      &:active {
+        height: 34px;
+      }
+      &.-selected {
+        height: 34px;
+      }
+    }
+  }
+  .listBtn_Group_right_Top {
+    #favsPg, #registerPg {
+      height: 40px;
+      &:hover {
+        height: 36px;
+      }
+      &:active {
+        height: 34px;
+      }
+      &.-selected {
+        height: 34px;
+      }
+    }
+  } 
+}
