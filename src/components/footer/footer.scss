@@ -16,19 +16,19 @@ footer {
 
 .footer_leftContainter {
   width: 300px;
-}
 
-.footer_leftContainter_logoUnderText {
-  @include fontStd(#8291a3, 12px, 700, 15px);
-
-  margin-top: 10px;
-  margin-bottom: 36px;
-}
-
-.footer_leftContainter_contactText {
-  width: 297px;
-  height: 78px;
-  @include fontStd(#8291a3, 11px, 400, 13px);
+  &_logoUnderText {
+    @include fontStd(#8291a3, 12px, 700, 15px);
+  
+    margin-top: 10px;
+    margin-bottom: 36px;
+  }
+  
+  &_contactText {
+    width: 297px;
+    height: 78px;
+    @include fontStd(#8291a3, 11px, 400, 13px);
+  }
 }
 
 .footer_middleContainer {
@@ -39,79 +39,311 @@ footer {
   margin-right: 81px;
   width: 872px;
   height: 164px;
+  a {
+    color: inherit;
+    text-decoration: none
+  }
+  &_Icons {
+    @include centringMixin(space-between);
+  
+    &_Social {
+      @include centringMixin(space-between);
+    
+      gap: 28.1px;
+  
+      &_Text {
+        @include fontStd($black, 14px, 500);
+      }
+      
+      &_Icons {
+        @include centringMixin(space-between);
+      
+        gap: 22px;
+
+        &_icon {
+          a {
+            padding: 0;
+            margin: 0;
+          }
+          cursor: pointer;
+          &:hover {
+            svg {
+              path {
+                fill: #664EF9;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    &_Card {
+      @include centringMixin(space-between);
+    
+      gap: 15px;
+    }
+  }
+
+  &_Buttons {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 38px;
+    @include centringMixin(flex-start, flex-start);
+  
+    gap: 69px;
+    &_button {
+      cursor: pointer;
+      &:hover {
+        color: #664EF9;
+      }
+    }
+    &_leftButtons {
+      height: 100%;
+      @include centringMixin(space-between);
+    
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 21px;
+    }
+    
+    &_List {
+      @include centringMixin(space-between);
+    
+      gap: 53px;
+    }
+    
+    &_ButtonList {
+      @include centringMixin(space-between, flex-start);
+    
+      flex-direction: column;
+      gap: 8px;
+      @include fontStd(#8291a3, 14px, 400);
+    }
+    
+    &_middleButtons {
+      height: 100%;
+      @include centringMixin(space-between, flex-start);
+    
+      flex-direction: column;
+      gap: 12px;
+      margin-right: 33px;
+    }
+    
+    &_rightButtons {
+      height: 100%;
+    }
+    
+    &_Button_Title {
+      @include fontStd($black, 14px, 700);
+      cursor: pointer;
+      &:hover {
+        color: #664EF9;
+      }
+    }
+  }
 }
 
-.footer_middleContainer_Buttons {
-  height: 100%;
-  width: 100%;
-  margin-bottom: 38px;
-  @include centringMixin(flex-start, flex-start);
 
-  gap: 69px;
+@media (max-width: 1440px) {
+  #footer {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .footer_innerContainer {
+    width: calc(100% - 160px);
+    height: calc(100% - 78px);
+    
+  }
+  .footer_middleContainer {
+    margin: 0;
+    height: 100%;
+
+    &_buttons {
+      gap: 10px;
+      justify-content: space-between;
+      width: 100%;
+      height: auto;
+      flex-wrap: wrap;
+
+      &_leftButtons {
+        margin-right: 15px;
+        justify-content: flex-start;
+      }
+
+      &_middleButtons {
+        margin: 0;
+        margin-right: 15px;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-grow: 1;
+        height: auto;
+      }
+      &_list {
+        //gap: 10px;
+        flex-wrap: wrap;
+      }
+    }
+
+    &_icons {
+      flex-wrap: wrap;
+      gap: 10px;
+
+      &_social {
+        flex-wrap: wrap;
+      }
+      &_card {
+        flex-wrap: wrap;
+      }
+    }
+  }
 }
 
-.footer_middleContainer_Buttons_leftButtons {
-  height: 100%;
-  @include centringMixin(space-between);
+@media (max-width: 950px) {
+  #footer {
+    height: auto;
+  }
+  .footer_leftContainter {
+    width: auto;
+    flex-grow: 0;
+    margin-right: 20px;
+    height: auto;
+    &_logo {
+      width: 100%;
+      height: auto;
+    }
+    &_contactText {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .footer_middleContainer {
+    margin: 0;
+    width: 100%;
+    flex-grow: 2;
+    justify-content: center;
+    &_buttons {
+      gap: 20px;
+      width: 100%;
+      justify-content: flex-start;
 
-  align-items: flex-start;
+      &_leftButtons {
+        height: auto;
+      }
+      &_middleButtons {
+        margin: 0;
+        margin-right: 15px;
+      }
+      &_rightButtons {
+        height: auto;
+      }
+      &_list {
+        gap:10px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  }
+}
+@media (max-width: 480px) {
+.footer_innerContainer{
+  display: flex;
   flex-direction: column;
-  gap: 21px;
+  gap: 20px;
+}
+}
+/*
+@media (max-width: 1440px) {
+  #footer {
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .footer_innerContainer {
+
+    width: calc(100% - 160px);
+    height: calc(100% - 80px);
+  }
+  .footer_middleContainer {
+    
+    &_buttons {
+      display: flex;
+      gap: 20px;
+      //flex-direction: column;
+    }
+    &_icons {
+      flex-direction: column;
+    }
+  }
+
 }
 
-.footer_middleContainer_Buttons_List {
-  @include centringMixin(space-between);
 
-  gap: 53px;
+@media (max-width: 900px) {
+  #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+  .footer_leftContainter {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    
+    &_logo {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;      
+    }
+    &_logoUnderText {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: end;
+      font-size: 150%;
+    }
+    &_contactText {
+      height: 100%;
+      width: 100%;
+      font-size: 200%;
+      line-height: 120%;
+    }
+    img {
+      width: 135px;
+      height: 19px;
+    }
+  }
+  .footer_middleContainer {
+    &_icons {
+      scale: 200%;
+      margin-bottom: 50px;
+      &_card {
+        gap: 10px;
+        width: calc(50% - 80px);
+        flex-wrap: wrap;
+        &_img {
+        }
+      }
+    }
+  }
+  .footer_innerContainer {
+    height: auto;
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
 }
 
-.footer_middleContainer_Buttons_ButtonList {
-  @include centringMixin(space-between, flex-start);
-
-  flex-direction: column;
-  gap: 8px;
-  @include fontStd(#8291a3, 14px, 400);
+@media (max-width: 380px) {
+  .footer_leftContainter {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
+*/
 
-.footer_middleContainer_Buttons_middleButtons {
-  height: 100%;
-  @include centringMixin(space-between, flex-start);
 
-  flex-direction: column;
-  gap: 12px;
-  margin-right: 33px;
-}
-
-.footer_middleContainer_Buttons_rightButtons {
-  height: 100%;
-}
-
-.footer_middleContainer_Buttons_Button_Title {
-  @include fontStd($black, 14px, 700);
-}
-
-.footer_middleContainer_Icons {
-  @include centringMixin(space-between);
-}
-
-.footer_middleContainer_Icons_Social {
-  @include centringMixin(space-between);
-
-  gap: 28.1px;
-}
-
-.footer_middleContainer_Icons_Social_Text {
-  @include fontStd($black, 14px, 500);
-}
-
-.footer_middleContainer_Icons_Social_Icons {
-  @include centringMixin(space-between);
-
-  gap: 22px;
-}
-
-.footer_middleContainer_Icons_Card {
-  @include centringMixin(space-between);
-
-  gap: 15px;
-}
