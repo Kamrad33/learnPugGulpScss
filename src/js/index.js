@@ -126,7 +126,7 @@ async function mainContent() {
         //index page logic------------------
 
         case 'indexPage': {
-            
+            // search tab logic-----------------------
             const roomTab = document.getElementById('room_tab');
             const roomInputVars = ['Cтудия', '1 комната', '2 комнаты', '3 комнаты', '4 комнаты'];
             const roomInputCheckboxes = ['Стиральная машина', 'Микроволновая печь', 'Раздельный санузел', 'Кондиционер', 'Парковка', 'Лифт'];
@@ -179,7 +179,6 @@ async function mainContent() {
                     priceFrom: (inputFromState ? inputFromState : 'any'), 
                     priceTo: (inputToState ? inputToState : 'any')}
 
-                //console.log(filterObject);
                 alert(JSON.stringify(filterObject));
                 
             })
@@ -188,7 +187,6 @@ async function mainContent() {
                 
                 const searchTabClear = (tabArray) => {
                     tabArray.forEach(elm => {
-                        //console.log( elm.className.includes('active'));
                         elm.className.includes('active') && elm.classList.remove('active')})   
                 }
                 const changeFilter = (input) => {
@@ -216,9 +214,8 @@ async function mainContent() {
                         }
 
                         addLiEvent(newRoomUl);
-                        //console.log(checkBoxArr);
+
                         for (let i=0; i < checkBoxArr.length; i++) {
-                            //console.log(checkBoxArr[i]);
                             checkBoxArr[i].innerText = checkbox[i];
                         }
 
@@ -265,7 +262,6 @@ async function mainContent() {
                 tabArray.forEach(elm => {
                     elm.addEventListener('click', ()=> {
                         searchTabClear(tabArray);
-                        //console.log('keks', elm.id);
                         let inputClass = elm.className;                       
                         inputClass.includes('active') ? elm.classList.remove('active') : elm.classList.add('active'); 
                         changeFilter(elm.id);
@@ -292,22 +288,52 @@ async function mainContent() {
             });
 
             inputFromElement.addEventListener('input', () => {
-                //console.log('1 input');
+
                 inputFromState = inputFromElement.value;
                 checkRange();
                 });
 
             inputToElement.addEventListener('input', () => {
-                //console.log('2 input');
+                
                 inputToState = inputToElement.value;
                 checkRange();
             });
 
             const checkRange = () => {
-            //console.log(+inputFromState < +inputToState);
+
             (isInteger(inputFromState) && (+inputFromState < +inputToState)) ? (inputFromElement.classList.remove('wrong'), showButton.removeAttribute('disabled')) : (inputFromElement.classList.add('wrong'), showButton.setAttribute('disabled', 'disabled'));
             (isInteger(inputToState) && (+inputFromState < +inputToState)) ? (inputToElement.classList.remove('wrong'),showButton.removeAttribute('disabled')) : (inputToElement.classList.add('wrong'),showButton.setAttribute('disabled', 'disabled'));
         }
+
+        //rent types logic -----------------
+
+        const housesTypesListButton = document.getElementById('rent_types_button');
+        const housesTypes = document.getElementById('houses_types');
+        const housesTypesMore = ['Ещё', 'одни', 'коттеджи', 'ещё', 'усадьбы'];
+
+        const addMoreRentTypes = (typesArr, rentTypes) => {
+            typesArr.forEach(elm => {
+                let newElmWrapper = rentTypes.childNodes[3];
+                let newElm = document.createElement('div');
+                    newElm.classList.add('rentTypesCardsBlock_buttonList_item_button');
+                        let newElmTitle = document.createElement('div');
+                        newElmTitle.classList.add('rentTypesCardsBlock_buttonList_item_button_text');
+                        newElmTitle.innerText = elm;
+                        let newElmNumber = document.createElement('div');
+                        newElmNumber.classList.add('rentTypesCardsBlock_buttonList_item_button_number');
+                        newElmNumber.innerText = '100';
+                    newElm.append(newElmTitle,newElmNumber);
+                newElmWrapper.append(newElm);
+                console.log(newElmWrapper);
+            })
+        }
+
+        housesTypesListButton.addEventListener('click', () => {
+            console.log('kek');
+            addMoreRentTypes(housesTypesMore, housesTypes);
+            housesTypesListButton.remove();
+        })
+
             
             searchTabClick([roomTab, houseTab, bathTab, carsTab]);
             addInputState(roomState);
