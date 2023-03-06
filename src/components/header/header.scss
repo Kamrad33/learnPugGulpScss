@@ -171,14 +171,14 @@ header {
   }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
   .header_Top {
     &_container {
       flex-wrap: wrap;
       gap: 10px;
       height: auto; 
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
     }
   #indexPg, #newsPg,#pricePG, #mapPg, #contactsPg, #favsPg, #registerPg {
     
@@ -225,6 +225,16 @@ header {
 }
 
 @media (max-width: 1182px) {
+  .header_Top {
+    &_container {
+      justify-content: center;
+    }
+  }
+  .listBtn_Group_Left_Top {
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
   header {
     position: relative;
   }
@@ -249,8 +259,11 @@ header {
   
   .header_Top {
     gap:0px;
+    
     &_container {
       gap:20px;
+      margin-left: 20px;
+      margin-right: 20px;
     }
     &_user {
       margin-left: 0px;
@@ -260,11 +273,12 @@ header {
     };
   }
   .listBtn_Group_Left_Top {
-      justify-content: center;
+      justify-content: space-around;
       flex-wrap: wrap;
       gap:20px;
       height: auto;
       min-height: 40px;
+      flex-grow: 1;
   }
   .listBtn_Group_right_Top {
     flex-wrap: wrap;
@@ -278,6 +292,8 @@ header {
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
+      margin-left: 20px;
+      margin-right: 20px;
     }
   }
   img {

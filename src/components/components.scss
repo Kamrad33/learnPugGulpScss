@@ -1505,3 +1505,13 @@
         
     }
 }
+
+@media (max-width: 1439px) {
+    .content_container_searchBlockContainer {
+        width: 100%;
+        &_background {
+            width: calc(100% - 160px);
+
+        }
+    }
+}

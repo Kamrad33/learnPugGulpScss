@@ -144,7 +144,7 @@ footer {
 }
 
 
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
   #footer {
     width: 100%;
     height: auto;
@@ -204,6 +204,12 @@ footer {
   #footer {
     height: auto;
   }
+
+  .footer_innerContainer {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+      margin-right: 20px;
+  }
   .footer_leftContainter {
     width: auto;
     flex-grow: 0;
@@ -251,6 +257,15 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.footer_middleContainer {
+  &_buttons {
+    justify-content: center;
+    &_middleButtons {
+      align-items: center;
+    }
+  }
 }
 }
 
