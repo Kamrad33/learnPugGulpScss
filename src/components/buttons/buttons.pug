@@ -181,7 +181,7 @@ mixin stdTextArea(vars)
         textarea(name=vars.name placeholder = vars.placeholder)  
 //- circle button
 mixin circleBtn(vars)
-    .circleBtn(class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'white'}`)
+    .circleBtn(class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'white'}` id = vars.id)
         case vars.icon
             when 'arrowLeft'
                 .stdButtonIcon(class = vars.iconColor style = {height: '18px', width: '18px'})

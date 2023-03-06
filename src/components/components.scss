@@ -370,6 +370,7 @@
     margin-top: 30px;
     display: flex;
     position: relative;
+    
     &_background {
         position: absolute;
         z-index: 0;
@@ -422,17 +423,34 @@
             }
         }
         &_cards {
+            overflow: hidden;
+            width: 1275px;
+            
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-bottom: 30px;
+            background: none;
+            z-index: 1;
+            position: relative;
+            border-radius: 20px;
+            
+            &_line {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 30px;
             position: relative;
-            z-index: 10;
+            z-index: 10;    
+            left:0;
+            transition: all ease 1s;
+            
+            }
+
             &_item {
                 position: relative;
-                z-index: 10;
+                z-index: 100;
             }
         
-        }
+    }
         &_nav {
             display: flex;
             justify-content: center;
@@ -472,7 +490,10 @@
                 }
             }
             &_right {
-
+                a {
+                    text-decoration: none;
+                    
+                }
             }
         }
     }

@@ -20,6 +20,7 @@ const isInteger = (text) => !!text.match(expression);
 
 const addInputState = (input, state) => {
     input.addEventListener('click', ()=> {
+        console.log('check');
         let innerTextState = document.getElementById(`${input.id}_innerText`);
         console.log('innerTextState', innerTextState.innerText);
         const inputClass = input.className;
@@ -304,7 +305,11 @@ async function mainContent() {
             (isInteger(inputFromState) && (+inputFromState < +inputToState)) ? (inputFromElement.classList.remove('wrong'), showButton.removeAttribute('disabled')) : (inputFromElement.classList.add('wrong'), showButton.setAttribute('disabled', 'disabled'));
             (isInteger(inputToState) && (+inputFromState < +inputToState)) ? (inputToElement.classList.remove('wrong'),showButton.removeAttribute('disabled')) : (inputToElement.classList.add('wrong'),showButton.setAttribute('disabled', 'disabled'));
         }
-
+        searchTabClick([roomTab, houseTab, bathTab, carsTab]);
+        addInputState(roomState);
+        addLiEvent(roomUlState);
+        addInputState(cityState);
+        addLiEvent(cityUlState);
         //rent types logic -----------------
 
         const housesTypesListButton = document.getElementById('rent_types_button');
@@ -332,12 +337,37 @@ async function mainContent() {
             housesTypesListButton.remove();
         })
 
-            
-            searchTabClick([roomTab, houseTab, bathTab, carsTab]);
-            addInputState(roomState);
-            addLiEvent(roomUlState);
-            addInputState(cityState);
-            addLiEvent(cityUlState);
+        // rent rooms block logic ----------------------
+        
+        const metroButton = document.getElementById('metro_button');
+        const metroUlState = document.getElementById('metro_button_ul');
+        const areaButton = document.getElementById('area_button');
+        const areaUlState = document.getElementById('area_button_ul');
+        const rentPrevButton = document.getElementById('rent_prev_button');
+        const rentNextButton = document.getElementById('rent_next_button');
+        let sliderNext = 0;
+        const sliderLine = document.querySelector('.rentRoomsCardsBlock_innerContainer_cards_line');
+
+        rentNextButton.addEventListener('click', () => {
+
+            sliderNext += 436;
+            sliderLine.style.left = -sliderNext + 'px';
+            if (sliderNext > ((sliderLine.childElementCount - 3) * 436)) {sliderNext = 0}
+
+        });
+
+        rentPrevButton.addEventListener('click', () => {
+            sliderNext -= 436;
+            sliderLine.style.left = -sliderNext + 'px';
+            if (sliderNext < 0) {sliderNext = ((sliderLine.childElementCount - 2) * 436)}
+        })
+
+        addInputState(metroButton);
+        addLiEvent(metroUlState);
+        addInputState(areaButton);
+        addLiEvent(areaUlState);
+
+
             
             
         }
