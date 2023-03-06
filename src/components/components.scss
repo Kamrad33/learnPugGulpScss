@@ -6,12 +6,11 @@
 .content_container_searchBlockContainer {
   width: 1440px;
   height: 430px;
-  //margin: 0 80px;
   background-size: 100%;
   background-position: center;
   display: flex;
   justify-content: center;
-
+    position: relative;
   &_background {
     mix-blend-mode: overlay;
     background: linear-gradient(360deg, #7e6af3 15.95%, #6540cd 63.1%);
@@ -25,8 +24,6 @@
     img {
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
-  
-      //position: absolute;
       z-index: 0;
     }
   }
@@ -37,8 +34,6 @@
     height: 100%;
     z-index: 100;
       
-    //padding-top: 82.5px;
-    //padding-bottom: 118;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -67,7 +62,6 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      //margin-left: 223px; 
       
       &_top {
         @include fontStd(#ffffff, 14px, 600, 17px);
@@ -1507,11 +1501,169 @@
 }
 
 @media (max-width: 1439px) {
-    .content_container_searchBlockContainer {
-        width: 100%;
-        &_background {
-            width: calc(100% - 160px);
-
+    .map {
+        width: calc(100% - 160px);
+        iframe {
+            width:100%
         }
     }
+    .content_container_searchBlockContainer {
+        width: 100%;
+        height: auto;
+
+        &_background {
+            height: 100%;
+            width: calc(100% - 160px);
+            
+            #search_background {
+                margin-top: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &_innerContainer {
+            width: calc(100% - 160px);
+            height: auto;
+            
+            &_bar {
+                width: calc(100% - 200px);
+                margin-bottom: 20px;
+                &_bottomButtons {
+                    width: 100%;
+                    flex-wrap: wrap;
+                    height: auto;
+                    justify-content: space-between;
+                    hr {
+                        height: 70px;
+                    }
+                    &_item {
+
+                        height: auto;
+                        &.single {
+                            height: auto;
+                        }
+                        &.rightButtons {
+                            height: auto;
+                            width: auto;
+                            
+                        }
+                    }
+                }
+
+                &_extraButtons {
+                    width: 100%;
+                    flex-wrap: wrap;
+                    height: auto;
+                    justify-content: space-between;
+                    hr {
+                        height: 70px;
+                    }
+                }
+            }
+        }
+
+    }
+}
+@media (max-width: 950px) {
+    .content_container_searchBlockContainer {
+        &_background {
+            width: 100%;
+            
+       }
+       &_innerContainer {
+        width: 100%;
+        
+
+        &_bar {
+            width: calc(100% - 100px);
+
+            &_top {
+                width: auto;
+                flex-wrap: wrap;
+
+            }          
+        }
+        &_title {
+            width: 100%;
+            justify-content: center;
+            p {
+                flex-wrap: wrap;
+                word-wrap: normal;
+                height: 100%;
+            }
+        }
+    }
+    }
+}
+@media (max-width: 752px) {
+    .content_container_searchBlockContainer{
+        &_innerContainer {
+        &_bar {
+        
+        &_top {
+            border-radius: 0;
+            #room_tab, #house_tab, #bath_tab, #cars_tab {
+                border-radius: 0;
+            }
+        }
+        &_bottomButtons {
+            border-radius: 0;
+        }
+    }
+}
+    }
+}
+@media (max-width: 480px) {
+    .content_container_searchBlockContainer {
+       &_innerContainer {
+        width: 100%;
+        height: auto;
+        &_bar {
+            &_bottomButtons {
+                justify-content: center;
+                &_item {
+                    &_buttons {
+                        width: auto;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                    }
+                }
+            }
+            &_extraButtons {
+                justify-content: center;
+            }
+        }
+    }
+    }
+}
+
+@media (max-width: 310px) {
+    .content_container_searchBlockContainer {
+        &_innerContainer {
+         &_bar {
+             &_bottomButtons {
+                hr{
+                    display: none;
+                }
+                 &_item {
+                     &_buttons {
+                        #city_input {
+                            min-width: 0;
+                            width: 100%;
+                            
+                        }
+                        &.stdBtn_innerText {
+                            
+                        }
+                     }
+                 }
+             }
+             &_extraButtons {
+                hr {
+                    display: none;
+                }
+             }
+         }
+     }
+     }
 }

@@ -868,3 +868,9 @@ body {
       }
   }
 }
+
+@media(max-width: 1439px) {
+  .content_container {
+    width: 100%;
+  }
+}
