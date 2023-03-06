@@ -324,12 +324,10 @@ async function mainContent() {
                         newElmNumber.innerText = '100';
                     newElm.append(newElmTitle,newElmNumber);
                 newElmWrapper.append(newElm);
-                console.log(newElmWrapper);
-            })
+            });
         }
 
         housesTypesListButton.addEventListener('click', () => {
-            console.log('kek');
             addMoreRentTypes(housesTypesMore, housesTypes);
             housesTypesListButton.remove();
         })

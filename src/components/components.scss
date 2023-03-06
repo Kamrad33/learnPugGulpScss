@@ -228,6 +228,9 @@
     @include centringMixin(space-between);
     margin: 84px 0px;
     position: relative;
+    a {
+        text-decoration: none;
+    }
     &_cards {
         display: flex;
         flex-direction: column;
