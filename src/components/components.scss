@@ -1555,6 +1555,7 @@
                     flex-wrap: wrap;
                     height: auto;
                     justify-content: space-between;
+                    padding-bottom: 20px;
                     hr {
                         height: 70px;
                     }
@@ -1565,7 +1566,14 @@
     }
 }
 @media (max-width: 950px) {
+    .map {
+        width: calc(100% - 80px);
+        iframe {
+            width:100%
+        }
+    }
     .content_container_searchBlockContainer {
+
         &_background {
             width: 100%;
             
@@ -1619,6 +1627,11 @@
         width: 100%;
         height: auto;
         &_bar {
+            width: 100%;
+            hr{
+                display: none;
+            }
+            
             &_bottomButtons {
                 justify-content: center;
                 &_item {
@@ -1631,6 +1644,7 @@
             }
             &_extraButtons {
                 justify-content: center;
+                
             }
         }
     }
@@ -1642,9 +1656,7 @@
         &_innerContainer {
          &_bar {
              &_bottomButtons {
-                hr{
-                    display: none;
-                }
+
                  &_item {
                      &_buttons {
                         #city_input {
