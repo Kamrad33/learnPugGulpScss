@@ -958,6 +958,9 @@
         align-items: center;
         gap:30px;
         position: relative;
+        a {
+            text-decoration: none;
+        }
         &_left {
             &_title {
                 width: 842px;
@@ -1038,7 +1041,7 @@
                 margin-bottom: 32px;
                 &_item {
                     width: 100%;
-                    
+                    cursor: pointer;
                     &_text {
                         @include fontStd($black, 14px, 600, 17px);
                         margin-bottom: 6px;
@@ -1064,6 +1067,7 @@
                 align-items: center;
                 $color: #664EF9;
                 @include fontStd($color, 14px, 700, 17px);
+                cursor: pointer;
                 path {
                     stroke: $color
                 }
@@ -1658,6 +1662,41 @@
             }
         }
     }
+
+    .content_container_exampleContainer {
+        .spaceContainer {
+            display: none;
+        }
+        width: 100%;
+         
+        &_innerContainer{
+            flex-wrap: wrap;
+            justify-content: center;
+            width: calc(100% - 160px);
+            &_left {
+                width: calc(100% - 40px);
+                &_title {
+                    width: 100%;
+                    height: auto;
+                }
+                &_middle {
+                    width: 100%;
+                    height: auto;
+                    &_description {
+                        height: auto;
+                    }
+                }
+                &_bottom {
+                    width: 100%;
+                    height: auto;
+                }
+                //flex-grow: 2;
+            }
+            &_right {
+                
+            }
+        }
+    }
 }
 @media (max-width: 950px) {
     .map {
@@ -1795,7 +1834,25 @@
             }
             }
         }
-    }
+        .content_container_exampleContainer {            
+            &_innerContainer{
+                width: calc(100% - 80px);
+                margin-left: 40px;
+                margin-right: 40px;
+
+                &_left {
+                    &_middle {
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        width: 100%;
+                        &_description {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+}
 
 @media (max-width: 752px) {
     .content_container_searchBlockContainer{
@@ -2012,6 +2069,13 @@
                     }
                 }
             }
+            }
+        }
+        .content_container_exampleContainer {            
+            &_innerContainer{
+                width: calc(100% - 40px);
+                margin-left: 20px;
+                margin-right: 20px;
             }
         }
     }
