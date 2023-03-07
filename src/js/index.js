@@ -349,27 +349,390 @@ async function mainContent() {
         let sliderNext = 0;
         const sliderLine = document.querySelector('.rentRoomsCardsBlock_innerContainer_cards_line');
 
+        const addContactEvent = (button) => {
+            console.log(button);
+            const counts = sliderLine.childElementCount;
+            switch (button) {
+                case 'card_contacts_button':
+                    for (let i = 0; i < counts; i++) {
+                        let element = document.getElementById(`${button}_${i}`);
+                        console.log('element1', element);
+                        element.addEventListener('click', () => {
+                        const inputClass = element.className;
+                        inputClass.includes('active') ? element.classList.remove('active') : element.classList.add('active');
+        
+                        })
+                    }  
+                    break;
+                case 'card_more_button': 
+                    for (let i = 0; i < counts; i++) {
+                        let element = document.getElementById(`${button}_${i}`);
+                        element.addEventListener('click', () => {
+                        //const inputClass = element.className;
+                        //inputClass.includes('active') ? element.classList.remove('active') : element.classList.add('active');
+                            //console.log('eeee');
+                            alert(element.id)
+                        })
+                    }
+                default:
+                    break;
+            }                 
+        }
+
+        const addCardsButtonsEvent = () => {
+            addContactEvent('card_contacts_button');
+            addContactEvent('card_more_button');
+        }
+
+        const loadGoldCards = () => {
+            let cardArray = [{
+                price: '60.00 BYN',
+                type: 'За сутки',
+                capacity: '4 (2+2)',
+                rooms: '4 комн.',
+                size: '179',
+                photo: '../../assets/images/card_1_Img.png',
+                address: 'Минск, б-р Мулявина, д. 10',
+                metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png',
+                name: 'Vasye',
+                phone: ' +375 (29) 291-14-44',
+                email: 'vladimir6234@tut.by'}},
+            {
+                price: '65.00 BYN',
+                type: 'За месяц',
+                capacity: '4 (1+1)',
+                rooms: '4 комн.',
+                size: '179',
+                photo: '../../assets/images/card_1_Img.png',
+                address: 'Минск, б-р Мулявина, д. 11',
+                metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png',
+                name: 'Vasye',
+                phone: ' +375 (29) 291-14-44',
+                email: 'vladimir6234@tut.by'}},
+            {
+                price: '165.00 BYN',
+                type: 'За сутки',
+                capacity: '4 (2+2)',
+                rooms: '4 комн.',
+                size: '179',
+                photo: '../../assets/images/card_1_Img.png',
+                address: 'Минск, б-р Мулявина, д. 12',
+                metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png',
+                name: 'Vasye',
+                phone: ' +375 (29) 291-14-44',
+                email: 'vladimir6234@tut.by'}},
+
+            {
+                price: '165.00 BYN',
+                type: 'За сутки',
+                capacity: '4 (2+2)',
+                rooms: '4 комн.',
+                size: '179',
+                photo: '../../assets/images/card_1_Img.png',
+                address: 'Минск, б-р Мулявина, д. 13',
+                metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png',
+                name: 'Vasye',
+                phone: ' +375 (29) 291-14-44',
+                email: 'vladimir6234@tut.by'}},
+
+            {
+                price: '165.00 BYN',
+                type: 'За сутки',
+                capacity: '4 (2+2)',
+                rooms: '4 комн.',
+                size: '179',
+                photo: '../../assets/images/card_1_Img.png',
+                address: 'Минск, б-р Мулявина, д. 14',
+                metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png',
+                name: 'Vasye',
+                phone: ' +375 (29) 291-14-44',
+                email: 'vladimir6234@tut.by'}},
+
+            {
+                price: '165.00 BYN',
+                type: 'За сутки',
+                capacity: '4 (2+2)',
+                rooms: '4 комн.',
+                size: '179',
+                photo: '../../assets/images/card_1_Img.png',
+                address: 'Минск, б-р Мулявина, д. 15',
+                metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png',
+                name: 'Vasye',
+                phone: ' +375 (29) 291-14-44',
+                email: 'vladimir6234@tut.by'}},
+
+            {
+                price: '165.00 BYN',
+                type: 'За сутки',
+                capacity: '4 (2+2)',
+                rooms: '4 комн.',
+                size: '179',
+                photo: '../../assets/images/card_1_Img.png',
+                address: 'Минск, б-р Мулявина, д. 16',
+                metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png',
+                name: 'Vasye',
+                phone: ' +375 (29) 291-14-44',
+                email: 'vladimir6234@tut.by'}},
+            {
+                price: '165.00 BYN',
+                type: 'За сутки',
+                capacity: '4 (2+2)',
+                rooms: '4 комн.',
+                size: '179',
+                photo: '../../assets/images/card_1_Img.png',
+                address: 'Минск, б-р Мулявина, д. 17',
+                metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png',
+                name: 'Vasye',
+                phone: ' +375 (29) 291-14-44',
+                email: 'vladimir6234@tut.by'}},
+            {
+                price: '165.00 BYN',
+                type: 'За сутки',
+                capacity: '4 (2+2)',
+                rooms: '4 комн.',
+                size: '179',
+                photo: '../../assets/images/card_1_Img.png',
+                address: 'Минск, б-р Мулявина, д. 18',
+                metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png',
+                name: 'Vasye',
+                phone: ' +375 (29) 291-14-44',
+                email: 'vladimir6234@tut.by'}},
+            {
+                price: '165.00 BYN',
+                type: 'За сутки',
+                capacity: '4 (2+2)',
+                rooms: '4 комн.',
+                size: '179',
+                photo: '../../assets/images/card_1_Img.png',
+                address: 'Минск, б-р Мулявина, д. 19',
+                metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png',
+                name: 'Vasye',
+                phone: ' +375 (29) 291-14-44',
+                email: 'vladimir6234@tut.by'}},
+            {
+                price: '165.00 BYN',
+                type: 'За сутки',
+                capacity: '4 (2+2)',
+                rooms: '4 комн.',
+                size: '179',
+                photo: '../../assets/images/card_1_Img.png',
+                address: 'Минск, б-р Мулявина, д. 20',
+                metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],
+                description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...',
+                ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png',
+                name: 'Vasye',
+                phone: ' +375 (29) 291-14-44',
+                email: 'vladimir6234@tut.by'}},               
+            ];
+
+            const deleteCardId = () => {
+                let contactButton = document.getElementById('card_contacts_button_0');
+                contactButton.setAttribute('id', `card_contacts_button`); 
+                let moreButton = document.getElementById('card_more_button_0');
+                moreButton.setAttribute('id', `card_more_button`); 
+
+                let priceState = document.getElementById('card_price_0');
+                priceState.setAttribute('id', `card_price`);
+                let typeState = document.getElementById('card_type_0');
+                typeState.setAttribute('id', `card_type`);
+
+                let capacitytate = document.getElementById('card_capacity_0');
+                capacitytate.setAttribute('id', `card_capacity`); 
+                let roomsState = document.getElementById('card_rooms_0');
+                roomsState.setAttribute('id', `card_rooms`); 
+                let sizeState = document.getElementById('card_size_0');
+                sizeState.setAttribute('id', `card_size`);  
+                
+                let addressState = document.getElementById('card_address_0');
+                addressState.setAttribute('id', `card_address`); 
+                let metroState = document.getElementById('card_station_0_0');
+                metroState.setAttribute('id', `card_station_0`);
+                let stationState = document.getElementById('card_station_1_0');
+                stationState.setAttribute('id', `card_station_1`); 
+                
+                let descriptionState = document.getElementById('card_description_0');
+                descriptionState.setAttribute('id', `card_description`);  
+            }
+
+            deleteCardId();
+
+           // console.log('Ayaya', contactButton);
+            const new_card = cardContent.cloneNode(true);
+            //console.log('Ayaya', new_card);
+            sliderLine.innerHTML ='';
+
+            for (let i = 0; i < cardArray.length; i++) {
+
+                const item = document.createElement('div');
+                item.classList.add('rentRoomsCardsBlock_innerContainer_cards_item');
+                item.setAttribute('id', `card_item_${i}`);
+                new_card.setAttribute('id', `rent_card_${i}`) 
+                item.append(new_card.cloneNode(true));
+                    
+                sliderLine.append(item);
+        
+                const contactButton = document.getElementById('card_contacts_button');
+                contactButton.setAttribute('id', `card_contacts_button_${i}`); 
+
+                const moreButton = document.getElementById('card_more_button');
+                moreButton.setAttribute('id', `card_more_button_${i}`);
+
+                const priceState = document.getElementById('card_price');
+                priceState.setAttribute('id', `card_price_${i}`);
+                priceState.innerText = cardArray[i].price;
+
+                const typeState = document.getElementById('card_type');
+                typeState.setAttribute('id', `card_type_${i}`);
+                typeState.innerText = cardArray[i].type;
+
+                const capacityState = document.getElementById('card_capacity');
+                capacityState.setAttribute('id', `card_capacity_${i}`);
+                capacityState.innerText = cardArray[i].capacity;
+
+                const roomsState = document.getElementById('card_rooms');
+                roomsState.setAttribute('id', `card_rooms_${i}`);
+                roomsState.innerText = cardArray[i].rooms;
+
+                const sizeState = document.getElementById('card_size');
+                sizeState.setAttribute('id', `card_size_${i}`);
+                sizeState.innerText = cardArray[i].size;
+
+                const addressState = document.getElementById('card_address');
+                addressState.setAttribute('id', `card_address_${i}`);
+                addressState.innerText = cardArray[i].address;
+
+                const metroState = document.getElementById('card_station_0');
+                metroState.setAttribute('id', `card_station_0_${i}`);
+                metroState.innerText = cardArray[i].metro[0].name;
+
+                const stationState = document.getElementById('card_station_1');
+                stationState.setAttribute('id', `card_station_1_${i}`);
+                stationState.innerText = cardArray[i].metro[1].name;
+
+                const descriptionState = document.getElementById('card_description');
+                descriptionState.setAttribute('id', `card_description_${i}`);
+                descriptionState.innerText = cardArray[i].description;
+
+               /* const item = document.createElement('div');
+                item.classList.add('rentRoomsCardsBlock_innerContainer_cards_item');
+                item.setAttribute('id', `card_item_${i}`);
+
+                    const rentCard = document.createElement('div');
+                    rentCard.classList.add('rentCard', 'vertical');
+                    rentCard.setAttribute('id', `rent_card_${i}`);
+
+                        const rentCard_top = document.createElement('div');
+                        rentCard_top.classList.add('rentCard_top', 'vertical');
+
+                            const rentCard_top_status = document.createElement('div');
+                            rentCard_top_status.classList.add('rentCard_top_status', 'vertical');
+                                rentCard_top_status_innerText = document.createElement('span');
+                                rentCard_top_status_innerText.innerText ='Gold'
+                                rentCard_top_status.append(rentCard_top_status_innerText)
+
+                            const rentCard_top_photo = document.createElement('div');
+                            rentCard_top_photo.classList.add('rentCard_top_photo', 'vertical');
+                                const rentCard_top_photo_img = document.createElement('img');
+                                rentCard_top_photo_img.setAttribute('src', `${cardArray[i].photo}`)
+                                rentCard_top_photo.append(rentCard_top_photo_img);
+                            
+                            const rentCard_wrapper = document.createElement('div');
+                            rentCard_wrapper.classList.add('rentCard_wrapper', 'vertical');
+
+                                const rentCard_info = document.createElement('div');
+                                rentCard_info.classList.add('rentCard_info', 'vertical');
+
+                                    const rentCard_info_rooms = document.createElement('div');
+                                    rentCard_info_rooms.classList.add('rentCard_info_rooms', 'vertical');
+
+                                        const rentCard_info_rooms_price = document.createElement('div');
+                                        rentCard_info_rooms_price.classList.add('rentCard_info_rooms_price', 'vertical');
+
+                                            const rentCard_info_rooms_price_number = document.createElement('span');
+                                            rentCard_info_rooms_price_number.classList.add('price');
+                                            rentCard_info_rooms_price_number.setAttribute('id', `card_price_${i}`);
+                                            rentCard_info_rooms_price_number.innerText = cardArray[i].price
+
+                                            const rentCard_info_rooms_price_type = document.createElement('span');
+                                            rentCard_info_rooms_price_type.classList.add('type');
+                                            rentCard_info_rooms_price_type.setAttribute('id', `card_type_${i}`);
+                                            rentCard_info_rooms_price_type.innerText = cardArray[i].type;
+
+                                            rentCard_info_rooms_price.append(rentCard_info_rooms_price_number, rentCard_info_rooms_price_type);
+
+                                        const rentCard_info_rooms_buttons = document.createElement('div');
+                                        rentCard_info_rooms_buttons.classList.add('rentCard_info_rooms_buttons', 'vertical');
+
+                                            const rentCard_info_rooms_buttons_item = document.createElement('div');
+                                            rentCard_info_rooms_buttons_item.classList.add('rentCard_info_rooms_buttons_item');
+                                        //--------------------------
+                                        rentCard_info_rooms.append(rentCard_info_rooms_price,rentCard_info_rooms_buttons);
+
+                                    rentCard_info.append(rentCard_info_rooms);
+                                const rentCard_line = document.createElement('div');
+                                rentCard_line.classList.add('rentCard_line', 'vertical');
+
+                                const rentCard_bottom = document.createElement('div');
+                                rentCard_bottom.classList.add('rentCard_bottom', 'vertical');
+
+                                rentCard_wrapper.append(rentCard_info, rentCard_line, rentCard_bottom)
+                            rentCard_top.append(rentCard_top_status, rentCard_top_photo, rentCard_wrapper);
+
+                        rentCard.append(rentCard_top)
+                    item.append(rentCard)
+                sliderLine.append(item)*/
+            }
+        }
+        
+        loadGoldCards();
+        const cardContentNew = document.querySelector('.rentCard');
+    
         rentNextButton.addEventListener('click', () => {
-            let offset = cardContent.offsetWidth + 30
+            let offset = cardContentNew.offsetWidth + 30
             if (sliderNext > ((sliderLine.childElementCount - 2) * offset)) {sliderNext = -(offset)}
             sliderNext += (offset);
             sliderLine.style.left = -sliderNext + 'px';
-            
         });
 
         rentPrevButton.addEventListener('click', () => {
+            let offset = cardContentNew.offsetWidth + 30
             if (sliderNext <= 0) {sliderNext = ((sliderLine.childElementCount) * offset)}
             sliderNext -= offset;
             sliderLine.style.left = -sliderNext + 'px';  
         })
-
+        addCardsButtonsEvent();
+        
         addInputState(metroButton);
         addLiEvent(metroUlState);
         addInputState(areaButton);
         addLiEvent(areaUlState);
 
-
-            
+        //services block logic---------------------------------------
+        const servicesMapButton = document.getElementById('services_map_button'); 
+        servicesMapButton.addEventListener('click', () => {
+            mapContainer.className.includes('active') ? mapContainer.classList.remove('active') : mapContainer.classList.add('active'); 
+            mapContainer.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+        });
             
         }
         //login page logic---------------------

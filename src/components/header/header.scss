@@ -11,7 +11,7 @@ header {
 
 .header_Top {
   background-color: $F8F8F8;
-
+  z-index: 999;
   &_wrapper {
     display: flex;
     align-items: center;

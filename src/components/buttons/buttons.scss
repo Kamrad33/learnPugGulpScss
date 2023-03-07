@@ -393,8 +393,8 @@ $hoverLine: 2px;
         box-shadow: 0px 10px 20px rgba(0, 96, 206, 0.1);
 
         &:active {
-            padding: 11px 14px;
-
+            //padding: 11px 14px;
+            padding: 9px 12px;
             ul {
                 margin-left: -15px;
                 display: block;
@@ -402,7 +402,8 @@ $hoverLine: 2px;
 
         }
         &.active {
-          padding: 11px 14px;
+          //padding: 11px 14px;
+          padding: 9px 12px;
 
             ul {
                 margin-left: -15px;
