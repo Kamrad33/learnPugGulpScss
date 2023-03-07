@@ -425,15 +425,12 @@
         &_cards {
             overflow: hidden;
             width: 1275px;
-            
-            padding-left: 30px;
-            padding-right: 30px;
-            padding-bottom: 30px;
             background: none;
             z-index: 1;
             position: relative;
             border-radius: 20px;
-            
+            box-shadow: (0px 20px 40px rgba(135, 124, 202, 0.15));
+
             &_line {
             display: flex;
             justify-content: flex-start;
@@ -492,7 +489,7 @@
             &_right {
                 a {
                     text-decoration: none;
-                    
+
                 }
             }
         }
@@ -1618,6 +1615,24 @@
             margin-top: 20px;
             margin-right: 20px;
         }
+        .spaceContainer {
+            display: none;
+        }
+    }
+    .rentRoomsCardsBlock {
+        width: 100%;
+        &_innerContainer {
+            width: calc(100% - 160px);
+            &_top {
+                &_buttons {
+                    //width: 100%;
+                    //flex-grow: 1;
+                }
+            }
+            &_cards {
+                width: 100%;
+            }
+        }
     }
 }
 @media (max-width: 950px) {
@@ -1698,6 +1713,43 @@
             }
         }
     }
+    .rentRoomsCardsBlock {
+        height: auto;
+        &_background {
+            height: 100%;
+            width: 100%;
+        }
+        &_innerContainer {
+            width: calc(100% - 80px);
+            margin-left: 40px;
+            margin-right: 40px;
+            &_top {
+                
+                &_buttons {
+                    justify-content: space-around;
+                    width: 100%;
+                    flex-grow: 1;
+                    flex-wrap: wrap;
+                }
+            }
+            &_cards {
+                width: 100%;
+
+                &_item {
+                    .rentCard {
+                        &_top {
+                            &_photo {
+                                
+                                img {
+                                    margin: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 @media (max-width: 752px) {
     .content_container_searchBlockContainer{
@@ -1746,8 +1798,124 @@
         }
     }
     }
-}
+    .rentRoomsCardsBlock {
+        &_innerContainer {
+            margin-left: 20px;
+            margin-right: 20px;
+            width: calc(100% - 40px);
+            justify-content: center;
+            &_top {
+                flex-wrap: wrap;
+                gap: 10px;
+                &_buttons {
+                    justify-content: space-around;
+                    width: 100%;
+                    flex-grow: 1;
+                    flex-wrap: wrap;
+                }
+            }
+            &_cards {
+                width: 100%;
+                &_line {
+                    width: 100%;
+                }
+                &_item {
 
+                    width: 100%;
+                    .rentCard {
+                        
+                        height: auto;
+                        &_top {
+                            &_status {
+                                display: none;
+                            }
+                            width: 100%;
+                            &_photo {
+                                background-color: red;
+                                img {
+                                    margin: 0;
+                                }
+                            }
+                        }
+                        &_wrapper {
+                            width: 100%;
+                        }
+                        &_info {
+                            margin: 10px 20px;
+                            width: calc(100% - 40px);
+                            height: auto;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            gap: 10px;
+                            &_rooms {
+                                flex-wrap: wrap;
+                                width: calc(100%);
+                                margin: 0;
+                                gap: 10px;
+                                
+                                &_buttons {
+                                    width: calc(100%);
+                                    flex-wrap: wrap;
+                                    gap: 10px;
+                                }
+                            }
+                            &_address {
+                                flex-wrap: wrap;
+                                height: auto;
+                                width: calc(100%);
+                                &_location {
+                                    width: 100%;
+                                    flex-wrap: wrap;
+                                }
+                                &_stations {
+                                    width: 100%;
+                                    flex-wrap: wrap;
+                                }
+                            }
+                            &_description {
+                                margin: 0px;
+                                width: calc(100%);
+                                height: auto;
+                                flex-wrap: wrap;
+                            }
+                        }
+                        &_line {
+                            display: none;
+                        }
+                        &_bottom {
+                            margin: 10px;
+                            width: calc(100% - 20px);
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            gap: 10px;
+
+                        }
+                    }
+                }
+            }
+
+            &_all {
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+
+                &_left {
+                    
+                }
+                hr {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 380px) {
+    .rentCard {
+        width: 300px;
+    }
+}
 @media (max-width: 310px) {
     .content_container_searchBlockContainer {
         &_innerContainer {

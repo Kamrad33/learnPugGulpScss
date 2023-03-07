@@ -345,21 +345,22 @@ async function mainContent() {
         const areaUlState = document.getElementById('area_button_ul');
         const rentPrevButton = document.getElementById('rent_prev_button');
         const rentNextButton = document.getElementById('rent_next_button');
+        const cardContent = document.querySelector('.rentCard');
         let sliderNext = 0;
         const sliderLine = document.querySelector('.rentRoomsCardsBlock_innerContainer_cards_line');
 
         rentNextButton.addEventListener('click', () => {
-
-            sliderNext += 436;
+            let offset = cardContent.offsetWidth + 30
+            if (sliderNext > ((sliderLine.childElementCount - 2) * offset)) {sliderNext = -(offset)}
+            sliderNext += (offset);
             sliderLine.style.left = -sliderNext + 'px';
-            if (sliderNext > ((sliderLine.childElementCount - 3) * 436)) {sliderNext = 0}
-
+            
         });
 
         rentPrevButton.addEventListener('click', () => {
-            sliderNext -= 436;
-            sliderLine.style.left = -sliderNext + 'px';
-            if (sliderNext < 0) {sliderNext = ((sliderLine.childElementCount - 2) * 436)}
+            if (sliderNext <= 0) {sliderNext = ((sliderLine.childElementCount) * offset)}
+            sliderNext -= offset;
+            sliderLine.style.left = -sliderNext + 'px';  
         })
 
         addInputState(metroButton);
