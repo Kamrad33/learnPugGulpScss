@@ -53,7 +53,9 @@ body {
       height: 100%;
       position: absolute;
       background-image: url(../images/backgroundImg.png), linear-gradient(1.09deg, #7E6AF3 0.86%, #6540CD 99.01%);
-      
+      background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     &_form {
       
@@ -132,7 +134,9 @@ body {
       height: 100%;
       position: absolute;
       background-image: url(../images/backgroundImg.png), linear-gradient(1.09deg, #7E6AF3 0.86%, #6540CD 99.01%);
-      
+      background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     &_form {
       
@@ -174,7 +178,7 @@ body {
             //background-color: red;
             margin-bottom: 20px;
             border-radius: 3px;
-            background-image: url(../images/captcha.png);
+            //background-image: url(../images/captcha.png);
           }
           &_alert {
             width: 306px;
@@ -877,11 +881,45 @@ body {
     width: 100%;
     &_content {
       width: 100%;
-      &_background {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+
+    }
+  }
+
+  .register {
+    
+    width: 100%;
+    &_content {
+      
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 950px) {
+
+  .register {
+    height: auto;
+    &_content {
+      height: auto;
+      background-color: red;
+      &_form {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        width: calc(100% - 80px);
         
+        &_innerContent {
+          width: calc(100% - 100px);
+          justify-content: center;
+          flex-wrap: wrap;
+
+          &_info {
+            width: auto;
+            &_description {
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
       }
     }
   }
@@ -907,6 +945,30 @@ body {
     }
     #loginBtn {
       width: 100%;
+    }
+  }
+
+  .register {
+    
+    #registerBtn {
+      width: 100%;
+    }
+
+    &_content {
+      
+      &_form {
+        width: 100%;
+        &_innerContent {
+          
+          &_auth {
+            &_captcha {
+              //display: none;
+              width: 100%;
+            }
+          }
+        }
+        
+      }
     }
   }
 }

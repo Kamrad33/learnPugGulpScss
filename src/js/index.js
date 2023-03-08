@@ -766,22 +766,17 @@ async function mainContent() {
             const passwordInput = document.getElementById('password');
             const passwordContainer = document.getElementById('passwordContainer');
 
-            const emailRegEx = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
             if (loginBtn !== null) {
                 loginBtn.addEventListener('click', function () {
                     console.log(authState);
                     getAuth(loginInput.value, passwordInput.value);            
                 });
             }
-            const validateLogin = (value) => {
-                let valid = !!String(value).toLowerCase().match(emailRegEx);
-                !valid ? (loginContainer.classList.add('wrong'), loginAlert.classList.add('wrong')) : (loginContainer.classList.remove('wrong'), loginAlert.classList.remove('wrong')); 
-                
-            }
+
             loginInput.addEventListener ('input', () => {
                 console.log('input', loginInput.value);
-                validateLogin(loginInput.value);
+                //validateLogin(loginInput.value);
+                !validateLogin(loginInput.value) ? (loginContainer.classList.add('wrong'), loginAlert.classList.add('wrong')) : (loginContainer.classList.remove('wrong'), loginAlert.classList.remove('wrong')); 
             });
             passwordInput.addEventListener ('input', () => {
                 console.log('input', passwordInput.value);
@@ -940,6 +935,8 @@ async function mainContent() {
     let passwordState = false;
     let passwordCheckState = false;
 
+
+
     loginInput.addEventListener('change', function() {
         let loginContainer = document.getElementById('loginContainer');
         let loginAlert = document.getElementById('loginAlert');
@@ -950,7 +947,7 @@ async function mainContent() {
     mailInput.addEventListener('change', function() {
         let mailContainer = document.getElementById('mailContainer');
         let mailAlert = document.getElementById('mailAlert');
-        checkPassword(mailInput.value) 
+        validateLogin(mailInput.value) 
         ? (mailContainer.classList.remove('wrong'), mailAlert.classList.remove('wrong'), mailState = true) 
         : (mailContainer.classList.add('wrong'), mailAlert.classList.add('wrong'), mailState = false)
     });
@@ -963,14 +960,14 @@ async function mainContent() {
     });
     passwordCheckInput.addEventListener('change', function() {
         let passwordCheckContainer = document.getElementById('checkContainer');
-        let passwordCheckCAlert = document.getElementById('checkAlert');
+        let passwordCheckAlert = document.getElementById('checkAlert');
         checkPassword(passwordCheckInput.value) 
-        ? (passwordCheckContainer.classList.remove('wrong'), loginpasswordCheckCAlertAlert.classList.remove('wrong'), passwordCheckState = true) 
-        : (passwordCheckContainer.classList.add('wrong'), passwordCheckCAlert.classList.add('wrong'), passwordCheckState = false)
+        ? (passwordCheckContainer.classList.remove('wrong'), passwordCheckAlert.classList.remove('wrong'), passwordCheckState = true) 
+        : (passwordCheckContainer.classList.add('wrong'), passwordCheckAlert.classList.add('wrong'), passwordCheckState = false)
     });
 
     regBtn.addEventListener('click', () => {
-        if (!loginState || !mailState) {
+        if (!loginState || !mailState || !passwordState || !passwordCheckState) {
             alertState.classList.add("wrong")
         }
         else {
@@ -1162,7 +1159,13 @@ async function main () {
     }
 }
 
-
+const validateLogin = (value) => {
+    const emailRegEx = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    let valid = !!String(value).toLowerCase().match(emailRegEx);
+    return valid
+    
+    
+}
 checkPassword = (password) => {
     //min 8 letter password, with at least a symbol, upper and lower case letters and a number
     var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;

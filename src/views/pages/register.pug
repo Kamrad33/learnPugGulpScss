@@ -19,8 +19,9 @@ block content
                                 +authInput({text: 'Пароль', cls: 'authForm', id: 'password', icon: 'password', containerId: 'passwordContainer', alertId: 'passwordAlert'})
                                 +authInput({text: 'Повторите пароль', cls: 'authForm', id: 'passwordCheck', icon: 'password', containerId: 'checkContainer', alertId: 'checkAlert'})
                             .register_content_form_innerContent_auth_captcha
-                                .g-recaptcha(data-sitekey='key')
-                                .text-danger(id='recaptchaError') 
+                                .g-recaptcha(data-sitekey='6Lf4NeUkAAAAAD2xlZR3UKtgfdHoRsQ07zvtj8Aa')
+                                .text-danger(id='recaptchaError')
+                                script(src="https://www.google.com/recaptcha/api.js")  
                             .register_content_form_innerContent_auth_alert(class= 'fine' id='alert')
                                 span Ошибка ввода
                                 include ../../assets/images/alertImg.svg     
