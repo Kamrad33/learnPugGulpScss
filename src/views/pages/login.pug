@@ -14,8 +14,8 @@ block content
                             .login_content_form_innerContent_auth_title Авторизация
                             .login_content_form_innerContent_auth_description Авторизируйтесь, чтобы начать <br> публиковать свои объявления
                             .login_content_form_innerContent_auth_inputs
-                                +authInput({text: 'Логин', cls: 'authForm', id: 'login', icon: 'login'})
-                                +authInput({text: 'Пароль', cls: 'authForm', id: 'password', icon: 'password'})
+                                +authInput({text: 'Логин', cls: 'authForm', id: 'login', icon: 'login', containerId: 'loginContainer', alertId: 'loginAlert'})
+                                +authInput({text: 'Пароль', cls: 'authForm', id: 'password', icon: 'password', containerId: 'passwordContainer'})
                                 .login_content_form_innerContent_auth_inputs_bottom
                                     +toggleBtn({text: 'Запомнить меня', id: 'rememberMe'})
                                     a(href = '/cathalog.html') Забыли пароль?

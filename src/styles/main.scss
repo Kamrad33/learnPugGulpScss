@@ -873,4 +873,40 @@ body {
   .content_container {
     width: 100%;
   }
+  .login {
+    width: 100%;
+    &_content {
+      width: 100%;
+      &_background {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login {
+    &_content {
+      &_form {
+        width: calc(100% - 40px);
+
+        &_innerContent {
+          &_auth {
+            width: 100%;
+            height: auto;
+
+            &_button {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    #loginBtn {
+      width: 100%;
+    }
+  }
 }

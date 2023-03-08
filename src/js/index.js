@@ -51,7 +51,27 @@ async function mainHeader() {
     createAdButton.addEventListener('click', () => {
         alert('Раздел в разработке');
     })
+    const exitButton = document.getElementById('exit');
+    exitButton.addEventListener ('click', () => {
+        console.log('kekw');
+        authState = false;
+        checkAuth();
+    })
 
+    if (authState) {
+        userMenuButton.addEventListener('click', function(e) {
+            let menuClass = userMenu.className;
+            e.preventDefault();
+            console.log('kekw');
+            if (menuClass.includes('hidden')) {
+                userMenu.classList.remove('hidden');
+                console.log('da');
+            } else {
+                userMenu.classList.add('hidden');
+                console.log('net');
+            };
+        })
+    }
     switch(pageType[0].id) {
 
         case 'indexPage': {
@@ -738,9 +758,15 @@ async function mainContent() {
         //login page logic---------------------
         case 'loginPage': {
 
-            let loginBtn = document.getElementById('loginBtn');
-            let loginInput = document.getElementById('login');
-            let passwordInput = document.getElementById('password');
+            const loginBtn = document.getElementById('loginBtn');
+            const loginInput = document.getElementById('login');
+            const loginContainer = document.getElementById('loginContainer');
+            const loginAlert = document.getElementById('loginAlert');
+
+            const passwordInput = document.getElementById('password');
+            const passwordContainer = document.getElementById('passwordContainer');
+
+            const emailRegEx = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
             if (loginBtn !== null) {
                 loginBtn.addEventListener('click', function () {
@@ -748,7 +774,18 @@ async function mainContent() {
                     getAuth(loginInput.value, passwordInput.value);            
                 });
             }
-
+            const validateLogin = (value) => {
+                let valid = !!String(value).toLowerCase().match(emailRegEx);
+                !valid ? (loginContainer.classList.add('wrong'), loginAlert.classList.add('wrong')) : (loginContainer.classList.remove('wrong'), loginAlert.classList.remove('wrong')); 
+                
+            }
+            loginInput.addEventListener ('input', () => {
+                console.log('input', loginInput.value);
+                validateLogin(loginInput.value);
+            });
+            passwordInput.addEventListener ('input', () => {
+                console.log('input', passwordInput.value);
+            });
 
             async function getAuth (login, password) {
                 const response = await fetch('https://jsonplaceholder.typicode.com/users')
@@ -758,10 +795,17 @@ async function mainContent() {
                 for (let key in authData) {
                     console.log(authData[key]);
 
-                    if (login === authData[key].username){
+                    if (login === authData[key].email){
+                        let userData = {
+                            login: login,
+                            password: password
+                        }
+                        console.log(JSON.stringify(userData));
                         authState = true;
                         checkAuth(authState);
                         console.log('test ----------------');
+
+                        alert(JSON.stringify(userData))
                         return console.log('auth', login, password, authState);
                     } else {
                         return console.log('false');
@@ -1116,19 +1160,6 @@ async function main () {
         userDiv.classList.replace('visible', 'hidden');
         authBtn.classList.replace('hidden', 'primary');   
     }
-
-    userMenuButton.addEventListener('click', function(e) {
-        let menuClass = userMenu.className;
-        e.preventDefault();
-
-        if (menuClass.includes('hidden')) {
-            userMenu.classList.remove('hidden');
-            console.log('da');
-        } else {
-            userMenu.classList.add('1');
-            console.log('net');
-        };
-    })
 }
 
 
