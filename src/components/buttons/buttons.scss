@@ -173,7 +173,12 @@ $hoverLine: 2px;
     @include centringMixin;
     font-size: 16px;
     line-height: 24px;
-
+    &:disabled {
+      background-color: #bdbdbd;
+      &:hover {
+        background-color: #a0a0a0;
+      }
+    }
     path {
       fill: black;
     }

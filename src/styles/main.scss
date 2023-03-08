@@ -253,13 +253,17 @@ body {
     position: relative;
     z-index: 10;
     @include centringMixin;
-
+    a {
+      text-decoration: none;
+    }
     &_background {
       width: 100%;
       height: 100%;
       position: absolute;
       background-image: url(../images/backgroundImg.png), linear-gradient(1.09deg, #7E6AF3 0.86%, #6540CD 99.01%);
-      
+      background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     &_form {
       
@@ -893,6 +897,14 @@ body {
       width: 100%;
     }
   }
+
+  .submit {
+    width: 100%;
+    &_content {
+      width: 100%;
+
+    };
+  }
 }
 
 @media (max-width: 950px) {
@@ -970,5 +982,22 @@ body {
         
       }
     }
+  }
+  .submit {
+    
+    &_content {
+      &_form {
+        width: 100%;
+        height: auto;
+        &_innerContent {
+          width: calc(100% - 62px);
+          height: auto;
+          &_auth {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    };
   }
 }

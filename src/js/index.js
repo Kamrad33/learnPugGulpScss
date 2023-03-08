@@ -935,38 +935,42 @@ async function mainContent() {
     let passwordState = false;
     let passwordCheckState = false;
 
+    regBtn.setAttribute('disabled', 'disabled');
 
-
-    loginInput.addEventListener('change', function() {
+    loginInput.addEventListener('input', function() {
         let loginContainer = document.getElementById('loginContainer');
         let loginAlert = document.getElementById('loginAlert');
         checkPassword(loginInput.value) 
         ? (loginContainer.classList.remove('wrong'), loginAlert.classList.remove('wrong'), loginState = true) 
-        : (loginContainer.classList.add('wrong'), loginAlert.classList.add('wrong'), loginState = false)
+        : (loginContainer.classList.add('wrong'), loginAlert.classList.add('wrong'), loginState = false);
+        checkRegisterStates();
     });
-    mailInput.addEventListener('change', function() {
+    mailInput.addEventListener('input', function() {
         let mailContainer = document.getElementById('mailContainer');
         let mailAlert = document.getElementById('mailAlert');
         validateLogin(mailInput.value) 
         ? (mailContainer.classList.remove('wrong'), mailAlert.classList.remove('wrong'), mailState = true) 
-        : (mailContainer.classList.add('wrong'), mailAlert.classList.add('wrong'), mailState = false)
+        : (mailContainer.classList.add('wrong'), mailAlert.classList.add('wrong'), mailState = false);
+        checkRegisterStates();
     });
-    passwordInput.addEventListener('change', function() {
+    passwordInput.addEventListener('input', function() {
         let passwordContainer = document.getElementById('passwordContainer');
         let passwordAlert = document.getElementById('passwordAlert');
         checkPassword(passwordInput.value) 
         ? (passwordContainer.classList.remove('wrong'), passwordAlert.classList.remove('wrong'), passwordState = true) 
-        : (passwordContainer.classList.add('wrong'), passwordAlert.classList.add('wrong'), passwordState = false)
+        : (passwordContainer.classList.add('wrong'), passwordAlert.classList.add('wrong'), passwordState = false);
+        checkRegisterStates();
     });
-    passwordCheckInput.addEventListener('change', function() {
+    passwordCheckInput.addEventListener('input', function() {
         let passwordCheckContainer = document.getElementById('checkContainer');
         let passwordCheckAlert = document.getElementById('checkAlert');
         checkPassword(passwordCheckInput.value) 
         ? (passwordCheckContainer.classList.remove('wrong'), passwordCheckAlert.classList.remove('wrong'), passwordCheckState = true) 
-        : (passwordCheckContainer.classList.add('wrong'), passwordCheckAlert.classList.add('wrong'), passwordCheckState = false)
+        : (passwordCheckContainer.classList.add('wrong'), passwordCheckAlert.classList.add('wrong'), passwordCheckState = false);
+        checkRegisterStates();
     });
 
-    regBtn.addEventListener('click', () => {
+    checkRegisterStates = () => {
         let userData = {
             login: '',
             email: '',
@@ -980,8 +984,14 @@ async function mainContent() {
             userData.login = loginInput.value,
             userData.email =  mailInput.value,
             userData.password = passwordInput.value,
+            regBtn.removeAttribute('disabled');
+            
             alert(JSON.stringify(userData))
         }
+    }
+    regBtn.addEventListener('click', () => {
+        checkRegisterStates();
+        window.location.href = '/submit.html'
     });   
         }
 
