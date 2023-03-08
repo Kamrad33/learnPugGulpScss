@@ -967,11 +967,20 @@ async function mainContent() {
     });
 
     regBtn.addEventListener('click', () => {
+        let userData = {
+            login: '',
+            email: '',
+            password: '',
+        }
         if (!loginState || !mailState || !passwordState || !passwordCheckState) {
             alertState.classList.add("wrong")
         }
         else {
             alertState.classList.remove("wrong")
+            userData.login = loginInput.value,
+            userData.email =  mailInput.value,
+            userData.password = passwordInput.value,
+            alert(JSON.stringify(userData))
         }
     });   
         }
