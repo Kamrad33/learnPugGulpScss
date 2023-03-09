@@ -1004,9 +1004,11 @@ async function mainContent() {
                 const newsData = await response.json();
                 return newsData;
             }
-            async function newsRout(news) {
-                console.log(news);
+            async function redirectToNews(news) {
+            
+                return console.log(news);
             }
+            
             async function newsPagination(news) {
                 let newsData = await getNews();
                 
@@ -1026,7 +1028,7 @@ async function mainContent() {
                         //console.log('yayay', el.id);
                         const newsElm_Container = document.createElement('div');
                         newsElm_Container.classList.add('newsList_content_innerContainer_newsCards_card');
-
+                        newsElm_Container.setAttribute('id', `card_${el.id}`)
                         const newsElm_Container_card = document.createElement('div');
                         newsElm_Container_card.classList.add('newsCard');
 
@@ -1057,7 +1059,7 @@ async function mainContent() {
                             newsElm_Container_card_date.innerText = `${el.id} января 2008`;
                             const newsElm_Container_card_button = document.createElement('div');
                             newsElm_Container_card_button.classList.add('newsCard_bottom_button');
-                            newsElm_Container_card_button.innerHTML = `<button id = ${el.id} onclick="document.location='/news.html/${el.id}'" class="stdBtn primary purple light w7 standard" style="gap:5px;flex-direction:left;width:undefined;">
+                            newsElm_Container_card_button.innerHTML = `<button id = read_button_${el.id} class="stdBtn primary purple light w7 standard" style="gap:5px;flex-direction:left;width:undefined;">
                             <div class="stdBtn_innerText">Читать
                             </div>
                           </button>`
@@ -1068,10 +1070,13 @@ async function mainContent() {
                         newsElm_Container.appendChild(newsElm_Container_card);
                         newsElmList.appendChild(newsElm_Container); 
 
-                        newsElm = document.getElementById(el.id);
-
-                 
-                        
+                        let newsElm = document.getElementById(`read_button_${el.id}`);
+                        console.log(newsElm);
+                        newsElm.addEventListener('click', () => {
+                            //console.log('redirect', newsElm);
+                            alert(`redirect to ${el.id}`);
+                            redirectToNews(el.id);
+                        })
                     });
                 }
 
