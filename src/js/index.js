@@ -13,7 +13,7 @@ let cardsList = [
 let userMenuButton = document.getElementById('userMenuButton');
 let userMenu = document.getElementById('userMenu');
 let pageType = document.getElementsByClassName('content');
-var authState = true;
+var authState = false;
 
 const expression = /^[+-]?\d+$/;
 const isInteger = (text) => !!text.match(expression);
@@ -753,11 +753,11 @@ async function mainContent() {
             mapContainer.className.includes('active') ? mapContainer.classList.remove('active') : mapContainer.classList.add('active'); 
             mapContainer.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
         });
-            
+            break;
         }
         //login page logic---------------------
         case 'loginPage': {
-
+            console.log('check works');
             const loginBtn = document.getElementById('loginBtn');
             const loginInput = document.getElementById('login');
             const loginContainer = document.getElementById('loginContainer');
@@ -993,6 +993,7 @@ async function mainContent() {
         checkRegisterStates();
         window.location.href = '/submit.html'
     });   
+        break;
         }
 
         case 'newslistPage': {
@@ -1149,7 +1150,7 @@ async function mainContent() {
             break           
         }
         case 'newsPage': {
-            
+            break
         }
     }
 }

@@ -22,7 +22,8 @@ block content
                         .notfound_content_innerContainer_info_left_title Ошибка 404
                         .notfound_content_innerContainer_info_left_description Возможно, у вас опечатка в адресе страницы, или её просто не существует
                         .notfound_content_innerContainer_info_left_button
-                            +stdBtn({text: 'Вернуться на главную', cls: 'home', color: 'authBtn', textAlign: 'center', width: '249px'})
+                          a(href="/index.html") 
+                            +stdBtn({text: 'Вернуться на главную', cls: 'home', color: 'authBtn', textAlign: 'center', id: 'back_button'})
                     .notfound_content_innerContainer_info_code
                         include ../../assets/images/404.svg
     

@@ -543,7 +543,12 @@ body {
 .notfound {
   display: flex;
   justify-content: center;
-
+  &#back_button {
+    width: 249px;
+  };
+  a {
+    text-decoration: none;
+  }
   &_content { 
     width: 1440px;
     height: 599px;
@@ -557,7 +562,9 @@ body {
       position: absolute;
       background-image: url(../images/backgroundImg.png), linear-gradient(1.09deg, #7E6AF3 0.86%, #6540CD 99.01%);
       mix-blend-mode: overlay;
-      
+      background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
       filter: blur(2.5px);     
     }
 
@@ -905,6 +912,29 @@ body {
 
     };
   }
+  .notfound  {
+    width: calc(100% - 160px);
+    
+    .spaceContainer {
+      display: none;
+    }
+    &_content {
+      width: 100%;
+      height: auto;
+      &_innerContainer {
+        margin-left: 40px;
+        margin-right: 40px;
+        width: calc(100% - 80px);
+        &_info {
+          width: 100%;
+          height: auto;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 950px) {
@@ -929,6 +959,38 @@ body {
             &_description {
               width: 100%;
               height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+  .notfound {
+    width: auto;
+    &_content {
+      width: 100%;
+      &_innerContainer {
+        height: auto;
+        &_info {
+          &_left {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &_title {
+              flex-wrap: wrap;
+            }
+            &_description {
+              height: auto;
+              width: 100%;
+              flex-wrap: wrap;
+            }
+          }
+          &_code {
+            width: 100%;
+            svg {
+              width: 100%;
+              height: 100%;
             }
           }
         }
@@ -999,5 +1061,39 @@ body {
         }
       }
     };
+  }
+  .notfound {
+    &_content {
+      &_innerContainer {
+        
+        margin: 20px;
+        width: calc(100% - 40px);
+        height: auto;
+        &_info {
+          height: 100%;
+          &_left {
+            width: 100%;
+            &_title {
+              font-size: 200%
+            }
+            &_description {
+              font-size: 100%;
+            }
+          }
+        }
+      }
+    }
+    #back_button {
+      
+      width: auto;
+      flex-wrap: wrap;
+      min-height: 0;
+      height: auto;
+      &_innerText {
+        width: 100%;
+        height: auto;
+        span {flex-wrap: wrap; overflow-wrap: break-word;}
+      }
+    }
   }
 }
