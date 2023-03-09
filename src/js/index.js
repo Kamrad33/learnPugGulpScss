@@ -997,6 +997,7 @@ async function mainContent() {
         }
 
         case 'newslistPage': {
+            
 
             async function getNews() {
                 const response = await fetch ('https://jsonplaceholder.typicode.com/posts');
@@ -1006,8 +1007,9 @@ async function mainContent() {
             async function newsRout(news) {
                 console.log(news);
             }
-            async function newsPagination() {
-                const newsData = await getNews();
+            async function newsPagination(news) {
+                let newsData = await getNews();
+                
                 let currentPage = 1;
                 let rows = 9;
                 let pagesLimit = 12;
@@ -1021,7 +1023,7 @@ async function mainContent() {
                     let newsPaginated = arrData.slice(start, end);
 
                     newsPaginated.forEach((el) => {
-                        console.log('yayay', el.id);
+                        //console.log('yayay', el.id);
                         const newsElm_Container = document.createElement('div');
                         newsElm_Container.classList.add('newsList_content_innerContainer_newsCards_card');
 
@@ -1061,9 +1063,6 @@ async function mainContent() {
                           </button>`
                         newsElm_Container_card_bottom.append(newsElm_Container_card_date, newsElm_Container_card_button);
 
-                        //const testHtml = document.createElement('div')
-                        //testHtml.innerHTML = `<div class = 'class1'>TEST</div>`;
-                        //console.log('testHtml', testHtml);
                         newsElm_Container_card.append(newsElm_Container_card_top, newsElm_Container_card_middle, newsElm_Container_card_bottom);
 
                         newsElm_Container.appendChild(newsElm_Container_card);
@@ -1078,6 +1077,38 @@ async function mainContent() {
 
                 
                 function displayPagination(arrData, newsOnPage, limit) {
+                    const prevBtn = document.getElementById('prevBtn');
+                    const nextBtn = document.getElementById('nextBtn');
+
+                    const clearLi = (page) => {
+                        let li = document.getElementById(`pagi_li_${page}`);
+                            let currentItemLi = document.querySelector('li.--active');
+                            currentItemLi.classList.remove('--active');               
+                            li.classList.add('--active');
+                    }
+                    prevBtn.addEventListener('click', () => {
+                        if (currentPage > 1) {
+                            currentPage--
+                            displayNewsList(newsData, rows, currentPage);
+                            clearLi(currentPage);                          
+                        } else {
+                            currentPage = pagesLimit
+                            displayNewsList(newsData, rows, currentPage);
+                            clearLi(currentPage);
+                        }
+                    })
+                    nextBtn.addEventListener('click', () => {
+
+                        if (currentPage < pagesLimit) {
+                            currentPage++
+                            displayNewsList(newsData, rows, currentPage);
+                            clearLi(currentPage);                          
+                        } else {
+                            currentPage = 1
+                            displayNewsList(newsData, rows, currentPage);
+                            clearLi(currentPage);
+                        }
+                    })
 
                     let pageCount = Math.ceil(arrData.length / newsOnPage);
                     const ulElm = document.querySelector('#pagination')
@@ -1095,17 +1126,17 @@ async function mainContent() {
                         for (let i = 0; i < paginationLimit; i++) {
                             if (i < paginationLimit - 2) {
                                 const liElm = displayPaginationBtn(i + 1);
-                                console.log('li', liElm);
+                                //console.log('li', liElm);
                                 ulElm.append(liElm);  
                             }
                             if (i == paginationLimit -1) {
                                 const liElm = displayPaginationBtn('...');
-                                console.log('li', liElm);
+                                //console.log('li', liElm);
                                 ulElm.append(liElm);  
                             }
                             if (i == paginationLimit-1) {
                                 const liElm = displayPaginationBtn(pageCount);
-                                console.log('li', liElm);
+                                //console.log('li', liElm);
                                 ulElm.append(liElm); 
                             }
                         }
@@ -1120,11 +1151,13 @@ async function mainContent() {
 
                 
                 function displayPaginationBtn(page) {
+                    
 
                     const liElm = document.createElement('li');
+                    liElm.setAttribute('id', `pagi_li_${page}`);
                     liElm.innerText = page;
-
-                    if (currentPage == page) liElm.classList.add('--active');
+                    console.log(currentPage, page);
+                    if (currentPage == page) {liElm.classList.add('--active'); console.log('kekw', liElm);};
 
                     if (page !== '...') {
                         liElm.addEventListener('click', () => {
@@ -1134,7 +1167,7 @@ async function mainContent() {
                             currentItemLi.classList.remove('--active');               
                             liElm.classList.add('--active');
                         })
-                       console.log('ayay', pagesLimit);
+                       //console.log('ayay', pagesLimit);
                     } else {
                         liElm.addEventListener('click', () => {
                             console.log('test');
@@ -1145,8 +1178,32 @@ async function mainContent() {
                 }
                 displayNewsList(newsData, rows, currentPage);
                 displayPagination(newsData, rows, pagesLimit);
+
+                const searchInput = document.getElementById('search_news_input');
+                let searchInputState = ''
+                const searchButton = document.getElementById('search_news_input_button');
+    
+                searchInput.addEventListener('input', () => {
+                    searchInputState = searchInput.value;
+                    //console.log(searchInputState);
+                });
+                searchButton.addEventListener('click', () => {
+
+                    console.log('button', searchInputState, newsData);
+                    let filtred = newsData.filter(function(val, i, arr) {
+                        if (String(val.title).includes(searchInputState)) return val; 
+                    })
+                    //console.log(filtred);
+
+                    displayNewsList(filtred, rows, currentPage);
+                    displayPagination(filtred, rows, pagesLimit);
+                })
+
+                
             }
             newsPagination();
+
+
             break           
         }
         case 'newsPage': {

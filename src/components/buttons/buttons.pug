@@ -172,7 +172,7 @@ mixin searchInput(vars)
         style={gap: `${vars.gap ? vars.gap : '5px'}`, 'flex-direction': `${iconPlace ? place : 'left'}`})
 
         .searchInput_button
-            button(class = vars.color)
+            button(class = vars.color id = `${vars.id}_button`)
                 include ../../assets/images/searchImg.svg
 
 

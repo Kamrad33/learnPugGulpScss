@@ -21,7 +21,7 @@ block content
                         .newslist_content_innerContainer_top_left_title 
                             h1 Новости
                     .newslist_content_innerContainer_top_search
-                        +searchInput({cls: 'search', color: 'purple', text: 'Поиск по статьям'})   
+                        +searchInput({cls: 'search', color: 'purple', text: 'Поиск по статьям', id: 'search_news_input'})   
                 .newslist_content_innerContainer_background
                 .newslist_content_innerContainer_newsCards
                     +newsCardList([
@@ -38,6 +38,8 @@ block content
                     
 
                 .newslist_content_innerContainer_pagination
+                    button.prevBtn(id= 'prevBtn')
+                        include ../../assets/images/arrowBigLeftImg.svg
                     ul(id='pagination')
                         li 1
                         li 2
@@ -48,6 +50,7 @@ block content
                         li 7
                         li='...'
                         li 11
-        
+                    button.nextBtn(id= 'nextBtn')
+                        include ../../assets/images/arrowBigRightImg.svg
             
             

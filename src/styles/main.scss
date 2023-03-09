@@ -707,7 +707,9 @@ body {
         opacity: 0.1;
         border-radius: 40px 0px 0px 40px;
         width: 800px;
-        height: 999.21px;
+        //height: 999.21px;
+        //height: calc(100% - 31px);
+        height: 50%;
         z-index: 1;
       }
 
@@ -716,19 +718,38 @@ body {
         justify-content: center;
         gap: 30px;
         flex-wrap: wrap;
-        
+        position: relative;
+        z-index: 10;
       }
 
       &_pagination {
         margin-top: 80px;
         margin-bottom: 100px;
-
+        position: relative;
+        z-index: 10;
+        display: flex;
+        gap: 10px;
+        .nextBtn, .prevBtn {
+        @include noStyle_Button;
+        cursor: pointer;
+        svg {
+          path {
+            stroke: black;
+            
+          }
+        }
+        &:hover {
+          margin-bottom: -2px;
+          border-bottom: 2px solid #FFD54F;
+        }
+        }
         ul {
           margin: 0;
           padding: 0;
           display: flex;
           gap: 4.5px;
           li {
+            cursor: pointer;
               margin: 0;
               padding: 0;
               width: 22px;
@@ -987,6 +1008,16 @@ body {
       }
     }
   }
+  .newsList {
+    &_content {
+      width: 100%;
+      &_innerContainer {
+        &_top {
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 950px) {
@@ -1094,6 +1125,62 @@ body {
         margin-top: 20px;
         flex-direction: row;
        } 
+      }
+    }
+  }
+  .newsList {
+    &_content {
+      width: 100%;
+      &_innerContainer {
+
+        margin: 0px 40px;
+        width: calc(100% - 80px);
+
+        &_newsCards {
+          width: 100%;
+          
+          &_card {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .newsCard {
+              width: calc(100% - 80px);
+              &_top {
+                display: flex;
+                justify-content: center;
+                &_photo {
+                  
+                }
+                
+              }
+            }
+           // width: 300px;
+          }
+        }
+        &_top {
+          width: calc(100% - 40px);
+          &_search {
+            width: 100%;
+            .searchInput {
+              width: 100%;
+            }
+          }
+        }
+        &_background {
+          width: calc(50%);
+        }
+        &_top {
+          
+        }
+        &_pagination {
+          
+          justify-content: center;
+          align-items: center;
+          #pagination {
+            //background-color: red;
+            justify-content: center;
+          }
+        }
       }
     }
   }
@@ -1209,6 +1296,63 @@ body {
           &_group {
             &_item {
               flex-wrap: wrap;
+            }
+          }
+        }
+      }
+    }
+  }
+  .newsList {
+    width: 100%;
+
+    &_content {
+      width: 100%;
+
+      &_innerContainer {
+        margin: 0;
+        width: calc(100%);
+
+        &_background {
+          width: 100%;
+        }
+
+        &_top {
+          justify-content: center;
+          width: 100%;
+
+          &_search {
+            width: 100%;
+            display: flex;
+              justify-content: center;
+
+            .searchInput {
+              
+              display: flex;
+              justify-content: center;
+              width: 80%;
+              
+            }
+          }
+        }
+        &_pagination {
+          
+          justify-content: center;
+          align-items: center;
+          #pagination {
+            //background-color: red;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+        }
+        &_newsCards {
+          &_card {
+            .newsCard {
+              height: auto;
+              &_bottom {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px
+              }
             }
           }
         }
