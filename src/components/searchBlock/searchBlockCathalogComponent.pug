@@ -3,7 +3,7 @@ include ../content/content.pug
 include ../breadcrumbs/breadcrumbs.pug
 mixin itemList(vars)
     each elm in vars
-        .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList_item= elm.text
+        .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList_item(class= elm.type id = `filter_button_${elm.id}`)= elm.text
 
 .content_container_searchBlockCathalogContainer
 
@@ -23,21 +23,21 @@ mixin itemList(vars)
                 .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_title Рекомендуем посмотреть
                 .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList
                     +itemList([
-                        {text: 'Недорогие'},
-                        {text: '1-комнатные'},
-                        {text: '2-комнатные'},
-                        {text: '3-комнатные'},
-                        {text: '4-комнатные'},
-                        {text: '5-комнатные'},
-                        {text: 'Заводской р.'},
-                        {text: 'Ленинский р.'},
-                        {text: 'Московский р.'},
-                        {text: 'Октябрьский р.'},
-                        {text: 'Партизанский р.'},
-                        {text: 'Первомайский р.'},
-                        {text: 'Советский р.'},
-                        {text: 'Фрунзенский р.'},
-                        {text: 'Центральный р.'},])
+                        {type: 'price', text: 'Недорогие', id: 'cheap'},
+                        {type: 'rooms', text: '1-комнатные', id: '1_rooms'},
+                        {type: 'rooms',text: '2-комнатные', id: '2_rooms'},
+                        {type: 'rooms',text: '3-комнатные', id: '3_rooms'},
+                        {type: 'rooms',text: '4-комнатные', id: '4_rooms'},
+                        {type: 'rooms',text: '5-комнатные', id: '5_rooms'},
+                        {type: 'area',text: 'Заводской р.', id: 'zavod_area'},
+                        {type: 'area', text: 'Ленинский р.', id: 'lenin_area'},
+                        {type: 'area',text: 'Московский р.', id: 'moskow_area'},
+                        {type: 'area',text: 'Октябрьский р.', id: 'oktyabr_area'},
+                        {type: 'area',text: 'Партизанский р.', id: 'partizan_area'},
+                        {type: 'area',text: 'Первомайский р.', id: 'pervomai_area'},
+                        {type: 'area',text: 'Советский р.', id: 'sovet_area'},
+                        {type: 'area',text: 'Фрунзенский р.', id: 'frunze_area'},
+                        {type: 'area',text: 'Центральный р.', id: 'central_area'},])
 
 
 

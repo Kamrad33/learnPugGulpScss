@@ -1139,10 +1139,14 @@
                         background: rgba(102, 78, 249, 0.1);
                         border-radius: 17px;
                         @include fontStd(#664EF9, 14px, 400, 100%);
-
+                        cursor: pointer;
                         &:hover {
                             background: rgba(102, 78, 249, 0.2);
                         }
+                        &.active {
+                            background: rgba(102, 78, 249, 0.2);
+                        }
+                       
                     }
                 }
             }

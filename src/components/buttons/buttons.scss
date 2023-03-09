@@ -261,6 +261,10 @@ $hoverLine: 2px;
         &:hover {
           background: #5C35F9;
         }
+        &:disabled {
+          background: #5c35f94b;
+          
+        }
       }
       
   }
@@ -687,6 +691,11 @@ $hoverLine: 2px;
         }
         &.searchCathalogMenu{
             width:100px;
+
+            &.wrong {
+              border: 2px solid #EB5757;
+              background: #eb575741;
+            }
         }
         &::-webkit-input-placeholder {
             @include fontStd(#686868, 14px, 500, 17px);

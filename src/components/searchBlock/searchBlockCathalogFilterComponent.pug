@@ -8,22 +8,22 @@ include ../content/content.pug
                 .content_container_searchBlockCathalogFilterContainer_innerContainer_top_item
                     span Комнаты
                     .content_container_searchBlockCathalogFilterContainer_innerContainer_top_item_buttons
-                        +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list', id: 'city_input'},
+                        +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list', id: 'room_input'},
                                 [{text: '1 комн.'}, {text: '2 комн.'}, {text: '3 комн.'}, {text: '4 комн.'}, {text: '5 комн.'},])
                 hr(class = 'first')
                 .content_container_searchBlockCathalogFilterContainer_innerContainer_top_item
                     span Цена за сутки (BYN)
                     .content_container_searchBlockCathalogFilterContainer_innerContainer_top_item_buttons
-                        +inputBtn({text: 'От', cls: 'searchCathalogMenu'})
+                        +inputBtn({text: 'От', cls: 'searchCathalogMenu', id: 'from_input'})
                         span -
-                        +inputBtn({text: 'До', cls: 'searchCathalogMenu'})
+                        +inputBtn({text: 'До', cls: 'searchCathalogMenu', id: 'to_input'})
                 hr(class = 'second')
                 .content_container_searchBlockCathalogFilterContainer_innerContainer_top_item
                     +stdBtn({text: 'Больше опций', cls:'primary', id: 'extraMenuButton', color: 'white', type: 'w5', gap: '3.5px', icon: 'setup', iconPlace: 'right', iconColor: 'purple', width: '157px'})
                 hr(class = 'third')
                 .content_container_searchBlockCathalogFilterContainer_innerContainer_top_right
-                    +stdBtn({text: 'Очистить', cls:'primary', color: 'white', type: 'w5', gap: '3.5px', width: '100px'})
-                    +stdBtn({text: 'Показать объекты', cls:'primary', color: 'purple noGradient', type: 'w5', gap: '3.5px', icon: 'arrowLeft', iconPlace: 'right', iconColor: 'white', width: '192px'})
+                    +stdBtn({text: 'Очистить', cls:'primary', color: 'white', type: 'w5', gap: '3.5px', width: '100px', id: 'clear_button'})
+                    +stdBtn({text: 'Показать объекты', cls:'primary', color: 'purple noGradient', type: 'w5', gap: '3.5px', icon: 'arrowLeft', iconPlace: 'right', iconColor: 'white', width: '192px', id: 'show_objects_button'})
 
         .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra(id= 'menuExtra' class='active')
             .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_wrapper
@@ -32,17 +32,17 @@ include ../content/content.pug
                     .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_top_item
                         .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_top_item_title Спальные места
                         .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_top_item_button
-                             +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list'},
+                             +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list', id: 'beds_input'},
                                 [{text: '1 мест.'}, {text: '2 мест.'}, {text: '3 мест.'}, {text: '4 мест.'}, {text: '5 мест.'},])
                     .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_top_item
                         .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_top_item_title Район
                         .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_top_item_button
-                             +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list'},
+                             +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list', id: 'area_input'},
                                 [{text: '1 район.'}, {text: '2 район.'}, {text: '3 район.'}, {text: '4 район.'}, {text: '5 район.'},])
                     .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_top_item
                         .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_top_item_title Метро
                         .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_top_item_button
-                             +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list'},
+                             +menuBtn({text: 'Выберите', cls:'primary', color: 'menu', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '150px', menuType: 'list', id: 'metro_input'},
                                 [{text: '1 район.'}, {text: '2 район.'}, {text: '3 район.'}, {text: '4 район.'}, {text: '5 район.'},])
                 
                 .content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra_bottom(id= 'menuExtra')

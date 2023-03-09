@@ -812,6 +812,8 @@ async function mainContent() {
 
         //cathalog page logic---------------------
         case 'cathalogPage': {
+
+            //menu extra logic
             let menuExtra = document.getElementById('menuExtra');
             let menuExtraButton = document.getElementById('extraMenuButton');      
             menuExtraButton.addEventListener('click', function() {
@@ -819,6 +821,264 @@ async function mainContent() {
             menuClass === 'content_container_searchBlockCathalogFilterContainer_innerContainer_menuExtra active' ? menuExtra.classList.add('hidden') : menuExtra.classList.remove('hidden')  
         });
 
+        //filter buttons logic
+        const filterButtons = document.querySelector('.content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList');
+
+        const filterObject = {
+            priceFrom: '',
+            priceTo: '',
+            rooms: '',
+            area: '',
+            beds: '',
+            metro: '',
+        }
+
+        let roomInnerText = document.getElementById('room_input_innerText');
+        let bedsInnerText = document.getElementById('beds_input_innerText');
+        let areaInnerText = document.getElementById('area_input_innerText');
+        let metroInnerText = document.getElementById('metro_input_innerText');
+        
+            filterButtons.childNodes.forEach(el => {
+
+                if (el.id !== undefined) {
+                    el.addEventListener('click', () => {
+    
+                        let activeAreaElm = document.querySelectorAll('.content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList_item.area');
+                        let activeRoomsElm = document.querySelectorAll('.content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList_item.rooms');
+    
+                        const checkButtonStates = (type, element, state) =>{
+                            switch (type) {
+                                case 'rooms':
+                                    if (element.className.includes('active')) {
+                                        el.classList.remove('active');
+                                        filterObject.rooms = '';
+                                        roomInnerText.innerText = 'Выберите'
+                                    } else {
+                                        activeRoomsElm.forEach((el) => {
+                                            el.classList.remove('active');
+                                        });
+                                        el.classList.add('active');
+                                        filterObject.rooms = state;
+                                        roomInnerText.innerText = `${state.slice(0,6)}.`
+                                    }
+                                    break;
+                                
+                                case 'area':
+                                    if (element.className.includes('active')) {
+                                        el.classList.remove('active');
+                                        filterObject.area = '';
+                                        areaInnerText.innerText = 'Выберите'
+                                    } else {
+                                        activeAreaElm.forEach((el) => {
+                                            el.classList.remove('active');
+                                        });
+                                        el.classList.add('active');
+                                        filterObject.area = state;
+                                        areaInnerText.innerText = `${state.slice(0,6)}.`
+                                    }
+                                    break;
+                            }
+                            
+                        }
+                        switch (el.id) {
+                            
+                            case 'filter_button_cheap':
+                                el.className.includes('active') 
+                                ? (el.classList.remove('active'), filterObject.priceFrom = '', filterObject.priceTo = '', inputFromElement.value = '', inputToElement.value = '') 
+                                : (el.classList.add('active'), 
+                                filterObject.priceFrom = 1, 
+                                filterObject.priceTo = 100, 
+                                inputFromElement.value = 1,
+                                inputFromState = inputFromElement.value, 
+                                inputToElement.value = 100, 
+                                inputToState = inputToElement.value, 
+                                checkRange());
+                                
+                                break;
+                                
+                            case 'filter_button_1_rooms':
+                                checkButtonStates('rooms', el, '1 комнатные');                            
+                                break;
+    
+                            case 'filter_button_2_rooms':
+                                checkButtonStates('rooms', el, '2 комнатные'); 
+                                break;
+    
+                            case 'filter_button_3_rooms':
+                                checkButtonStates('rooms', el, '3 комнатные'); 
+                                break;
+    
+                            case 'filter_button_4_rooms':
+                                checkButtonStates('rooms', el, '4 комнатные'); 
+                                
+                                break;
+    
+                            case 'filter_button_5_rooms':
+                                checkButtonStates('rooms', el, '5 комнатные'); 
+                                break;
+    
+                            case 'filter_button_zavod_area':
+                                checkButtonStates('area', el, 'Заводской р.');                           
+                                break;
+    
+                            case 'filter_button_lenin_area':
+                                checkButtonStates('area', el, 'Ленинский р.');                            
+                                break;
+    
+                            case 'filter_button_moskow_area':
+                                checkButtonStates('area', el, 'Московский р.');                            
+                                break;
+    
+                            case 'filter_button_oktyabr_area':
+                                checkButtonStates('area', el, 'Октябрьский р.');                    
+                                break;
+    
+                            case 'filter_button_partizan_area':
+                                checkButtonStates('area', el, 'Партизанский р.');                            
+                                break;
+    
+                            case 'filter_button_pervomai_area':
+                                checkButtonStates('area', el, 'Первомайский р.');                            
+                                break;
+    
+                            case 'filter_button_sovet_area':
+                                checkButtonStates('area', el, 'Советский р.');                        
+                                break;
+    
+                            case 'filter_button_frunze_area':
+                                checkButtonStates('area', el, 'Фрунзенский р.');                           
+                                break;
+    
+                            case 'filter_button_central_area':
+                                checkButtonStates('area', el, 'Центральный р.');                        
+                                break;
+                            
+                            default:
+                                break;
+                        }
+                        console.log(filterObject);
+                    })
+                }
+            });
+        
+
+
+        //filter logic
+        
+        const roomState = document.getElementById('room_input');
+        const roomUlState = document.getElementById('room_input_ul');
+        let roomStateValue = '';
+
+        const bedsState = document.getElementById('beds_input');
+        const bedsUlState = document.getElementById('beds_input_ul');
+        let bedsStateValue = '';
+
+        const areaState = document.getElementById('area_input');
+        const areaUlState = document.getElementById('area_input_ul');
+        let areaStateValue = '';
+
+        const metroState = document.getElementById('metro_input');
+        const metroUlState = document.getElementById('metro_input_ul');
+        let metroStateValue = '';
+
+        const clearButton = document.getElementById('clear_button');
+        const showButton = document.getElementById('show_objects_button');
+ 
+
+        const inputFromElement = document.getElementById('from_input');
+        let inputFromState = '0';
+
+        const inputToElement = document.getElementById('to_input');
+        let inputToState = '0';
+
+
+    inputFromElement.addEventListener('input', () => {
+        clearFilter();
+        inputFromState = inputFromElement.value;
+        checkRange();
+        });
+
+    inputToElement.addEventListener('input', () => {
+        clearFilter();
+        inputToState = inputToElement.value;
+        checkRange();
+    });
+    const checkRange = () => {
+            
+        (isInteger(inputFromState) && (+inputFromState < +inputToState)) ? (inputFromElement.classList.remove('wrong'), showButton.removeAttribute('disabled')) : (inputFromElement.classList.add('wrong'), showButton.setAttribute('disabled', 'disabled'));
+        (isInteger(inputToState) && (+inputFromState < +inputToState)) ? (inputToElement.classList.remove('wrong'),showButton.removeAttribute('disabled')) : (inputToElement.classList.add('wrong'),showButton.setAttribute('disabled', 'disabled'));
+    }
+    const clearFilter = () => {
+
+            
+            let activePriceElm = document.querySelectorAll('.content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList_item.price');
+            let activeAreaElm = document.querySelectorAll('.content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList_item.area');
+            let activeRoomsElm = document.querySelectorAll('.content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList_item.rooms');
+
+            activePriceElm.forEach(elm => {
+                elm.classList.remove('active');
+            });
+            activeAreaElm.forEach(elm => {
+                elm.classList.remove('active');
+            });
+            activeRoomsElm.forEach(elm => {
+                elm.classList.remove('active');
+            });
+    }
+        clearButton.addEventListener('click', () => {
+            inputFromState = '';
+            inputToState = '';
+            inputFromElement.value = '';
+            inputToElement.value = '';
+            roomInnerText.innerText = 'Выберите';
+            bedsInnerText.innerText = 'Выберите';
+            areaInnerText.innerText = 'Выберите';
+            metroInnerText.innerText = 'Выберите';
+            console.log(filterObject.priceFrom);
+            clearFilter();
+            filterObject.priceFrom = '';
+            filterObject.priceTo = ''; 
+            filterObject.rooms = ''; 
+            filterObject.area = ''; 
+            filterObject.beds = '';   
+            filterObject.metro = '';
+            console.log(filterObject.priceFrom);
+        });
+
+        showButton.addEventListener('click', () => {
+
+            roomStateValue = roomInnerText.innerText;
+            bedsStateValue = bedsInnerText.innerText;
+            areaStateValue = areaInnerText.innerText;
+            metroStateValue = metroInnerText.innerText;
+
+            const filterObject = {
+                 
+                rooms: ((roomStateValue && (roomStateValue !='Выберите')) ? roomStateValue : 'any'),
+                beds: ((bedsStateValue && (bedsStateValue !='Выберите')) ? bedsStateValue : 'any'),
+                area: ((areaStateValue && (areaStateValue !='Выберите')) ? areaStateValue : 'any'),  
+                metro: ((metroStateValue && (metroStateValue !='Выберите')) ? metroStateValue : 'any'),  
+                priceFrom: (inputFromState ? inputFromState : 'any'), 
+                priceTo: (inputToState ? inputToState : 'any')}
+
+            alert(JSON.stringify(filterObject));
+            console.log(filterObject);
+        });
+
+        addInputState(roomState);
+        addLiEvent(roomUlState);
+
+        addInputState(bedsState);
+        addLiEvent(bedsUlState);
+
+        addInputState(areaState);
+        addLiEvent(areaUlState);
+
+        addInputState(metroState);
+        addLiEvent(metroUlState);
+
+
+        //cards logic
         async function getCards() {
             //const response = await fetch ('https://jsonplaceholder.typicode.com/posts');
             //const newsData = await response.json();
@@ -1212,6 +1472,9 @@ async function mainContent() {
             break           
         }
         case 'newsPage': {
+            async function getNewsData() {
+
+            }
             break
         }
         case 'contactsPage': {
