@@ -13,7 +13,7 @@ block content
                     .contact_alert_content_wrapper_title Ваше письмо <br> отправлено!
                     .contact_alert_content_wrapper_description Какое-то сообщение о том, что письмо отправлено, какое-то сообщение, что письмо отправлено.
                     .contact_alert_content_wrapper_button
-                        +stdBtn({text: 'Закрыть окно', cls: 'primary', color: 'authBtn ', textAlign: 'center',width: '161px'})
+                        +stdBtn({text: 'Закрыть окно', cls: 'primary', color: 'authBtn ', textAlign: 'center',width: '161px', id: 'close_alert_button'})
         .contact_content
             .contact_content_background
             .contact_content_innerContainer
@@ -71,20 +71,23 @@ block content
                         .contact_content_innerContainer_form_top
                             .contact_content_innerContainer_form_input
                                 span Ваше имя
-                                +authInput({text: 'Введите', cls: 'authForm contactForm', id: 'name', icon: 'login'})
+                                +authInput({text: 'Введите', cls: 'authForm contactForm', id: 'name', alertId: 'nameAlert', containerId:'nameContainer', icon: 'login'})
                             .contact_content_innerContainer_form_input
                                 span Ваша электронная почта
-                                +authInput({text: 'Введите', cls: 'authForm contactForm', id: 'mail', icon: 'mail'})
+                                +authInput({text: 'Введите', cls: 'authForm contactForm', id: 'mail', alertId: 'mailAlert',containerId:'mailContainer', icon: 'mail'})
                         .contact_content_innerContainer_form_textArea
                             .contact_content_innerContainer_form_input
                                 span Ваше сообщение
-                                +stdTextArea({cls: 'contacts', name: 'message', placeholder: 'Сообщение'})
+                                +stdTextArea({cls: 'contacts', name: 'message', placeholder: 'Сообщение', id: 'message_textarea'})
                         .contact_content_innerContainer_form_button
-                            +stdBtn({text: 'Отправить', cls: 'primary', color: 'formBtn', textAlign: 'center', width: '200px'})
+                            +stdBtn({text: 'Отправить', cls: 'primary', color: 'formBtn', textAlign: 'center', width: '200px', id: 'send_message_button'})
 
                 .contact_content_innerContainer_social
                     .contact_content_innerContainer_social_icon
+                        include ../../assets/images/igImg.svg
                     .contact_content_innerContainer_social_icon
+                        include ../../assets/images/vkImg.svg
                     .contact_content_innerContainer_social_icon
+                        include ../../assets/images/fbImg.svg
         
         

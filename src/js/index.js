@@ -1152,6 +1152,74 @@ async function mainContent() {
         case 'newsPage': {
             break
         }
+        case 'contactsPage': {
+            const alertContent = document.querySelector('.contact_alert');
+            let alertContentState = false;
+            const closeAlertButton = document.getElementById('close_alert_button');
+            
+            const nameInput = document.getElementById('name');
+            const nameAlert = document.getElementById('nameAlert');
+            const nameContainer = document.getElementById('nameContainer');
+
+            const mailInput = document.getElementById('mail');
+            const mailAlert = document.getElementById('mailAlert');
+            const mailContainer = document.getElementById('mailContainer');
+
+            const messageText = document.getElementById('message_textarea');
+            const sendMessage = document.getElementById('send_message_button');
+            
+            let nameState = ''
+            let mailState = '';
+            let messageTextState = '';
+
+            const checkAlert = () => {
+                alertContentState ? (alertContentState = true, alertContent.classList.remove('wrong')) : (alertContentState = false, alertContent.classList.add('wrong'))
+            }
+            checkAlert();
+
+            const checkMessage = () => {
+                if(!nameState || !mailState || !messageTextState) {
+                    sendMessage.setAttribute('disabled', 'disabled')
+                }
+                else  sendMessage.removeAttribute('disabled')
+            }
+            checkMessage();
+            nameInput.addEventListener('input', () => {
+    
+                nameState = nameInput.value;
+                checkMessage();
+            });
+
+            mailInput.addEventListener('input', () => {
+                console.log('log');
+                validateLogin(mailInput.value) 
+                ? (mailContainer.classList.remove('wrong'), mailAlert.classList.remove('wrong'), mailState = mailInput.value) 
+                : (mailContainer.classList.add('wrong'), mailAlert.classList.add('wrong'), mailState = '');
+                checkMessage();
+            });
+            messageText.addEventListener('input', () => {
+                messageTextState = messageText.value;
+                checkMessage();
+            });
+
+            closeAlertButton.addEventListener('click', () => {
+                alertContentState = false;
+                checkAlert();
+            })
+            sendMessage.addEventListener('click', () => {
+                let messageJSON = {
+                    name: nameState,
+                    email: mailState,
+                    messageText: messageTextState,
+                }
+                //console.log('a', messageJSON);   
+                alert(JSON.stringify(messageJSON));
+                alertContentState = true;
+                checkAlert();
+            });
+
+            break;
+        }
     }
 }
 

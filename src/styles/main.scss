@@ -345,8 +345,10 @@ body {
     height: calc(1038px);
     background: rgba(46, 46, 46, 0.7);
     z-index: 999;
-    display: none;
-
+    display: block;
+    &.wrong {
+      display: none;
+    }
     &_content {
 
       position: fixed;
@@ -396,8 +398,12 @@ body {
       width: 100%;
       height: 100%;
       position: absolute;
-      background-image: url(../images/backgroundImg.png), linear-gradient(1.09deg, #7E6AF3 0.86%, #6540CD 99.01%);     
+      background-image: url(../images/backgroundImg.png), linear-gradient(1.09deg, #7E6AF3 0.86%, #6540CD 99.01%);  
+      background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;   
     }
+
 
     &_innerContainer {
       position: relative;
@@ -423,6 +429,7 @@ body {
           flex-direction: column;
           gap: 11px;
           margin-bottom: 30px;
+
           &_item {
             display: flex;
             gap: 20px;
@@ -432,6 +439,7 @@ body {
               background: rgba(255, 255, 255, 0.1);
               border-radius: 50%;
               @include centringMixin;
+              
               svg {
                 width: 50%;
                 height: 50%;
@@ -488,6 +496,7 @@ body {
                 path {                 
                   fill :  #5039BD;;
                 }
+
               }
           }
           &_text {
@@ -517,6 +526,7 @@ body {
           display: flex;
           flex-direction: column;
           gap: 15px;
+          width: 260px;
           span {
             @include fontStd(#686868, 14px, 500, 17px);
           }
@@ -534,6 +544,33 @@ body {
         &_button {
           @include centringMixin;
           height: 48px;
+        }
+      }
+      &_social {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-left: 64px;
+        
+        &_icon {
+          cursor: pointer;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          svg {
+            width: 20px;
+            height: 20px;
+            path {
+              fill: white;
+            }
+          }
+          &:hover {
+            background: rgba(255, 255, 255, 0.5);
+          }
         }
       }
     }
@@ -935,6 +972,21 @@ body {
       }
     }
   }
+
+  .contact {
+    &_content {
+      width: 100%;
+      height: auto;
+      &_innerContainer {
+        margin: 80px;
+        width: calc(100% - 160px);
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+      }
+    }
+  }
 }
 
 @media (max-width: 950px) {
@@ -994,6 +1046,54 @@ body {
             }
           }
         }
+      }
+    }
+  }
+  .contact {
+    &_content {
+      width: 100%;
+      height: auto;
+      &_innerContainer {
+        margin: 20px;
+        width: calc(100% - 40px);
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        &_info {
+          width: 100%;
+        }
+        &_form {
+          margin-top: 20px;
+          margin-left: 0;
+          height: auto;
+          width: 100%;
+          &_wrapper {
+            height: auto;
+            width: calc(100% - 77px);
+          }
+          &_top {
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+            height: auto;
+          }
+          &_textArea {
+            width: 100%;
+            
+            .stdTextArea {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          &_input {
+            width: 100%;
+          }
+        }
+       &_social {
+        margin-top: 20px;
+        flex-direction: row;
+       } 
       }
     }
   }
@@ -1093,6 +1193,25 @@ body {
         width: 100%;
         height: auto;
         span {flex-wrap: wrap; overflow-wrap: break-word;}
+      }
+    }
+  }
+  .contact {
+    &_content {
+      &_innerContainer {
+        &_info {
+          &_title {
+            flex-wrap: wrap;
+          }
+          &_description {
+            flex-wrap: wrap;
+          }
+          &_group {
+            &_item {
+              flex-wrap: wrap;
+            }
+          }
+        }
       }
     }
   }

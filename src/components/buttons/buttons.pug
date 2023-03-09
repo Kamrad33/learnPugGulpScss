@@ -178,7 +178,7 @@ mixin searchInput(vars)
 
 mixin stdTextArea(vars)
     .stdTextArea(class=vars.cls)
-        textarea(name=vars.name placeholder = vars.placeholder)  
+        textarea(name=vars.name placeholder = vars.placeholder id = vars.id)  
 //- circle button
 mixin circleBtn(vars)
     .circleBtn(class=`${vars.cls ? vars.cls : 'primary'} ${vars.color ? vars.color : 'white'}` id = vars.id)

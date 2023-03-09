@@ -202,6 +202,10 @@ $hoverLine: 2px;
     &:hover {
       background: #5C35F9;
     } 
+
+    &:disabled {
+      background-color: #bdbdbd;
+    }
   }
   
   &.heart {
@@ -725,13 +729,19 @@ $hoverLine: 2px;
     display: flex;
     align-items: center;
 
-    &.contactForm {
+    /*&.contactForm {
       width: 260px;
       &:hover {
         width: calc(260px - 4px);
       }
+    }*/
+    &.contactForm {
+      flex-grow: 1;
+      //width: calc(260px - 40px);
+      &.wrong {
+        //width: calc(260px - 50px);
+      }
     }
-
     //border: 1px solid #EB5757;
     &_icon {
       width: 20px;
