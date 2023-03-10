@@ -1,7 +1,7 @@
 include ../buttons/buttons.pug
 include ../content/content.pug
 
-mixin rentCard(vars = {status: 'Gold', photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'}, type: 'active', style: 'vertical', id: '1'})
+mixin rentCard(vars = {status: 'Gold', photo: '../../assets/images/card_1_Img.png',price: 65.00 ,capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'}, type: 'active', style: 'vertical', id: '1'})
     .rentCard(class = vars.style id = `rent_card_${vars.id}`)
         .rentCard_top(class = vars.style)
             .rentCard_top_status(class = vars.style id = `rent_card_status_${vars.id}`)
@@ -15,7 +15,9 @@ mixin rentCard(vars = {status: 'Gold', photo: '../../assets/images/card_1_Img.pn
                     .rentCard_info(class = vars.style)
                         .rentCard_info_rooms(class = vars.style)
                             .rentCard_info_rooms_price(class = vars.style id = `rent_card_rooms_price_${vars.id}`)
-                                span(class= 'price' id= `card_price_${vars.id}`)= vars.price
+                                span
+                                    span(class= 'price' id= `card_price_${vars.id}`)= vars.price
+                                    span(class= 'price')= '.00 BYN'
                                 span(class= 'type' id= `card_type_${vars.id}`)= 'За сутки'
                             .rentCard_info_rooms_buttons(class = vars.style)
                                 .rentCard_info_rooms_buttons_item
@@ -60,13 +62,16 @@ mixin rentCard(vars = {status: 'Gold', photo: '../../assets/images/card_1_Img.pn
                 when 'horizontal'
                     .rentCard_info(class = vars.style)
                         .rentCard_info_rooms(class = vars.style)
-                            .rentCard_info_rooms_name(class = vars.style id= `card_name_${vars.id}`)= vars.name
+                            .rentCard_info_rooms_name(class = vars.style )
+                                span(id= `card_name_${vars.id}`)= vars.name
                                 .rentCard_info_address(class = vars.style)
                                     .rentCard_info_address_location
                                         include ../../assets/images/locBigImg.svg
                                         span(id= `card_address_${vars.id}`)= vars.address
                             .rentCard_info_rooms_price(class = vars.style)
-                                span(class= 'price' id= `card_price_${vars.id}`)= vars.price
+                                span
+                                    span(class= 'price' id= `card_price_${vars.id}`)= vars.price
+                                    span(class= 'price')= '.00 BYN'
                                 span(class= 'type' id= `card_type_${vars.id}`)= 'За сутки'
                         
                         .rentCard_info_rooms_buttons(class = vars.style)
