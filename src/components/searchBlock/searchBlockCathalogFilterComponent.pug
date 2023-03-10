@@ -116,11 +116,11 @@ include ../content/content.pug
         .content_container_searchBlockCathalogFilterContainer_innerContainer_bottom
             .content_container_searchBlockCathalogFilterContainer_innerContainer_bottom_wrapper
                 .content_container_searchBlockCathalogFilterContainer_innerContainer_bottom_left
-                     +menuBtn({text: 'По умолчанию', cls:'sort', color: 'menu white', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '232px', menuType: 'list'},
+                     +menuBtn({text: 'По умолчанию', cls:'sort', color: 'menu white', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '232px', menuType: 'list', id: 'sort_input'},
                                 [{text: 'Сначала дорогие'}, {text: 'Сначала дешёвые'}, {text: 'Свежие'},])
                 .content_container_searchBlockCathalogFilterContainer_innerContainer_bottom_right
                     .content_container_searchBlockCathalogFilterContainer_innerContainer_bottom_right_order
-                        +stdBtn({text: 'Список', cls:'lines', color: 'white selector', type: 'w5', gap: '3.5px', width: '106.5px', iconColor: 'purple'})
-                        +stdBtn({text: 'Плитки', cls:'cubes', color: 'white selector', type: 'w5', gap: '3.5px', width: '106.5px', iconColor: 'purple'})
+                        +stdBtn({text: 'Список', cls:'lines', color: 'white selector active', type: 'w5', gap: '3.5px', width: '106.5px', iconColor: 'purple', id: 'list_sort_button'})
+                        +stdBtn({text: 'Плитки', cls:'cubes', color: 'white selector', type: 'w5', gap: '3.5px', width: '106.5px', iconColor: 'purple', id: 'card_sort_button'})
                     .content_container_searchBlockCathalogFilterContainer_innerContainer_bottom_right_map
-                        +stdBtn({text: 'Показать на карте', cls:'locBig', color: 'white', type: 'w7', gap: '5px', iconPlace: 'right', iconColor: 'purple'})
+                        +stdBtn({text: 'Показать на карте', cls:'locBig', color: 'white', type: 'w7', gap: '5px', iconPlace: 'right', iconColor: 'purple', id: 'filter_map_button'})

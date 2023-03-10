@@ -4,25 +4,28 @@ include ../content/content.pug
 mixin rentCard(vars = {status: 'Gold', photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'}, type: 'active', style: 'vertical', id: '1'})
     .rentCard(class = vars.style id = `rent_card_${vars.id}`)
         .rentCard_top(class = vars.style)
-            .rentCard_top_status(class = vars.style)
+            .rentCard_top_status(class = vars.style id = `rent_card_status_${vars.id}`)
                 span= vars.status
-            .rentCard_top_photo(class = vars.style)
+            .rentCard_top_photo(class = vars.style id = `rent_card_photo_${vars.id}`)
                 img(src=`${vars.photo}`)
         
-        .rentCard_wrapper(class = vars.style)
+        .rentCard_wrapper(class = vars.style id = `rent_card_wrapper_${vars.id}`)
             case vars.style
                 when 'vertical'
                     .rentCard_info(class = vars.style)
                         .rentCard_info_rooms(class = vars.style)
-                            .rentCard_info_rooms_price(class = vars.style)
+                            .rentCard_info_rooms_price(class = vars.style id = `rent_card_rooms_price_${vars.id}`)
                                 span(class= 'price' id= `card_price_${vars.id}`)= vars.price
                                 span(class= 'type' id= `card_type_${vars.id}`)= 'За сутки'
                             .rentCard_info_rooms_buttons(class = vars.style)
                                 .rentCard_info_rooms_buttons_item
                                     include ../../assets/images/userImg.svg
                                     span(id= `card_capacity_${vars.id}`)= vars.capacity 
-                                .rentCard_info_rooms_buttons_item(id= `card_rooms_${vars.id}`)= vars.rooms
-                                .rentCard_info_rooms_buttons_item(id= `card_size_${vars.id}`)= `${vars.size} м²`
+                                .rentCard_info_rooms_buttons_item
+                                    span(id= `card_rooms_${vars.id}`)= vars.rooms
+                                .rentCard_info_rooms_buttons_item
+                                    span(id= `card_size_${vars.id}`)= `${vars.size}`
+                                    span='м²'
                         .rentCard_info_address
                             .rentCard_info_address_location
                                 include ../../assets/images/locBigImg.svg
@@ -45,7 +48,7 @@ mixin rentCard(vars = {status: 'Gold', photo: '../../assets/images/card_1_Img.pn
                     .rentCard_bottom(class = vars.style)
                         .rentCard_bottom_left
                             .rentCard_bottom_left_fav(class= vars.type)
-                                +circleBtn({cls: 'button', color: 'heart', icon: 'heart'})
+                                +circleBtn({cls: 'button', color: 'heart', icon: 'heart', id: `fav_button_${vars.id}`})
                             .rentCard_bottom_left_contacts
                                 +menuBtn(
                                 {text: 'Контакты', cls:'phone', color: 'menu purpleText', type: 'w7', gap: '10px', icon: 'phone', iconPlace: 'right', iconColor: 'purple' , width: '124px', menuType: 'content', id: `card_contacts_button_${vars.id}`},
@@ -92,7 +95,7 @@ mixin rentCard(vars = {status: 'Gold', photo: '../../assets/images/card_1_Img.pn
                                 {text: 'Контакты', cls:'phone', color: 'menu purpleText', type: 'w7', gap: '10px', icon: 'phone', iconPlace: 'right', iconColor: 'purple' , width: '124px', menuType: 'content', id: `card_contacts_button_${vars.id}`},
                                 [], {photo: vars.ownerInfo.photo, name: vars.ownerInfo.name, phone: vars.ownerInfo.phone, email: vars.ownerInfo.email})
                             .rentCard_bottom_left_fav(class= vars.type)
-                                +stdBtn({text: 'В закладки', cls:'heart', color: 'heart', type: 'w7', id: `contacts_button_${vars.id}`})
+                                +stdBtn({text: 'В закладки', cls:'heart', color: 'heart', type: 'w7', id: `fav_button_${vars.id}`})
                         .rentCard_bottom_right
                             .rentCard_bottom_buttons_more
                                 +stdBtn({text: 'Подробнее', cls:'primary', color: 'yellow light', type: 'w7', id: `card_more_button_${vars.id}`})

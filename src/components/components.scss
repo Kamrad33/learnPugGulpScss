@@ -1344,12 +1344,28 @@
 
         &_left {
             &_pages {
-                
+                display: flex;
+                gap: 10px;
+                .nextBtn, .prevBtn {
+                    @include noStyle_Button;
+                    cursor: pointer;
+                    svg {
+                      path {
+                        stroke: #686868;
+                        
+                      }
+                    }
+                    &:hover {
+                      margin-bottom: -2px;
+                      border-bottom: 2px solid #FFD54F;
+                    }
+                    }
                 ul {
                     margin: 0;
                     padding: 0;
                     display: flex;
                     gap: 4.5px;
+                    
                     li {
                         margin: 0;
                         padding: 0;
@@ -1363,6 +1379,12 @@
                             @include fontStd(black, 18px, 700, 22px);
                         margin-bottom: -2px;
                         border-bottom: 2px solid #FFD54F;
+
+                    }
+                    &.--active {
+                        @include fontStd(black, 18px, 700, 22px);
+                    margin-bottom: -2px;
+                    border-bottom: 2px solid #FFD54F;
                     }
                 }
 

@@ -314,17 +314,31 @@ $hoverLine: 2px;
     color: black;
 
   }
-  &.active {
-    background: #F8F8F8;
-  }
+ 
   &.selector {
       background-color: inherit;
+      svg {
+        rect {
+          fill: rgb(189, 189, 189);
+        }
+      }
+      
   }
-
+  &.active {
+    background: white;
+    color: black;
+    box-shadow: 0px 5px 20px rgba(0, 96, 206, 0.1);
+    svg {
+      rect {
+        fill: rgb(102, 78, 249);
+      }
+    }
+  }
   &:active {
       background: white;
     color: black;
     box-shadow: 0px 5px 20px rgba(0, 96, 206, 0.1);
+
   }
   }
   &.grey {
