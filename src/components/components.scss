@@ -1723,6 +1723,100 @@
             }
         }
     }
+    .content_container_searchBlockCathalogContainer {
+        width: 100%;
+    }
+
+    .content_container_searchBlockCathalogFilterContainer {
+        width: 100%;
+        &_innerContainer {
+            &_top {
+                display: flex;
+                height: auto;
+                justify-content: center;
+                &_wrapper {
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    height: auto;
+                }
+                &_item {
+                    flex-wrap: wrap;
+                }
+                &_right {
+                    flex-wrap: wrap;
+                }
+            }
+            &_menuExtra {
+                width: auto;
+                &_wrapper {
+
+                }
+                &_top {
+                    justify-content: center;
+                    flex-wrap: wrap;
+                }
+                &_bottom {
+                    &_wrapper {
+                        justify-content: center;
+                    flex-wrap: wrap;
+                    }
+                    &_right {
+                        flex-wrap: wrap;
+                    }
+                    
+                }
+            }
+            &_bottom {
+                height: auto;
+                &_wrapper {
+                    flex-wrap: wrap;
+                    gap: 20px;
+                }
+                &_right {
+                    flex-wrap: wrap;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+    .content_container_cardsBlockCathalogContainer {
+        &_innerContainer {
+            
+        }
+        &_cards {
+            display: flex;
+            justify-content: center;
+        }
+        &_bottom {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            &_right {
+                flex-wrap: wrap;
+                justify-content: center;
+                &_icons {
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
+
+    .content_container_servicesContainer {
+        &_innerContainer {
+            
+            &_background {
+                &.cathalog {
+                    width: 100%;
+                height: 100%;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+                }
+                
+            }
+        }
+    }
 }
 @media (max-width: 950px) {
     .map {
@@ -2104,7 +2198,77 @@
                 margin-right: 20px;
             }
         }
+        .rentRoomsCardsBlock_innerContainer_cards_item {
+            width: auto;
+        }
+        .content_container_cardsBlockCathalogContainer{
+            &_innerContainer {
+                margin: 0;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                &_cards {
+                    &_item {
+                        display: flex;
+                        justify-content: center
+                    }
+                    justify-content: center
+                }
+            }
+        }
+        .content_container_searchBlockCathalogContainer {
+            width: 100%;
+            &_innerContainer {
+                
+            }
+        }
+    
+        .content_container_searchBlockCathalogFilterContainer {
+            hr {
+                display: none;
+            }
+            width: 100%;
+            &_innerContainer {
+                
+                &_top {
+                    display: flex;
+                    height: auto;
+                    justify-content: center;
+                    &_wrapper {
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        height: auto;
+                    }
+                    &_item {
+                        flex-wrap: wrap;
+                    }
+                    &_right {
+                        flex-wrap: wrap;
+                    }
+                }
+                &_menuExtra {
+                    width: auto;
+                    &_wrapper {
+    
+                    }
+                    &_top {
+                        justify-content: center;
+                        flex-wrap: wrap;
+                    }
+                    &_bottom {
+                        &_wrapper {
+                            justify-content: center;
+                        flex-wrap: wrap;
+                        }
+                        
+                    }
+                }
+            }
+        }
     }
+
+
 
 @media (max-width: 380px) {
     .rentCard {

@@ -1222,7 +1222,7 @@ async function mainContent() {
                 let pagesLimit = 12;
 
                 const filterData = (sortState) => {
-                    console.log(sortState, 'ghajdshlgahdslgjahdslghalkdgjhalkhglkadshglkadshlkgajhdslgkjhaslgd');
+                    
                     switch (sortState) {
                         case 'Сначала дорогие':
                             console.log('works');
