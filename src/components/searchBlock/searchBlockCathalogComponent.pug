@@ -1,0 +1,45 @@
+include ../buttons/buttons.pug
+include ../content/content.pug
+include ../breadcrumbs/breadcrumbs.pug
+mixin itemList(vars)
+    each elm in vars
+        .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList_item(class= elm.type id = `filter_button_${elm.id}`)= elm.text
+
+.content_container_searchBlockCathalogContainer
+
+    .content_container_searchBlockCathalogContainer_background
+
+    .content_container_searchBlockCathalogContainer_innerContainer
+
+        .content_container_searchBlockCathalogContainer_innerContainer_filter
+             .content_container_searchBlockCathalogContainer_innerContainer_filter_root
+                +breadCrumbs(
+                        [{title: 'Квартиры в Минске', link: 'newslist.html'},
+                        ])  
+                
+             .content_container_searchBlockCathalogContainer_innerContainer_filter_title Аренда квартир на сутки в Минске
+             
+             .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons
+                .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_title Рекомендуем посмотреть
+                .content_container_searchBlockCathalogContainer_innerContainer_filter_buttons_itemList
+                    +itemList([
+                        {type: 'price', text: 'Недорогие', id: 'cheap'},
+                        {type: 'rooms', text: '1-комнатные', id: '1_rooms'},
+                        {type: 'rooms',text: '2-комнатные', id: '2_rooms'},
+                        {type: 'rooms',text: '3-комнатные', id: '3_rooms'},
+                        {type: 'rooms',text: '4-комнатные', id: '4_rooms'},
+                        {type: 'rooms',text: '5-комнатные', id: '5_rooms'},
+                        {type: 'area',text: 'Заводской р.', id: 'zavod_area'},
+                        {type: 'area', text: 'Ленинский р.', id: 'lenin_area'},
+                        {type: 'area',text: 'Московский р.', id: 'moskow_area'},
+                        {type: 'area',text: 'Октябрьский р.', id: 'oktyabr_area'},
+                        {type: 'area',text: 'Партизанский р.', id: 'partizan_area'},
+                        {type: 'area',text: 'Первомайский р.', id: 'pervomai_area'},
+                        {type: 'area',text: 'Советский р.', id: 'sovet_area'},
+                        {type: 'area',text: 'Фрунзенский р.', id: 'frunze_area'},
+                        {type: 'area',text: 'Центральный р.', id: 'central_area'},])
+
+
+
+
+

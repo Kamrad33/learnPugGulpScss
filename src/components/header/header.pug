@@ -1,0 +1,51 @@
+include ../buttons/buttons.pug
+-
+    userJSON = {
+        name: 'Dmitriy',
+        phone: '+375 (29) 291-14-44',
+        email: 'vladimir6234@tut.by',
+    }
+    
+header#header
+    .header_Top
+        .header_Top_Container
+            //include headerTopButtons.pug
+            +listBtn_Group([
+                {text: 'Главная', cls: 'primary',id: 'indexPg', color: 'grey', icon: '', gap: '', link: 'index.html'}, 
+                {text: 'Новости', cls: 'primary',id: 'newsPg', color: 'grey', icon: '', gap: '', link: 'newslist.html'},
+                {text: 'Размещение и тарифы',id: 'pricePg', cls: 'primary', color: 'grey', icon: '', gap: '', link: 'index.html'},
+                {text: 'Объявления на карте',id: 'mapPg', cls: 'primary', color: 'grey', icon: 'loc', gap: '5px', link: 'index.html'},
+                {text: 'Контакты', cls: 'primary',id: 'contactsPg', color: 'grey', icon: '', gap: '', link: 'contacts.html'},], 'left_Top')
+            .header_Top_wrapper          
+                +listBtn_Group([
+                    {text: 'Закладки', cls: 'primary', id: 'favsPg', color: 'grey', type: 'w5', icon: 'heart', gap: '11px', iconPlace:'right',link: 'index.html'},
+                    {text: 'Вход и регистрация', cls: 'hidden', id: 'registerPg', color: 'purple', type: 'w5',link: 'login.html'}, ], 'right_Top')
+                    .header_Top_user(class= 'visible' id='userDiv')
+                        .header_Top_user_icon
+                        .header_Top_user_name
+                            span= userJSON.name
+                        .header_Top_user_button(class = 'header' id = 'userMenuButton')
+                            include ../../assets/images/arrowDownImg.svg
+                        .header_Top_user_menu(class = 'active hidden' id = 'userMenu')
+                            .header_Top_user_menu_icon
+                            .header_Top_user_menu_name
+                                span= userJSON.name
+                            .header_Top_user_menu_phone
+                                span= userJSON.phone
+                            .header_Top_user_menu_email
+                                span= userJSON.email
+                            .header_Top_user_menu_buttons
+                                .header_Top_user_menu_buttons_edit
+                                    button(class = 'header' id = 'edit')= 'Редактировать'
+                                .header_Top_user_menu_buttons_exit
+                                    button(class = 'header' id = 'exit')= 'Выход'
+           
+    .header_Bottom
+        .header_Bottom_Container
+            img(src='../../assets/images/logo.png') 
+            +listBtn_Group([
+                {text: 'Квартиры на сутки', cls: 'primary',id: 'roomsPg', type:'w6', color: 'black', icon: 'locBig', gap: '15px', iconPlace:'right', iconColor: 'yellow',link: 'cathalog.html'},
+                {text: 'Коттеджи и усадьбы ', cls: 'primary',id: 'housesPg', type:'w6', color: 'black', icon: '', gap: '15px', iconPlace:'right',link: 'cathalog.html'},
+                {text: 'Бани и Сауны', cls: 'primary', type:'w6',id: 'bathsPg', color: 'black', icon: '', gap: '15px', iconPlace:'right',link: 'cathalog.html'},
+                {text: 'Авто напрокат', cls: 'primary', type:'w6',id: 'carsPg', color: 'black', icon: '', gap: '15px', iconPlace:'right',link: 'cathalog.html'},] , 'middle_Bottom')
+            +stdBtn({text: '+ Разместить объявление', cls:'primary', color: 'purple', type: 'w7', gap: '5px', iconPlace: 'right', id: 'create_ad_button'})

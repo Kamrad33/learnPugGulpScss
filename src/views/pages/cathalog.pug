@@ -1,0 +1,17 @@
+extends ../layouts/default
+block variables
+  title Каталог
+
+block content
+  include ../../components/buttons/buttons.pug
+  include ../../components/content/content.pug
+
+  .content(id= 'cathalogPage')
+    .content_container
+        include ../../components/searchBlock/searchBlockCathalogComponent.pug
+        include ../../components/searchBlock/searchBlockCathalogFilterComponent.pug
+        include ../../components/map/mapComponent.pug
+        include ../../components/rentsBlock/cardsBlockCathalogComponent.pug
+        
+        include ../../components/servicesBlock/servicesBlockCathalogComponent.pug
+        

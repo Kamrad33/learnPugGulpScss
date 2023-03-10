@@ -1,6 +1,16 @@
 extends ../layouts/default
-
 block variables
+  title Главная
 
 block content
-  h1 Главная страница 2
+  include ../../components/buttons/buttons.pug
+  include ../../components/content/content.pug
+  .content(id = 'indexPage')
+    .content_container
+          include ../../components/searchBlock/searchBlockComponent.pug
+          include ../../components/map/mapComponent.pug
+          include ../../components/rentsBlock/rentTypesCardsBlock.pug
+          include ../../components/rentsBlock/rentRoomsCardsBlock.pug
+          include ../../components/servicesBlock/servicesBlockComponent.pug
+          include ../../components/exampleBlock/exampleBlockComponent.pug
+          

@@ -1,0 +1,40 @@
+
+extends ../layouts/default
+block variables
+    title Вход и регистрация
+include ../../components/buttons/buttons.pug
+block content
+    .content(id = 'registerPage')
+        .register
+            .register_content
+                .register_content_background
+                .register_content_form
+                    .register_content_form_innerContent
+                        .register_content_form_innerContent_auth
+                            .register_content_form_innerContent_auth_title Регистрация
+
+                            .register_content_form_innerContent_auth_inputs
+                                +authInput({text: 'Логин', cls: 'authForm', id: 'login', icon: 'login', containerId: 'loginContainer', alertId: 'loginAlert'})
+                                +authInput({text: 'Электронная почта', cls: 'authForm', id: 'mail', icon: 'mail', containerId: 'mailContainer', alertId: 'mailAlert'})
+                                +authInput({text: 'Пароль', cls: 'authForm', id: 'password', icon: 'password', containerId: 'passwordContainer', alertId: 'passwordAlert'})
+                                +authInput({text: 'Повторите пароль', cls: 'authForm', id: 'passwordCheck', icon: 'password', containerId: 'checkContainer', alertId: 'checkAlert'})
+                            .register_content_form_innerContent_auth_captcha
+                                .g-recaptcha(data-sitekey='6Lf4NeUkAAAAAD2xlZR3UKtgfdHoRsQ07zvtj8Aa')
+                                .text-danger(id='recaptchaError')
+                                script(src="https://www.google.com/recaptcha/api.js")  
+                            .register_content_form_innerContent_auth_alert(class= 'fine' id='alert')
+                                span Ошибка ввода
+                                include ../../assets/images/alertImg.svg     
+                            .register_content_form_innerContent_auth_button
+                                
+                                +stdBtn({text: 'Зарегистрироваться', cls: 'primary', color: 'authBtn', textAlign: 'center', id: 'registerBtn'})
+
+                        .register_content_form_innerContent_info
+                            .register_content_form_innerContent_info_description
+                                span Пользователь обязуется:
+                                ul
+                                    li предоставлять достоверную и актуальную информацию при регистрации и добавлении объекта;
+                                    li добавлять фотографии объектов соответствующие действительности. Администрация сайта sdaem.by оставляет за собой право удалять любую информацию, размещенную пользователем, если сочтет, что информация не соответствует действительности, носит оскорбительный характер, нарушает права и законные интересы других граждан либо действующее законодательство Республики Беларусь.
+                            .register_content_form_innerContent_info_link
+                                span= 'Уже есть аккаунт? '
+                                a(href = '/login.html') Войдите

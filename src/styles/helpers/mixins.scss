@@ -1,0 +1,52 @@
+// shadow mixin
+@mixin dropShadow($color) {
+  background: $color;
+  box-shadow: 0 20px 40px rgb(135 124 202 / 15%);
+}
+
+// inside auto layout group
+@mixin insideAutoLayoutGroup($order) {
+  flex: none;
+  order: $order;
+  flex-grow: 0;
+}
+
+@mixin centringMixin($justify: center, $aItems: center, $display: flex) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $aItems;
+}
+
+@mixin fontStd(
+  $color: $black,
+  $size: 14px,
+  $weight: 400,
+  $height: 17px,
+  $style: normal,
+  $family: 'Inter'
+) {
+  color: $color;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  font-style: $style;
+  font-family: $family;
+}
+@mixin noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  user-select: none; /* Safari */
+  user-select: none; /* Konqueror HTML */
+  user-select: none; /* Old versions of Firefox */
+  user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */
+}
+@mixin noStyle_Button {
+
+        padding: 0;
+        border: none;
+        font: inherit;
+        color: inherit;
+        background-color: transparent;
+
+}

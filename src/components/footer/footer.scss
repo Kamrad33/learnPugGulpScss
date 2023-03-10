@@ -1,0 +1,272 @@
+footer {
+  height: 250px;
+  background-color: red;
+  background: #fff;
+  box-shadow: 0 -11px 40px rgb(39 95 158 / 5%);
+  display: flex;
+}
+
+.footer_innerContainer {
+  margin: 39px 80px;
+  display: flex;
+  @include centringMixin(space-between);
+
+  width: 100%;
+}
+
+.footer_leftContainter {
+  width: 300px;
+
+  &_logoUnderText {
+    @include fontStd(#8291a3, 12px, 700, 15px);
+  
+    margin-top: 10px;
+    margin-bottom: 36px;
+  }
+  
+  &_contactText {
+    width: 297px;
+    height: 78px;
+    @include fontStd(#8291a3, 11px, 400, 13px);
+  }
+}
+
+.footer_middleContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-right: 81px;
+  width: 872px;
+  height: 164px;
+  a {
+    color: inherit;
+    text-decoration: none
+  }
+  &_Icons {
+    @include centringMixin(space-between);
+  
+    &_Social {
+      @include centringMixin(space-between);
+    
+      gap: 28.1px;
+  
+      &_Text {
+        @include fontStd($black, 14px, 500);
+      }
+      
+      &_Icons {
+        @include centringMixin(space-between);
+      
+        gap: 22px;
+
+        &_icon {
+          a {
+            padding: 0;
+            margin: 0;
+          }
+          cursor: pointer;
+          &:hover {
+            svg {
+              path {
+                fill: #664EF9;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    &_Card {
+      @include centringMixin(space-between);
+    
+      gap: 15px;
+    }
+  }
+
+  &_Buttons {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 38px;
+    @include centringMixin(flex-start, flex-start);
+  
+    gap: 69px;
+    &_button {
+      cursor: pointer;
+      &:hover {
+        color: #664EF9;
+      }
+    }
+    &_leftButtons {
+      height: 100%;
+      @include centringMixin(space-between);
+    
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 21px;
+    }
+    
+    &_List {
+      @include centringMixin(space-between);
+    
+      gap: 53px;
+    }
+    
+    &_ButtonList {
+      @include centringMixin(space-between, flex-start);
+    
+      flex-direction: column;
+      gap: 8px;
+      @include fontStd(#8291a3, 14px, 400);
+    }
+    
+    &_middleButtons {
+      height: 100%;
+      @include centringMixin(space-between, flex-start);
+    
+      flex-direction: column;
+      gap: 12px;
+      margin-right: 33px;
+    }
+    
+    &_rightButtons {
+      height: 100%;
+    }
+    
+    &_Button_Title {
+      @include fontStd($black, 14px, 700);
+      cursor: pointer;
+      &:hover {
+        color: #664EF9;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 1439px) {
+  #footer {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .footer_innerContainer {
+    width: calc(100% - 160px);
+    height: calc(100% - 78px);
+    
+  }
+  .footer_middleContainer {
+    margin: 0;
+    height: 100%;
+
+    &_buttons {
+      gap: 10px;
+      justify-content: space-between;
+      width: 100%;
+      height: auto;
+      flex-wrap: wrap;
+
+      &_leftButtons {
+        margin-right: 15px;
+        justify-content: flex-start;
+      }
+
+      &_middleButtons {
+        margin: 0;
+        margin-right: 15px;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-grow: 1;
+        height: auto;
+      }
+      &_list {
+        
+        flex-wrap: wrap;
+      }
+    }
+
+    &_icons {
+      flex-wrap: wrap;
+      gap: 10px;
+
+      &_social {
+        flex-wrap: wrap;
+      }
+      &_card {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  #footer {
+    height: auto;
+  }
+
+  .footer_innerContainer {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+      margin-right: 20px;
+  }
+  .footer_leftContainter {
+    width: auto;
+    flex-grow: 0;
+    margin-right: 20px;
+    height: auto;
+    &_logo {
+      width: 100%;
+      height: auto;
+    }
+    &_contactText {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .footer_middleContainer {
+    margin: 0;
+    width: 100%;
+    flex-grow: 2;
+    justify-content: center;
+    &_buttons {
+      gap: 20px;
+      width: 100%;
+      justify-content: flex-start;
+
+      &_leftButtons {
+        height: auto;
+      }
+      &_middleButtons {
+        margin: 0;
+        margin-right: 15px;
+      }
+      &_rightButtons {
+        height: auto;
+      }
+      &_list {
+        gap:10px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  }
+}
+@media (max-width: 480px) {
+.footer_innerContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer_middleContainer {
+  &_buttons {
+    justify-content: center;
+    &_middleButtons {
+      align-items: center;
+    }
+  }
+}
+}
+
+

@@ -1,0 +1,28 @@
+/*.s-breadcrumbs {
+
+}
+.breadcrumbs {
+    padding: 0;
+    margin: 0;
+
+    &_item {
+
+        padding: 0;
+        &:last-child{
+            background-color: red
+        }
+    }
+
+    &_home {
+
+    }
+
+    &_title {
+        @include fontStd(#4E64F9, 14px, 400, 100%);
+    }
+    &_link {
+        text-decoration: none;
+    }
+
+}
+*/

@@ -1,0 +1,46 @@
+include ../buttons/buttons.pug
+include ../content/content.pug
+include ./rentCard.pug
+
+.content_container_cardsBlockCathalogContainer
+    .content_container_cardsBlockCathalogContainer_innerContainer
+        .content_container_cardsBlockCathalogContainer_title Найдено <span id='number'>6</span> результата
+        .content_container_cardsBlockCathalogContainer_cards(id = 'cardsList')
+            +rentCardList([
+        {id: 0, name: '4-комн. апартаменты на Грушевке ', status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: 65.00 ,capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Большая четырехкомнатная студия! Большая джкакузи на двоих, на теливизоре есть приложение Megogo, YouTube, Smart TV, сможете выбрать фильм по вкусу!) Цена зависит от количества проживающих, уточняйте, пожалуйста, по телефону! В пяти минутах ходьбы Минск-Арена,  ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Vasye', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'}, type: 'active', style: 'horizontal'},
+        {id: 1, name: '4-комн. апартаменты на Грушевке ', status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: 65.00 ,capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'active', style: 'horizontal'},
+        {id: 2, name: '4-комн. апартаменты на Грушевке ', status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: 65.00 ,capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'active', style: 'horizontal'},
+        {id: 3, name: '4-комн. апартаменты на Грушевке ', status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: 65.00 ,capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Vasye', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'active', style: 'horizontal'},
+        {id: 4, name: '4-комн. апартаменты на Грушевке ', status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: 65.00 ,capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'active', style: 'vertical'},
+        {id: 5, name: '4-комн. апартаменты на Грушевке ', status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: 65.00 ,capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'active', style: 'vertical'},
+        ])
+        .content_container_cardsBlockCathalogContainer_bottom
+            .content_container_cardsBlockCathalogContainer_bottom_left
+                .content_container_cardsBlockCathalogContainer_bottom_left_pages
+                    button.prevBtn(id= 'prevBtn')
+                        include ../../assets/images/arrowBigLeftImg.svg
+                    ul(id='pagination')
+                        li 1
+                        li 2
+                        li 3
+                        li 4
+                        li 5
+                        li 6
+                        li 7
+                        li='...'
+                        li 11
+                    button.nextBtn(id= 'nextBtn')
+                        include ../../assets/images/arrowBigRightImg.svg
+            .content_container_cardsBlockCathalogContainer_bottom_right
+                .content_container_cardsBlockCathalogContainer_bottom_right_text Поделиться
+                .content_container_cardsBlockCathalogContainer_bottom_right_icons
+                    .content_container_cardsBlockCathalogContainer_bottom_right_icons_item
+                        include ../../assets/images/vkSmallImg.svg
+                    .content_container_cardsBlockCathalogContainer_bottom_right_icons_item
+                        include ../../assets/images/fbSmallImg.svg
+                    .content_container_cardsBlockCathalogContainer_bottom_right_icons_item
+                        include ../../assets/images/viberSmallImg.svg
+                    .content_container_cardsBlockCathalogContainer_bottom_right_icons_item
+                        include ../../assets/images/tgSmallImg.svg
+                    .content_container_cardsBlockCathalogContainer_bottom_right_icons_item
+                        include ../../assets/images/watsSmallImg.svg

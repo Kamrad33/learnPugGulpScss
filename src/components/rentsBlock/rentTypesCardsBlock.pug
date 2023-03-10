@@ -1,0 +1,127 @@
+include ../buttons/buttons.pug
+include ../content/content.pug
+include ../spaceContainer.pug
+
+.rentTypesCardsBlock
+    .rentTypesCardsBlock_cards
+        +spaceContainer('cards', 'yellow')
+        .rentTypesCardsBlock_cards_innerContainer(class = 'firstBlock')
+            .rentTypesCardsBlock_cards_innerContainer_card(class = 'rooms')
+                .rentTypesCardsBlock_cards_innerContainer_card_wrapper
+                    .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'title') Снять квартиру
+                    .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'description') Квартиры на сутки
+                    .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'buttons')
+                        a(href="/cathalog.html") 
+                            +stdBtn({class: 'cardButton', text: 'Mинск', color: 'purple cardBtn'})
+                        a(href="/cathalog.html") 
+                            +stdBtn({class: 'cardButton', text: 'Витебск', color: 'purple cardBtn'})
+                        a(href="/cathalog.html") 
+                            +stdBtn({class: 'cardButton', text: 'Гродно', color: 'purple cardBtn'})
+                        a(href="/cathalog.html") 
+                            +stdBtn({class: 'cardButton', text: 'Гомель', color: 'purple cardBtn'})
+                        a(href="/cathalog.html") 
+                            +stdBtn({class: 'cardButton', text: 'Брест', color: 'purple cardBtn'})
+                        a(href="/cathalog.html") 
+                            +stdBtn({class: 'cardButton', text: 'Могилев', color: 'purple cardBtn'})
+                
+            .rentTypesCardsBlock_cards_innerContainer_card(class = 'houses')
+                .rentTypesCardsBlock_cards_innerContainer_card_wrapper
+                    .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'title') Снять коттедж на праздник
+                    .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'description empty') Коттеджи и усадьбы
+
+                .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'arrowBtn')
+                    +circleBtn({cls: 'button', color: 'white', icon: 'arrowRight'})
+        .rentTypesCardsBlock_cards_innerContainer
+            .rentTypesCardsBlock_cards_innerContainer_card(class = 'baths')
+                .rentTypesCardsBlock_cards_innerContainer_card_wrapper
+                    .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'title') Попариться в бане с друзьями
+                    .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'description empty') Бани и сауны
+                .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'arrowBtn')
+                    +circleBtn({cls: 'button', color: 'white', icon: 'arrowRight'})
+            .rentTypesCardsBlock_cards_innerContainer_card(class = 'cars')
+                .rentTypesCardsBlock_cards_innerContainer_card_wrapper
+                    .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'title') Если срочно нужна машина
+                    .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'description empty') Авто на прокат
+                .rentTypesCardsBlock_cards_innerContainer_card_item(class = 'arrowBtn')
+                    +circleBtn({cls: 'button', color: 'white', icon: 'arrowRight'})
+    .rentTypesCardsBlock_buttonList
+        .rentTypesCardsBlock_buttonList_item(id = 'rooms_types')
+            .rentTypesCardsBlock_buttonList_item_title
+                span Квартиры
+            .rentTypesCardsBlock_buttonList_item_wrapper
+
+                .rentTypesCardsBlock_buttonList_item_button(id ='rooms_button_minsk')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Квартиры в Минске
+                    .rentTypesCardsBlock_buttonList_item_button_number 3567
+
+                .rentTypesCardsBlock_buttonList_item_button(id ='rooms_button_gomel')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Квартиры в Гомеле
+                    .rentTypesCardsBlock_buttonList_item_button_number 2032
+
+                .rentTypesCardsBlock_buttonList_item_button(id ='rooms_button_grodno')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Квартиры в Гродно
+                    .rentTypesCardsBlock_buttonList_item_button_number 2302
+
+                .rentTypesCardsBlock_buttonList_item_button(id ='rooms_button_mogilev')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Квартиры в Могилеве
+                    .rentTypesCardsBlock_buttonList_item_button_number 110
+
+                .rentTypesCardsBlock_buttonList_item_button(id ='rooms_button_brest')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Квартиры в Бресте
+                    .rentTypesCardsBlock_buttonList_item_button_number 110
+
+                .rentTypesCardsBlock_buttonList_item_button(id ='rooms_button_vitebsk')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Квартиры в Витебск
+                    .rentTypesCardsBlock_buttonList_item_button_number 110
+
+        .rentTypesCardsBlock_buttonList_item(id = 'houses_types')
+            .rentTypesCardsBlock_buttonList_item_title
+                span Коттеджи и усадьбы
+            .rentTypesCardsBlock_buttonList_item_wrapper
+                .rentTypesCardsBlock_buttonList_item_button(id ='houses_button_agro')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Агроусадьбы
+                    .rentTypesCardsBlock_buttonList_item_button_number 110
+
+                .rentTypesCardsBlock_buttonList_item_button(id ='houses_button_cottage')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Коттеджи
+                    .rentTypesCardsBlock_buttonList_item_button_number 110
+
+                .rentTypesCardsBlock_buttonList_item_button(id ='houses_button_nature')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Загородный комплекс
+                    .rentTypesCardsBlock_buttonList_item_button_number 110
+
+                .rentTypesCardsBlock_buttonList_item_button(id ='houses_button_rest')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Базы отдыха
+                    .rentTypesCardsBlock_buttonList_item_button_number 110
+
+            .rentTypesCardsBlock_buttonList_item_button(id= 'rent_list_more_button')
+                +textSelection({text: 'Еще', icon: 'arrow', id: 'rent_types_button'})
+                
+                
+        .rentTypesCardsBlock_buttonList_item(id = 'new_types')
+            .rentTypesCardsBlock_buttonList_item_title
+                span Популярные направления
+            .rentTypesCardsBlock_buttonList_item_wrapper
+                .rentTypesCardsBlock_buttonList_item_button(id ='houses_button_brasl')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Коттеджи и усадьбы на о. Брасласких 
+
+                .rentTypesCardsBlock_buttonList_item_button(id ='houses_button_naro')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Коттеджи и усадьбы (жилье) на Нарочи
+
+                .rentTypesCardsBlock_buttonList_item_button(id ='houses_button_water')
+                    a(href="/cathalog.html") 
+                        .rentTypesCardsBlock_buttonList_item_button_text Коттеджи и усадьбы (жилье) у воды,<br> на берегу, на озере
+
+

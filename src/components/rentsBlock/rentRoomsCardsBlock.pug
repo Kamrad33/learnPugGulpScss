@@ -1,0 +1,49 @@
+include ../buttons/buttons.pug
+include ../content/content.pug
+include ./rentCard.pug
+
+.rentRoomsCardsBlock
+    .rentRoomsCardsBlock_background
+    .rentRoomsCardsBlock_innerContainer
+        .rentRoomsCardsBlock_innerContainer_top
+            .rentRoomsCardsBlock_innerContainer_top_title
+                .rentRoomsCardsBlock_innerContainer_top_title_small Квартиры на сутки 
+                .rentRoomsCardsBlock_innerContainer_top_title_large Аренда квартир в Минске
+            .rentRoomsCardsBlock_innerContainer_top_buttons
+                +menuBtn(
+                    {text: 'Метро', cls:'metro', color: 'menu rentContainer', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '185px' , menuType: 'list', id: 'metro_button'},
+                    [{text: 'Метро 1'}, {text: 'Метро 2'}, {text: 'Метро 3'}, {text: 'Метро 4'}, {text: 'Метро 5'},])
+                +menuBtn(
+                    {text: 'Район', cls:'area', color: 'menu rentContainer', type: 'w5', gap: '3.5px', icon: 'arrowDown', iconPlace: 'right', iconColor: 'purple', width: '185px' , menuType: 'list', id: 'area_button'},
+                    [{text: 'Район 1'}, {text: 'Район 2'}, {text: 'Район 3'}, {text: 'Район 4'}, {text: 'Район 5'}, {text: 'Район 6'}, {text: 'Район 7'},])
+        .rentRoomsCardsBlock_innerContainer_cards
+            .rentRoomsCardsBlock_innerContainer_cards_line
+                +rentCardList([
+                    {id: 0, status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 10',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Vasye', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'}, type: 'hidden', style: 'vertical'},
+                    {id: 1,status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 11',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'hidden',style: 'vertical'},
+                    {id: 2,status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 12',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'hidden',style: 'vertical'},
+                    {id: 3,status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 13',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'hidden',style: 'vertical'},
+                    {id: 4,status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 14',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'hidden',style: 'vertical'},
+                    {id: 5,status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 15',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'hidden',style: 'vertical'},
+                    {id: 6,status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 16',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'hidden',style: 'vertical'},
+                    {id: 7,status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 17',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'hidden',style: 'vertical'},
+                    {id: 8,status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 18',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'hidden',style: 'vertical'},
+                    {id: 9,status: 'Gold',photo: '../../assets/images/card_1_Img.png',price: '65.00 BYN',capacity: '4 (2+2)',rooms: '4 комн.',size: '179',address: 'Минск, б-р Мулявина, д. 19',metro: [{icon: 'metro', name: 'Грушевка'}, {icon: 'rail', name: 'Шабаны'}],description: 'Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ...', ownerInfo: {photo: '../../assets/images/boyNextDoorImg.png', name: 'Dimitry', phone: ' +375 (29) 291-14-44', email: 'vladimir6234@tut.by'},type: 'hidden',style: 'vertical'},])
+        .rentRoomsCardsBlock_innerContainer_nav
+            
+            +circleBtn({cls: 'button', color: 'purple', icon: 'arrowLeft', id: 'rent_prev_button'})
+            +circleBtn({cls: 'button', color: 'purple', icon: 'arrowRight', id: 'rent_next_button'})
+        
+        .rentRoomsCardsBlock_innerContainer_all
+            .rentRoomsCardsBlock_innerContainer_all_left
+                .rentRoomsCardsBlock_innerContainer_all_left_number 341 <span>+</span>
+                .rentRoomsCardsBlock_innerContainer_all_left_description Предложений по Минску
+            hr
+            .rentRoomsCardsBlock_innerContainer_all_right
+                a(href="/cathalog.html") 
+                    +stdBtn({text: 'Посмотреть все', cls:'primary', color: 'purple', type: 'w7', icon: 'arrowLeft', iconColor: 'white', gap: '30px', width: '177px'})
+
+
+            
+            
+
