@@ -216,6 +216,9 @@ header {
     &:active {
       height: 54px;
     }
+    &.-selected {
+      height: 54px;
+    }
   }
   .listBtn_Group_Middle_Bottom {
     
