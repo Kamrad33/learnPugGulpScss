@@ -1817,8 +1817,88 @@
             }
         }
     }
-}
+    .rentCard {
+        
+        &.horizontal {
+            width: 100%;
+            height: auto;
+          //  flex-wrap: wrap;
+            
+        }
+            &_top {
+                //position: relative;
+                &.horizontal {
+                    width: 30%;
+                    flex-grow: 1;
+                }
+                &_status {
+                    &.horizontal {
+                        //position: relative;
+                        left: 0;
+                        //right: 0;
+                    }
+                    
+                }
+                
+            }
+            &_wrapper {
+                &.horizontal {
+                    height: 100%;
+                width: auto;
+                flex-grow: 2;
+                }
+                
+            }
+            &_info {
+                &.horizontal {
+                    height: auto;
+                }
+                &_rooms {
+                    &.horizontal {
+                        gap: 10px;
+                        flex-wrap: wrap;
+                
+                    }
+
+                    &_buttons {
+                        &.horizontal {
+                            gap: 10px;
+                            flex-wrap: wrap;
+                            height: auto;
+                        }
+                   
+                        
+                    }
+                    
+                }
+                &_description {
+                    &.horizontal {
+                        
+                        flex-wrap: wrap;
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+            &_bottom {
+                &.horizontal {
+                    flex-wrap: wrap;
+                   
+                }
+                &_left {
+                    height: auto;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
+
 @media (max-width: 950px) {
+    .rentCard {
+        &.horizontal {
+            flex-wrap: wrap;
+        }
+    }
     .map {
         width: calc(100% - 80px);
         iframe {
